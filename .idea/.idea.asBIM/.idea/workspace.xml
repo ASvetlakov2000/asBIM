@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/f8/fa86c3ae/IExternalCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0362C52C-47EE-4A7E-B7CC-B60686F8809B/9b/f8e2bed4/Document.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/64/4fd4e8b4/TaskDialog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/0a/2c4e91ce/020017E5.il" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2pcJbehpNlV43nKyJRArRYbRg35" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="" />
+      <created>1733059503318</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733059503318</updated>
+      <workItem from="1733059505549" duration="2635000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="787" y="262" key="Rider.NewProjectDialog.Size" timestamp="1730746543193">
+      <screen x="0" y="0" width="2560" height="1392" />
+    </state>
+    <state x="787" y="262" key="Rider.NewProjectDialog.Size/0.0.2560.1392" timestamp="1730746543193" />
+    <state x="671" y="254" key="SettingsEditor" timestamp="1733059751795">
+      <screen x="0" y="0" width="2560" height="1392" />
+    </state>
+    <state x="671" y="254" key="SettingsEditor/0.0.2560.1392@0.0.2560.1392" timestamp="1733059751795" />
+  </component>
+</project>
