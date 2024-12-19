@@ -47,7 +47,12 @@ namespace asBIM
         }
     }
 
-    // Класс для сортировки всех ЭЭлементов в Документе
+
+    /// <summary>
+    /// Класс для сортировки всех ЭЭлементов в Документе.
+    /// Класс собирает все элементы В Коллекцию.
+    /// Коллекции сортируются и собираются в Словари по Категориям Revit
+    /// </summary>
     internal static class RevitAPI_Sort_ByCategory
     {
         // Сбор элементов в коллекцию из документа с группировкой BuiltInCategory категорий.
@@ -112,7 +117,7 @@ namespace asBIM
             {
                 ["AR"] = new List<Element>(),
                 ["KR"] = new List<Element>(),
-                // TODO: 6. Продолжить словарь 
+                // TODO: 5.1. Продолжить словарь 
             };
 
             // Группировка элементов с сортировкой по категориям. 
@@ -148,8 +153,11 @@ namespace asBIM
 
     internal static class ElementTopBottomPt
     {
-        // Метод GetElementTopPoint 
-        // принимающий элемент, возращающий верхнюю точку BoundingBoxXYZ
+        /// <summary>
+        /// Метод возвращающий верхнюю точку BoundingBoxXYZ
+        /// </summary>
+        /// <param name="element">Принимает все Элементы как элементы из Документа</param>
+        /// <returns></returns>
         public static XYZ GetElementTopPoint(Element element)
         {
             // Получение BoundingBox элемента
@@ -158,12 +166,15 @@ namespace asBIM
             // Без вычитания расстояния от Начала Координат (НК)
             XYZ elemTopPointFeet_XYZ = bounding.Max;
 
-            // Возрашает XYZ elemTopPointSm_XYZ. Значения XYZ отметки Верха в см
+            // Возращает XYZ elemTopPointFeet_XYZ. Значения XYZ отметки Верха в футах
             return elemTopPointFeet_XYZ;
         }
-
-        // Метод GetElementBottomPoint 
-        // принимающий элемент, возращающий нижнюю точку boundingboxxyz
+        
+        /// <summary>
+        /// Метод возвращающий нижнюю точку BoundingBoxXYZ
+        /// </summary>
+        /// <param name="element">Принимает все Элементы как элементы из Документа</param>
+        /// <returns></returns>
         public static XYZ GetElementBottomPoint(Element element)
         {
             // Получение BoundingBox элемента
@@ -172,7 +183,7 @@ namespace asBIM
             // Без вычитания расстояния от Начала Координат (НК)
             XYZ elemBottomPointFeet_XYZ = bounding.Min;
 
-            // Возрашает XYZ elemBottomPointSm_XYZ. Значения XYZ отметки Низа в см
+            // Возвращает XYZ elemBottomPointFeet_XYZ. Значения XYZ отметки Низа в футах
             return elemBottomPointFeet_XYZ;
         }
     }
@@ -180,16 +191,13 @@ namespace asBIM
     // Класс для определения уровня элемента. Для верхнего уровня и нижнего.
     internal static class LevelInfo
     {
-        // МЕТОДЫ
-        // Метод для Получения значений Имени и Отметки Уровней в Документе
-        public static Level GetLevelInfoInDoc(Document doc)
+        /// <summary>
+        /// Метод для Получения значений Имени и Отметки Уровней в Документе
+        /// </summary>
+        /// <param name="doc">Все уровни из документа</param>
+        public static void GetLevelInfoInDoc(Document doc)
         {
-            // Обьявление переменных для хранения Имени, Отметки.
-            string levelName;           // Имя
-            double levelElevationFeet;  // Отметка в футах
-            double levelElevationSm;    // Отметка в см
             StringBuilder levelInformation = new StringBuilder();
-
             // Фильтр на Level
             FilteredElementCollector levelsCollector = new FilteredElementCollector(doc).OfClass(typeof(Level));
             // Список levels с типом Element
@@ -198,55 +206,91 @@ namespace asBIM
             Level levelBox = null;
 
             // Перебор уровней. Получение имени и отметки
-            foreach (Element element in levels)
+            foreach (Level level in levels)
             {
-                Level level = element as Level;
                 if (null != level)
                 {
                     // Получение Имени уровня
-                    levelName = level.Name;
+                    string levelName = level.Name;
                     // Получение Отметки уровня в футах
-                    levelElevationFeet = level.Elevation;
+                    double levelElevationFeet = level.Elevation;
                     // Получение Отметки уровня в см
-                    levelElevationSm = levelElevationFeet * 304.8;
-                    // 
-                    levelBox = level;
+                    double levelElevationSm = levelElevationFeet * 304.8;
 
                     // Вывод информации Имени уровня и Отметки уровня
-                    levelInformation.Append("\n" + level.Name + "__на отм__" + "[" + levelElevationSm + "]" + "\n");
+                    levelInformation.Append("\n" + levelName + "__на отм__" + "[" + levelElevationSm + "]" + "\n");
+                    levelInformation.Append("---------------------------------------------");
                 }
             }
             TaskDialog.Show("Информация по уровням", levelInformation.ToString());
-
-            return levelBox;
         }
-
-
-        public static Level FindBottomLevel(double elementBottomPointElevetionSm, IEnumerable<Level> levels)
+        
+        
+        /// <summary>
+        /// Метод FindBottomElemLevel для определения Нижнего уровня отметки Низа элемента
+        /// </summary>
+        /// <param name="elementBottomPointElevationSm">Отметка Низа элемента из Документа</param>
+        /// <param name="levels">Список с Уровнями из Документа</param>
+        /// <returns></returns>
+        public static Level FindBottomElemLevel(double elementBottomPointElevationSm, IEnumerable<Level> levels)
         {
-
-            //StringBuilder levelInformation = new StringBuilder();
-
             Level closestBottomLevel = null;
 
             foreach (var level in levels)
             {
                 var elev = level.Elevation;
-                var upper_Level = level.FindTop(levels);
-                var lower_Level = level.FindBot(levels);
-
-                if (elementBottomPointElevetionSm < upper_Level.Elevation && elementBottomPointElevetionSm >= lower_Level.Elevation)
+                var upper_Level = level.FindTopLevel(levels);
+                var lower_Level = level.FindBotLevel(levels);
+                
+                //Было 01
+                // if (elementBottomPointElevationSm < upper_Level.Elevation && elementBottomPointElevationSm >= lower_Level.Elevation)
+                // {
+                //     closestBottomLevel = lower_Level;
+                // }
+                //Было 01
+                
+                // Тест 01
+                if (elementBottomPointElevationSm < upper_Level.Elevation && elementBottomPointElevationSm >= lower_Level.Elevation)
                 {
                     closestBottomLevel = lower_Level;
                 }
-                if (elementBottomPointElevetionSm < lower_Level.Elevation && lower_Level.Id == level.Id)
+                // Тест 01
+                
+                //Было 02
+                // Если Нижняя точка ниже Самого низкого уровня, то запишется значение самого низкого уровня. Граничное условие
+                if (elementBottomPointElevationSm < lower_Level.Elevation && lower_Level.Id == level.Id)
                 {
                     closestBottomLevel = lower_Level;
                 }
-                if (elementBottomPointElevetionSm > upper_Level.Elevation && upper_Level.Id == level.Id)
+                //Было 02
+                
+                // Тест 02
+                // if (elementBottomPointElevationSm < lower_Level.Elevation && lower_Level.Id == level.Id)
+                // {
+                //     closestBottomLevel = lower_Level;
+                // }
+                // Тест 02
+                
+                //Было 03
+                if (elementBottomPointElevationSm > upper_Level.Elevation && upper_Level.Id == level.Id)
                 {
                     closestBottomLevel = upper_Level;
                 }
+                //Было 03
+                
+                // Тест 03
+                // if (elementBottomPointElevationSm > upper_Level.Elevation && upper_Level.Id == level.Id)
+                // {
+                //     closestBottomLevel = upper_Level;
+                // }
+                // Тест 03
+                
+                //Тест 04
+                // if (elementBottomPointElevationSm > upper_Level.Elevation && upper_Level.Id == level.Id)
+                // {
+                //     closestBottomLevel = lower_Level;
+                // }
+                //Тест 04
             }
 
             return closestBottomLevel;
@@ -259,47 +303,59 @@ namespace asBIM
         /// <param name="level">Текущий уровень</param>
         /// <param name="levels">Все уровни</param>
         /// <returns></returns>
-        public static Level FindTop(this Level level, IEnumerable<Level> levels)
+        public static Level FindTopLevel(this Level level, IEnumerable<Level> levels)
         {
+            // Бокс для хранения значения
             Level topLevel = null;
-            var odered = levels.OrderBy(l => l.Elevation);
-            var oLevels = odered.Where(x => x.Elevation >= level.Elevation);
+            // В переменную ordered переданы уровни отсортированные по значению высоты. От Меньшего к Большему (Снизу -> Вверх)
+            IOrderedEnumerable<Level> ordered = levels.OrderBy(l => l.Elevation);
+            // В переменную oLevels передан уровень с сортировкой по условию
+            // // TODO: ПРОДОЛЖИТЬ КОММЕНТАРИЙ
+            IEnumerable<Level> oLevels = ordered.Where(x => x.Elevation >= level.Elevation);
+            // Запись Уровня в topLevel с условием (если в перечислении уровней oLevels число уровней больше 2-ух, то - пропустить 1-й и взять первый, если нет - взять первый)
             topLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
-            var sb = new StringBuilder();
-
-            //sb.AppendLine(level.Name);
-            //sb.AppendLine("-------");
-            //oLevels.Select(x => x.Name).ToList().ForEach(y => sb.AppendLine(y));
-            //sb.AppendLine("-------");
-            //sb.AppendLine(topLevel.Name);
-            //TaskDialog.Show("check", sb.ToString());
+            
+            // var sb = new StringBuilder();
+            // sb.AppendLine(level.Name);
+            // sb.AppendLine("-------");
+            // oLevels.Select(x => x.Name).ToList().ForEach(y => sb.AppendLine(y));
+            // sb.AppendLine("-------");
+            // sb.AppendLine(topLevel.Name);
+            // TaskDialog.Show("check", sb.ToString());
 
             return topLevel;
         }
-
-
+        
+        
         /// <summary>
-        /// Метод берет первый элемент который в списке по убыванию. В данном случае берет самый близкий Нижний уровень 
+        /// Метод берет первый элемент который в списке по убыванию.
+        /// В данном случае берет самый близкий Нижний уровень 
         /// </summary>
         /// <param name="level">Текущий уровень</param>
         /// <param name="levels">Все уровни</param>
         /// <returns></returns>
-        public static Level FindBot(this Level level, IEnumerable<Level> levels)
+        public static Level FindBotLevel(this Level level, IEnumerable<Level> levels)
         {
-            Level topLevel = null;
+            // Бокс для хранения значения
+            Level botLevel = null;
+            // В переменную oLevels передан уровень с сортировкой по условию
+            // // TODO: ПРОДОЛЖИТЬ КОММЕНТАРИЙ
             var oLevels = levels.OrderByDescending(l => l.Elevation).Where(x => x.Elevation <= level.Elevation);
-            topLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
+            // Запись Уровня в botLevel с условием (если в перечислении уровней oLevels число уровней больше 2-ух, то - пропустить 1-й и взять первый, если нет - взять первый)
+            botLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
 
-            //var sb = new StringBuilder();
-            //sb.AppendLine(level.Name);
-            //sb.AppendLine("-------");
-            //oLevels.Select(x => x.Name).ToList().ForEach(y => sb.AppendLine(y));
-            //sb.AppendLine("-------");
-            //sb.AppendLine(topLevel.Name);
-            //TaskDialog.Show("check", sb.ToString());
+            // var sb = new StringBuilder();
+            // sb.AppendLine(level.Name);
+            // sb.AppendLine("-------");
+            // oLevels.Select(x => x.Name).ToList().ForEach(y => sb.AppendLine(y));
+            // sb.AppendLine("-------");
+            // sb.AppendLine(botLevel.Name);
+            // TaskDialog.Show("check", sb.ToString());
 
-            return topLevel;
+            return botLevel;
         }
-        // МЕТОДЫ
+        // TODO: 6. Отладить код для записи этажа отметки низа. Пограничное условие не отрабатывается
+        // TODO: 7. Сделать метод для определения нижнего уровня для отметки Верха элемента
+
     }
 }
