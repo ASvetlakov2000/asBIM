@@ -19,7 +19,7 @@ namespace asBIM
             //Создание вкладки "asBIM"
             var tab = Ribbon.GetApplicationRibbon(a).Tab("asBIM");
 
-            // Кнопка №1
+            // Кнопка №1chfh
             //Создание панели "Инфо"
             var panel1 = tab.Panel("Инфо");
             //Создание кнопки "Инфо"
