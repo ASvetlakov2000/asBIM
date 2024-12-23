@@ -94,8 +94,8 @@ namespace asBIM
 
                             // Получение отметки Верха элемента с каждого элемента в Документе.
                             double elementBottomPointElevationSm = ElementTopBottomPt.GetElementBottomPoint(elemincollector).Z;
-                            // Присвоение closestLevel значения имени Нижнего этажа
-                            // В метод FindBottomElemLevel подаются отметки Верха для всех эл из groupedElements["AR"]
+                            // Присвоение closestLevel результата метода FindBottomElemLevel
+                            // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию??? список уровней
                             Level closestLevel = LevelInfo.FindBottomElemLevel(elementBottomPointElevationSm, levels);
                             // Запись Имени этажа. Тест.
                             
