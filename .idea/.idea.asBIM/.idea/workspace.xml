@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml" afterDir="false" />
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox">
+      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/riderModule.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/GUIDs.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
@@ -29,17 +26,17 @@
     &quot;assignee&quot;: &quot;ASvetlakov2000&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ASvetlakov2000/asBIM.git",
+    "accountId": "112b2762-b040-49d9-aa1e-59cb4b82b45c"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/f8/fa86c3ae/IExternalCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0362C52C-47EE-4A7E-B7CC-B60686F8809B/9b/f8e2bed4/Document.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/64/4fd4e8b4/TaskDialog.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/0a/2c4e91ce/020017E5.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -53,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
@@ -76,7 +74,25 @@
       <workItem from="1734980099950" duration="3000" />
       <workItem from="1734980117964" duration="181000" />
       <workItem from="1734980310087" duration="8443000" />
+      <workItem from="1735026664660" duration="12932000" />
     </task>
+    <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
+      <option name="closed" value="true" />
+      <created>1735038757356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735038757356</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox">
+      <option name="closed" value="true" />
+      <created>1735038848011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735038848011</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,7 +101,33 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
+    <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
   </component>
 </project>
