@@ -1,0 +1,86 @@
+Index: .idea/.idea.asBIM/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/contentModel.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/modules.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.asBIM/riderModule.iml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/asBIM/asBIM.csproj\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/asBIM/asBIM.csproj\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;ASvetlakov2000&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,\r\n    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;\r\n  }\r\n}</component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/f8/fa86c3ae/IExternalCommand.cs\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0362C52C-47EE-4A7E-B7CC-B60686F8809B/9b/f8e2bed4/Document.cs\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/64/4fd4e8b4/TaskDialog.cs\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/E853C0C5-265A-4C4C-9770-0CBE1CAB29A9/0a/2c4e91ce/020017E5.il\" root0=\"SKIP_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MetaFilesCheckinStateConfiguration\" checkMetaFiles=\"true\" />\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2pcJbehpNlV43nKyJRArRYbRg35\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"reference.settingsdialog.IDE.editor.colors.Language Defaults\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1733059503318</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1733059503318</updated>\r\n      <workItem from=\"1733059505549\" duration=\"2635000\" />\r\n      <workItem from=\"1734980099950\" duration=\"3000\" />\r\n      <workItem from=\"1734980117964\" duration=\"181000\" />\r\n      <workItem from=\"1734980310087\" duration=\"8443000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityCheckinConfiguration\" checkUnsavedScenes=\"true\" />\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"false\" />\r\n  <component name=\"UnityUnitTestConfiguration\" currentTestLauncher=\"NUnit\" />\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.asBIM/.idea/workspace.xml b/.idea/.idea.asBIM/.idea/workspace.xml
+--- a/.idea/.idea.asBIM/.idea/workspace.xml	(revision 33bb5eb4deb8f29b8f32100cb5a9d409039eeac0)
++++ b/.idea/.idea.asBIM/.idea/workspace.xml	(date 1734989033988)
+@@ -4,17 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/contentModel.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/indexLayout.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/modules.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/projectSettingsUpdater.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/riderModule.iml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+-    </list>
++    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -75,8 +65,33 @@
+       <workItem from="1733059505549" duration="2635000" />
+       <workItem from="1734980099950" duration="3000" />
+       <workItem from="1734980117964" duration="181000" />
+-      <workItem from="1734980310087" duration="8443000" />
++      <workItem from="1734980310087" duration="8650000" />
++    </task>
++    <task id="LOCAL-00001" summary="Редакция условия &quot;// Тест 03&quot; в методе FindBottomElemLevel">
++      <option name="closed" value="true" />
++      <created>1734988905305</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1734988905305</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Редакция условия &quot;// Тест 03&quot; в методе FindBottomElemLevel">
++      <option name="closed" value="true" />
++      <created>1734989012985</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1734989012985</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Редакция условия &quot;// Тест 03&quot; в методе FindBottomElemLevel">
++      <option name="closed" value="true" />
++      <created>1734989019282</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1734989019282</updated>
+     </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -85,7 +100,20 @@
+   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+   <component name="VcsManagerConfiguration">
+     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
++    <MESSAGE value="Редакция условия &quot;// Тест 03&quot; в методе FindBottomElemLevel" />
++    <option name="LAST_COMMIT_MESSAGE" value="Редакция условия &quot;// Тест 03&quot; в методе FindBottomElemLevel" />
+   </component>
+ </project>
+\ No newline at end of file
