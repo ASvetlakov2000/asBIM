@@ -62,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cls_SetMaxMinPtToElements\Code_SetMaxMinPtToElements.cs" />
+    <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml.cs">
+      <DependentUpon>Form_SetMaxMinPtToElements.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\AllUsedCategoryList.cs" />
     <Compile Include="Cls_MainPanel\MainPanel.cs" />
     <Compile Include="Cls_Info\Info.cs" />
@@ -106,6 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Cls_SetParamertToVisibleElementInActiveView\Form_SetParamertToVisibleElementInActiveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
