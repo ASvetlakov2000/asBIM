@@ -68,7 +68,7 @@ namespace asBIM
                         // TODO: 11. Добавить запись уровня для отметки Верха. Протестировать.
                         
                         //Получение "Общего параметра по Guid" из Revit в переменную levelInfo параметра из эл в коллекции. Уровень для отметки Низа
-                        Parameter levelInfo = elemincollector.get_Parameter(new Guid("efa0466a-d957-4708-a947-916133c9d4f8"));
+                        Parameter levelInfo = elemincollector.get_Parameter(new Guid("bade3ed8-b24b-426e-a430-99deb348bb38")); // Общий параметр - PRO_Уровень низа
                         
                         // Проверка на null "Общего параметра по Guid" из Revit
                         if (topPointParam != null && bottomPointParam != null && levelInfo != null)

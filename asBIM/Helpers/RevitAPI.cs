@@ -240,55 +240,31 @@ namespace asBIM
                 var upper_Level = level.FindTopLevel(levels);
                 var lower_Level = level.FindBotLevel(levels);
                 
-                //Было 01
-                // if (elementBottomPointElevationSm < upper_Level.Elevation && elementBottomPointElevationSm >= lower_Level.Elevation)
-                // {
-                //     closestBottomLevel = lower_Level;
-                // }
-                //Было 01
-                
-                // Тест 01
+                // Если Нижняя точка меньше Верхнего уровня && Нижняя точка больше или равна Нижнему уровню,
+                // то запишется значение уровня ниже точки.
+                // Условие для точек между уровнями, но не границах
                 if (elementBottomPointElevationSm < upper_Level.Elevation && 
-                    elementBottomPointElevationSm >= lower_Level.Elevation)
+                    elementBottomPointElevationSm + 0.003 >= lower_Level.Elevation) // + 0.003 - погрешность BoundingBox
                 {
                     closestBottomLevel = lower_Level;
                 }
-                // Тест 01
                 
-                // Тест 04
-                if (elementBottomPointElevationSm < upper_Level.Elevation &&
-                    elementBottomPointElevationSm >= lower_Level.Elevation)
-                {
-                    closestBottomLevel = lower_Level;
-                }
-                // Тест 04
-                
-                //Было 02
-                // Если Нижняя точка ниже Самого низкого уровня, то запишется значение самого низкого уровня. Граничное условие
+                // Если Нижняя точка ниже Самого низкого уровня, то запишется значение самого низкого уровня в проекте.
+                // Граничное условие для точек ниже самого низкого уровня
                 if (elementBottomPointElevationSm < lower_Level.Elevation && 
                     lower_Level.Id == level.Id)
                 {
                     closestBottomLevel = lower_Level;
                 }
-                //Было 02
                 
-                //Было 03
-                // Если Нижняя точка выше самого высокого уровня и upper_Level.Id == level.Id ??? то запишется значение самого высокого??
-                // Для элементов, которые выше самого высокого уровня. Запишется уровень под элементом, т.е. самый высокий
-                /*if (elementBottomPointElevationSm > upper_Level.Elevation && upper_Level.Id == level.Id)
-                {
-                    closestBottomLevel = upper_Level;
-                }*/
-                //Было 03
-                
-                // Тест 03
+                // Если Нижняя точка больше или равна отметки самого высокого уровня,
+                // то запишется самый высокий уровень в проекте
                 // РЕШЕНИЕ - ">=" а не ">"
-                if (elementBottomPointElevationSm >= upper_Level.Elevation && 
-                    upper_Level.Id == level.Id)
+                if (elementBottomPointElevationSm + 0.003 >= upper_Level.Elevation && 
+                    upper_Level.Id == level.Id) // + 0.003 - погрешность BoundingBox
                 {
                      closestBottomLevel = upper_Level;
                 }
-                // Тест 03
             }
 
             return closestBottomLevel;
@@ -335,13 +311,13 @@ namespace asBIM
                 //Сортирует уровни по высоте (Elevation) в порядке убывания (от самого высокого к низкому).
                 OrderByDescending(l => l.Elevation)
                 // Фильтрует только те уровни, которые находятся ниже или на той же высоте, что и level.
+                //.Where(x => x.Elevation <= level.Elevation); //
                 .Where(x => x.Elevation <= level.Elevation); // Коллекция уровней oLevels, отсортированная от самого высокого к низкому, но не выше текущего уровня.
             // Запись Уровня в botLevel с условием (если в перечислении уровней oLevels число уровней больше 2-ух, то - пропустить 1-й и взять первый, если нет - взять первый)
             botLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
             
             return botLevel;
         }
-        // TODO: 6. Отладить код для записи этажа отметки низа. Пограничное условие не отрабатывается
         // TODO: 7. Сделать метод для определения нижнего уровня для отметки Верха элемента
 
     }
