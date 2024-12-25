@@ -66,16 +66,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VCRevitRibbonUtil">
-      <HintPath>\\serverproxima\users$\Profiles\Svetlakov.a\Desktop\C#\00_Revit Plugins\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Desktop\00000_С#\03_Revit_Plugin\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cls_SetMaxMinPtToElements\Code_SetMaxMinPtToElements.cs" />
-    <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml.cs">
-      <DependentUpon>Form_SetMaxMinPtToElements.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml.cs" />
     <Compile Include="Helpers\AllUsedCategoryList.cs" />
     <Compile Include="Cls_MainPanel\MainPanel.cs" />
     <Compile Include="Cls_Info\Info.cs" />
@@ -119,11 +116,8 @@
     <None Include="Resources\ОбьемныйВидГрафика_32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
     <Page Include="Cls_SetParamertToVisibleElementInActiveView\Form_SetParamertToVisibleElementInActiveView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,9 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TB_Points_16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Cls_SetMaxMinPtToElements\WPF_T&amp;B_Points_48x48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />

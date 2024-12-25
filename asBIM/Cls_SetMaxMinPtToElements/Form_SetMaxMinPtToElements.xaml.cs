@@ -12,8 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Autodesk.Revit.Creation;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.DB;
 using MaterialDesignThemes;
 using MaterialDesignColors;
+using Notifications.Wpf;
 
 namespace asBIM
 {
@@ -25,6 +29,17 @@ namespace asBIM
         public Form_SetMaxMinPtToElements()
         {
             InitializeComponent();
+        }
+
+        private void Bt_AR_Click(object sender, RoutedEventArgs e)
+        {
+            // Метод SetElementsTBPoints
+            Close();
+        }
+
+        private void Bt_EX_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

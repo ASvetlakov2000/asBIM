@@ -23,9 +23,6 @@ namespace asBIM
 
     public class Code_SetMaxMinPtToElements : IExternalCommand
     {
-
-        public InternalOrigin internalOrigin;
-
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiapp = commandData.Application;
@@ -33,12 +30,11 @@ namespace asBIM
             var doc = uidoc.Document;
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
-
+            Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
+            form.ShowDialog();
+            
             SetElementsTBPoints(doc);
             
-            // // TODO: 12. В релизе убрать вывод инфо об Уровнях
-            //LevelInfo.GetLevelInfoInDoc(doc);
-
             // TODO: 8. Сделать вывод инфо: 1. Необработанные элементы, 2. Обработанные элементы, 3. Время работы команды
             // Оповещение об успешной отработке команды
             NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
