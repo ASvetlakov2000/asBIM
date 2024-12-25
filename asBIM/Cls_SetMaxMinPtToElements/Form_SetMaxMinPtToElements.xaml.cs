@@ -12,13 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes;
+using MaterialDesignColors;
 
 namespace asBIM
 {
     /// <summary>
     /// Логика взаимодействия для Form_SetMaxMinPtToElements.xaml
     /// </summary>
-    public partial class Form_SetMaxMinPtToElements : UserControl
+    public partial class Form_SetMaxMinPtToElements : Window
     {
         public Form_SetMaxMinPtToElements()
         {
