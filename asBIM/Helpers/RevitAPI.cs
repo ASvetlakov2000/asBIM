@@ -101,23 +101,23 @@ namespace asBIM
 
             };
 
-            // TODO: 5. Продолжить списки.
+            // TODO: 2. Продолжить списки.
 
-            // TODO: 4. Продолжить списки с категориями для:
-            // TODO: 4.1 ЭОМ
-            // TODO: 4.2 ВК
-            // TODO: 4.3 ОВ1
-            // TODO: 4.4 ОВ2
-            // TODO: 4.5 СС
-            // TODO: 4.6 АИ
-            // TODO: 4.7 ПТ
+            // TODO: 1. Продолжить списки с категориями для:
+            // TODO: 1.1 ЭОМ
+            // TODO: 1.2 ВК
+            // TODO: 1.3 ОВ1
+            // TODO: 1.4 ОВ2
+            // TODO: 1.5 СС
+            // TODO: 1.6 АИ
+            // TODO: 1.7 ПТ
 
             // Создание словаря с Группами Элементов из Документа
             Dictionary<string, List<Element>> groupedElementsDict = new Dictionary<string, List<Element>>
             {
                 ["AR"] = new List<Element>(),
                 ["KR"] = new List<Element>(),
-                // TODO: 5.1. Продолжить словарь 
+                // TODO: 2.1. Продолжить словарь 
             };
 
             // Группировка элементов с сортировкой по категориям. 
@@ -169,7 +169,7 @@ namespace asBIM
             // Возращает XYZ elemTopPointFeet_XYZ. Значения XYZ отметки Верха в футах
             return elemTopPointFeet_XYZ;
         }
-        
+
         /// <summary>
         /// Метод возвращающий нижнюю точку BoundingBoxXYZ
         /// </summary>
@@ -318,6 +318,8 @@ namespace asBIM
             
             return botLevel;
         }
+        
+        
 
     }
 }

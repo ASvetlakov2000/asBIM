@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/WPF_T&amp;B_Points_48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,8 @@
       <workItem from="1735134483831" duration="88000" />
       <workItem from="1735134612400" duration="158000" />
       <workItem from="1735134835105" duration="10989000" />
-      <workItem from="1735145918403" duration="1260000" />
+      <workItem from="1735145918403" duration="1299000" />
+      <workItem from="1735151453530" duration="12226000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -99,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735038848011</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Окно WPF для Отметок Верха и Низа обновлено">
+      <option name="closed" value="true" />
+      <created>1735147220615</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735147220615</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +174,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
+    <MESSAGE value="Окно WPF для Отметок Верха и Низа обновлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="Окно WPF для Отметок Верха и Низа обновлено" />
   </component>
 </project>

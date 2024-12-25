@@ -34,11 +34,24 @@ namespace asBIM
         private void Bt_AR_Click(object sender, RoutedEventArgs e)
         {
             // Метод SetElementsTBPoints
+            Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
+            
+            // TODO: 3.1 // Метод SetElementsTBPoints по разделам через UI
+            //code.SetElementsTBPoints(doc);
             Close();
         }
 
         private void Bt_EX_Click(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
+        
+        // TODO: 3. Добавить вывод инфо об плагине T&B
+
+        private void Bt_Info_Click(object sender, RoutedEventArgs e)
+        {
+            Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
+            info.ShowDialog();
             Close();
         }
     }

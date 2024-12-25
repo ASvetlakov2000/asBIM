@@ -35,7 +35,7 @@ namespace asBIM
             
             SetElementsTBPoints(doc);
             
-            // TODO: 8. Сделать вывод инфо: 1. Необработанные элементы, 2. Обработанные элементы, 3. Время работы команды
+            // TODO: 4. Сделать вывод инфо: 1. Необработанные элементы, 2. Обработанные элементы, 3. Время работы команды
             // Оповещение об успешной отработке команды
             NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
             // Оповещение об ошибке
@@ -50,8 +50,8 @@ namespace asBIM
 
 
         // Метод SetElementsTBPoints
-        // TODO: 9. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
-        public void SetElementsTBPoints(Document doc)
+        // TODO: 5. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
+        internal void SetElementsTBPoints(Document doc)
         {
             // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
@@ -69,62 +69,52 @@ namespace asBIM
                         Parameter topPointParam = elemincollector.get_Parameter(new Guid("22c86588-f717-403e-b1c6-1607cac39965"));
                         //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
                         Parameter bottomPointParam = elemincollector.get_Parameter(new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5")); 
-                        // TODO: 11. Добавить запись уровня для отметки Верха. Протестировать.
-                        
-                        //Получение "Общего параметра по Guid" из Revit в переменную levelInfo параметра из эл в коллекции. Уровень для отметки Низа
-                        Parameter topPtLevelInfo = elemincollector.get_Parameter(new Guid("ebb82c57-a7f5-4152-8a3c-6572cc32f6f1")); // Общий параметр - PRO_Уровень верха
-                        
-                        //Получение "Общего параметра по Guid" из Revit в переменную levelInfo параметра из эл в коллекции. Уровень для отметки Низа
-                        Parameter botPtLevelInfo = elemincollector.get_Parameter(new Guid("bade3ed8-b24b-426e-a430-99deb348bb38")); // Общий параметр - PRO_Уровень низа
                         
                         // Проверка на null "Общего параметра по Guid" из Revit
-                        if (topPointParam != null && bottomPointParam != null && botPtLevelInfo != null)
+                        if (topPointParam != null && bottomPointParam != null)
                         {
-                            // Конвертация единиц из Футов в ММ. Для точки Верха
-                            var top = UnitUtils.ConvertFromInternalUnits(ElementTopBottomPt.GetElementTopPoint(elemincollector).Z, UnitTypeId.Millimeters);
-                            // Конвертация единиц из Футов в ММ. Для точки Низа
-                            var bot = UnitUtils.ConvertFromInternalUnits(ElementTopBottomPt.GetElementBottomPoint(elemincollector).Z, UnitTypeId.Millimeters);
-                            // Округление topVal до 2 знаков после запятой
-                            var topVal = Math.Round(top, 2, MidpointRounding.AwayFromZero);
-                            // Округление botVal до 2 знаков после запятой
-                            var botVal = Math.Round(bot, 2, MidpointRounding.AwayFromZero);
-
-                            // Запись значения из GetElementTopPoint(elemincollector).Z
-                            // в параметр topPointParam - отметки Верха с конвертацией в строку
-                            topPointParam.Set(Convert.ToString(topVal));
-                            // Запись значения из GetElementBottomPoint(elemincollector).Z
-                            // в параметр bottomPointParam - отметки Низа с конвертацией в строку
-                            bottomPointParam.Set(Convert.ToString(botVal));
-                            
                             // Фильтр на Уровни. Выборка из Документа только уровней.
                             FilteredElementCollector levelsCollector = new FilteredElementCollector(doc).OfClass(typeof(Level));
                             // Список levels с типом Level
                             List<Level> levels = levelsCollector.Cast<Level>().OrderBy(level => level.Elevation).ToList();
                             
-                            
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
                             // Получение отметки Верха элемента с каждого элемента в Документе.
                             double elementTopPointElevationSm = ElementTopBottomPt.GetElementTopPoint(elemincollector).Z;
-                            // Присвоение closestLevel результата метода FindBottomElemLevel
+                            // Присвоение closestLevelForTop результата метода FindBottomElemLevel
                             // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию??? список уровней
                             Level closestLevelForTop = LevelInfo.FindBottomElemLevel(elementTopPointElevationSm, levels);
+
+                            double elemTopPtElevFromLevel = Math.Abs(closestLevelForTop.Elevation - elementTopPointElevationSm);
+                            
+                            double elemTopPtElevFromLevelSm = UnitUtils.ConvertFromInternalUnits(elemTopPtElevFromLevel, UnitTypeId.Millimeters);
+                            // Округление topVal до 2 знаков после запятой
+                            double elemTopPtElevFromLevelSmRound = Math.Round(elemTopPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
                             // Запись Имени Нижнего этажа.
-                            topPtLevelInfo.Set(closestLevelForTop != null ? closestLevelForTop.Name : "Не определено");
+                            topPointParam.Set(closestLevelForTop != null ? elemTopPtElevFromLevelSmRound  + " от " + closestLevelForTop.Name : "Не определено");
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
                             
                             
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             // Получение отметки Низа элемента с каждого элемента в Документе.
                             double elementBottomPointElevationSm = ElementTopBottomPt.GetElementBottomPoint(elemincollector).Z;
-                            // Присвоение closestLevel результата метода FindBottomElemLevel
+                            // Присвоение closestLevelForBot результата метода FindBottomElemLevel
                             // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию??? список уровней
                             Level closestLevelForBot = LevelInfo.FindBottomElemLevel(elementBottomPointElevationSm, levels);
+                            
+                            double elemBotPtElevFromLevel = Math.Abs(closestLevelForBot.Elevation - elementBottomPointElevationSm);
+                            
+                            double elemBotPtElevFromLevelSm = UnitUtils.ConvertFromInternalUnits(elemBotPtElevFromLevel, UnitTypeId.Millimeters);
+                            // Округление botVal до 2 знаков после запятой
+                            double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
+                            
                             // Запись Имени Нижнего этажа.
-                            botPtLevelInfo.Set(closestLevelForBot != null ? closestLevelForBot.Name : "Не определено");
+                            bottomPointParam.Set(closestLevelForBot != null ? elemBotPtElevFromLevelSmRound  + " от " + closestLevelForBot.Name : "Не определено");
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             
                             
-                            // TODO: 13. Добавить обнулятор значений на время тестов
+                            
+                            // TODO: 6. Добавить конвертер наименований в Этаж №
                         }
                     }
 
