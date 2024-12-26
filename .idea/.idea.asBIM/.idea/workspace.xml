@@ -7,11 +7,7 @@
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,17 +24,14 @@
     &quot;assignee&quot;: &quot;ASvetlakov2000&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ASvetlakov2000/asBIM.git",
-    "accountId": "aaba96f7-47bc-4ebe-ac67-e41aa9d18557"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
+    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetl/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -78,7 +71,8 @@
       <workItem from="1734980310087" duration="8443000" />
       <workItem from="1735026664660" duration="12932000" />
       <workItem from="1735212470760" duration="13126000" />
-      <workItem from="1735240756178" duration="7751000" />
+      <workItem from="1735240756178" duration="7779000" />
+      <workItem from="1735248634784" duration="1457000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -96,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735038848011</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="27.12_SetElementsTBPoints">
+      <option name="closed" value="true" />
+      <created>1735248586703</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735248586704</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +134,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
+    <MESSAGE value="27.12_SetElementsTBPoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.12_SetElementsTBPoints" />
   </component>
 </project>

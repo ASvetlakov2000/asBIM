@@ -67,7 +67,7 @@ namespace asBIM
             // Только экземпляры (не типы). Только элементы.
             allElementsInDoc = collectorMain.WhereElementIsNotElementType().ToElements();
             // Создание списка "АР" с группами
-            List<BuiltInCategory> group_AR_Cat = new List<BuiltInCategory>()
+            List<BuiltInCategory> group_Element_Cat = new List<BuiltInCategory>()
                 {
                     // Перечисление всех категорий для АР
                     BuiltInCategory.OST_Walls, //Стены
@@ -81,6 +81,13 @@ namespace asBIM
                     BuiltInCategory.OST_Stairs, //Лестницы
                     BuiltInCategory.OST_StairsRailing, //Ограждения лестниц
                     BuiltInCategory.OST_Ramps, //Пандусы
+                    
+                    BuiltInCategory.OST_Girder,
+                    BuiltInCategory.OST_StructuralFraming,
+                    //BuiltInCategory.OST_Rebar, // Арматура
+                    
+                    // TODO: 7. Как проигнорировать некоторые категории?
+                    BuiltInCategory.OST_StructuralFoundation, // Конструктивные фундаменты
 
                     BuiltInCategory.OST_CurtainWallPanels, //Панели навесных стен
                     BuiltInCategory.OST_CurtaSystem, //Системы навесных стен
@@ -96,7 +103,7 @@ namespace asBIM
                 };
 
             // Создание списка "КР" с группами
-            List<BuiltInCategory> group_KR_Cat = new List<BuiltInCategory>()
+            List<BuiltInCategory> group_Linear_Cat = new List<BuiltInCategory>()
             {
 
             };
@@ -115,8 +122,8 @@ namespace asBIM
             // Создание словаря с Группами Элементов из Документа
             Dictionary<string, List<Element>> groupedElementsDict = new Dictionary<string, List<Element>>
             {
-                ["AR"] = new List<Element>(),
-                ["KR"] = new List<Element>(),
+                ["Element"] = new List<Element>(),
+                ["Linear"] = new List<Element>(),
                 // TODO: 2.1. Продолжить словарь 
             };
 
@@ -132,16 +139,16 @@ namespace asBIM
                 {
                     // Если в ЭЭлемент коллекции collectorMain (doc) относится к Категории попадающей в список group_AR_Cat,
                     // то элемент добавиться в словарь groupedElementsDict по ключу "АР"
-                    if (group_AR_Cat.Contains((BuiltInCategory)elemCategory.Id.IntegerValue))
+                    if (group_Element_Cat.Contains((BuiltInCategory)elemCategory.Id.IntegerValue))
                     {
-                        groupedElementsDict["AR"].Add(element);
+                        groupedElementsDict["Element"].Add(element);
                     }
 
                     // Если в ЭЭлемент коллекции collectorMain (doc) относится к Категории попадающей в список group_AR02_Cat,
                     // то элемент добавиться в словарь groupedElementsDict по ключу "АР02"
-                    if (group_KR_Cat.Contains((BuiltInCategory)elemCategory.Id.IntegerValue))
+                    if (group_Linear_Cat.Contains((BuiltInCategory)elemCategory.Id.IntegerValue))
                     {
-                        groupedElementsDict["AR02"].Add(element);
+                        groupedElementsDict["Linear"].Add(element);
                     }
                 }
 

@@ -86,7 +86,7 @@ namespace asBIM
             {
                 tr.Start();
                 // Цикл с перебором всех элементов в коллекции
-                foreach (Element elemincollector in groupedElements["AR"])
+                foreach (Element elemincollector in groupedElements["Element"])
                 {
                     try
                     {
@@ -116,7 +116,7 @@ namespace asBIM
                             // Округление topVal до 2 знаков после запятой
                             double elemTopPtElevFromLevelSmRound = Math.Round(elemTopPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
                             // Запись Имени Нижнего этажа.
-                            topPointParam.Set(closestLevelForTop != null ? elemTopPtElevFromLevelSmRound  + " от " + closestLevelForTop.Name : "Не определено");
+                            topPointParam.Set(closestLevelForTop != null ? elemTopPtElevFromLevelSmRound  + " от " + closestLevelForTop.Name.Split('_').Last() : "Не определено");
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
                             
                             
@@ -134,7 +134,7 @@ namespace asBIM
                             double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
                             
                             // Запись Имени Нижнего этажа.
-                            bottomPointParam.Set(closestLevelForBot != null ? elemBotPtElevFromLevelSmRound  + " от " + closestLevelForBot.Name : "Не определено");
+                            bottomPointParam.Set(closestLevelForBot != null ? elemBotPtElevFromLevelSmRound  + " от " + closestLevelForBot.Name.Split('_').Last() : "Не определено");
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             
                             
@@ -165,7 +165,7 @@ namespace asBIM
             {
                 tr.Start();
                 // Цикл с перебором всех элементов в коллекции
-                foreach (Element elemincollector in groupedElements["AR"])
+                foreach (Element elemincollector in groupedElements["Element"])
                 {
                     try
                     {
@@ -177,10 +177,10 @@ namespace asBIM
                         // Проверка на null "Общего параметра по Guid" из Revit
                         if (topPointParam != null && bottomPointParam != null)
                         {
-                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
+                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА. Удаление значений
                             topPointParam.Set("");
                             
-                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
+                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА. Удаление значений
                             bottomPointParam.Set("");
                         }
                     }
