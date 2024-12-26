@@ -12,12 +12,12 @@ namespace Notifications.Wpf
         public static void Success(this string success)
         {
             var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 5);
+            var ts = new TimeSpan(0, 0, 8);
 
             notificationManager.Show(new NotificationContent
             {
-                Title = "Отметки Верха и Низа элементов \nзаписаны!", 
-                Message = success, 
+                Title = "Афигеть, оно работает!", 
+                Message = "(￢‿￢ )\n\nОтметки Верха и Низа элементов \nзаписаны!", 
                 Type = NotificationType.Success
             }, expirationTime: ts);
         }
@@ -25,14 +25,28 @@ namespace Notifications.Wpf
         public static void Error(this string error)
         {
             var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 5);
+            var ts = new TimeSpan(0, 0, 8);
 
             notificationManager.Show(new NotificationContent
             {
-                Title = "Ошибка!", 
-                Message = error, 
+                Title = "Упс..!", 
+                Message = "\u00af\\_(ツ)_/\u00af\nЧто-то пошло не так. \n\nТы знаешь кому писать :)", 
                 Type = NotificationType.Error
             }, expirationTime: ts);
+        }
+
+        public static void TimeOfWork(this string warning)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 8);
+            
+            notificationManager.Show(new NotificationContent
+                {
+                    Title = "Время выполнения",
+                    Message = "time",
+                    Type = NotificationType.Information
+                }, expirationTime: ts);
+                
         }
     }
 }

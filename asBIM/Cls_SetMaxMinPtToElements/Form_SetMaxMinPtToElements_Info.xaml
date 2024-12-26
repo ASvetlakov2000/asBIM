@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:asBIM"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="asBIM.Form_SetMaxMinPtToElements"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="asBIM.Form_SetMaxMinPtToElements_Info"
     
-             mc:Ignorable="d" ResizeMode="NoResize" Title="Запись параметров" Width="300" Height="540" WindowStyle="SingleBorderWindow" Background="#FF303030" Topmost="True" WindowStartupLocation="CenterScreen">
+             mc:Ignorable="d" ResizeMode="NoResize" Title="Запись параметров" Width="330" Height="670" WindowStyle="SingleBorderWindow" Background="#FF303030" Topmost="True" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
 
@@ -79,20 +79,25 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
     </Window.Resources>
-    
+
     <Grid Opacity="100" Background="#FF303030">
- <Button Style="{DynamicResource ButtonStyle_Rad_3}" x:Name="bt_Elem" Content="→ Элемент ←" HorizontalAlignment="Center" Margin="0,94,0,0" VerticalAlignment="Top" Height="55" Width="190" FontFamily="GOST Common" ToolTip="Запись отметок для АР" Background="#FF303030" Padding="0,10,0,0" Foreground="#FF999999" BorderBrush="#FF999999" Click="Bt_Elem_Click" FontSize="24" BorderThickness="2,2,2,2"/>
- <Button Style="{DynamicResource ButtonStyle_Rad_3}" x:Name="bt_Linear" Content="→ Линейный ←" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="190" FontFamily="GOST Common" ToolTip="Запись отметок для КР" Background="#FF303030" Padding="0,10,0,0" Foreground="#FF999999" BorderBrush="#FF999999" FontSize="24" BorderThickness="2,2,2,2"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="2.500 от Этаж 1" VerticalAlignment="Top" FontFamily="GOST Common" BorderThickness="0,0,0,0" Margin="0,336,0,0" BorderBrush="{x:Null}" Foreground="#FF999999" Width="160" Background="#FF303030" FontSize="20" HorizontalAlignment="Center"/>
- <Button Style="{DynamicResource ButtonStyle_Rad_3}" x:Name="bt_Info" Click="Bt_Info_Click" Margin="75,400,75,0" VerticalAlignment="Top" Height="40" FontFamily="GOST Common" Content="→ Инфо ←" ToolTip="Запись отметок для ПЗУ" Background="#FF303030" Padding="1,0,1,1" Foreground="#FF999999" BorderBrush="#FF999999" FontSize="20" BorderThickness="2,2,2,2"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="asBim | v1.0" Margin="0,460,0,0" VerticalAlignment="Top" Width="80" FontSize="14" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,0" HorizontalAlignment="Center" Height="25"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Объёмный элемент" Margin="0,84,0,0" VerticalAlignment="Top" Width="150" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,3" HorizontalAlignment="Center" Height="25"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Линейный элемент" Margin="0,185,0,0" VerticalAlignment="Top" Width="150" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,3" HorizontalAlignment="Center" Height="25"/>
- <Rectangle HorizontalAlignment="Center" Stroke="#FF999999" Width="240" RadiusX="3" RadiusY="3" Height="240" VerticalAlignment="Top" Margin="0,38,0,0" StrokeThickness="2"/>
- <Rectangle HorizontalAlignment="Center" Height="55" Margin="0,318,0,0" Stroke="#FF999999" VerticalAlignment="Top" Width="240" RadiusX="3" RadiusY="3"  StrokeThickness="2"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Пример заполнения" Margin="0,307,0,0" VerticalAlignment="Top" Width="150" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,2" HorizontalAlignment="Center" Height="25"/>
- <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Категория" Margin="0,25,0,0" VerticalAlignment="Top" Width="150" FontSize="18" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="2,2,2,2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,2" HorizontalAlignment="Center" Height="30"/>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="2.500 от Этаж 1" VerticalAlignment="Top" FontFamily="GOST Common" BorderThickness="0,0,0,0" Margin="0,495,0,0" BorderBrush="{x:Null}" Foreground="#FF999999" Width="160" Background="#FF303030" FontSize="20" HorizontalAlignment="Center"/>
+        <Rectangle HorizontalAlignment="Center" Stroke="#FF999999" Width="264" RadiusX="3" RadiusY="3" Height="96" VerticalAlignment="Top" Margin="0,82,0,0" StrokeThickness="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="56" Margin="0,477,0,0" Stroke="#FF999999" VerticalAlignment="Top" Width="264" RadiusX="3" RadiusY="3"  StrokeThickness="2"/>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Пример заполнения" Margin="0,467,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,2" HorizontalAlignment="Center" Height="24"/>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Информация" Margin="0,25,0,0" VerticalAlignment="Top" Width="160" FontSize="18" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,2" HorizontalAlignment="Center" Height="30"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="#FF999999" TextAlignment="Center"><Run Text="Скрипт записывает отметки "/><LineBreak/><Run Text="верха и низа для "/><LineBreak/><Run Text="Элементов и Линейных обьектов"/></TextBlock>
+        <Rectangle HorizontalAlignment="Center" Stroke="#FF999999" Width="264" RadiusX="3" RadiusY="3" Height="84" VerticalAlignment="Top" Margin="0,365,0,0" StrokeThickness="2"/>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Что делает скрипт?" Margin="0,70,0,0" VerticalAlignment="Top" Width="190" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,3" HorizontalAlignment="Center" Height="25"/>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Параметры" Margin="0,353,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,3" HorizontalAlignment="Center" Height="25"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="#FF999999" TextAlignment="Center"><Run Text="PRO_"/><Run Text="Отметка верха"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="#FF999999" TextAlignment="Center"><Run Text="PRO_"/><Run Text="Отметка "/><Run Language="ru-ru" Text="низа"/></TextBlock>
+        <Rectangle HorizontalAlignment="Center" Stroke="#FF999999" Width="264" RadiusX="3" RadiusY="3" Height="133" VerticalAlignment="Top" StrokeThickness="2" Margin="0,202,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="#FF999999" TextAlignment="Center" Width="245"><Run Text="Для записи в единичные эл. "/><LineBreak/><Run Text="с простой формой - ЭЛЕМЕН"/><Run Text="Т"/></TextBlock>
+        <Label Style="{DynamicResource LabelStyle_Rad_3}" Content="Какие кнопки нажимать?" Margin="0,191,0,0" VerticalAlignment="Top" Width="190" FontSize="16" Background="#FF303030" BorderBrush="#FF999999" FontFamily="GOST Common" OpacityMask="Black" Foreground="#FF999999" BorderThickness="1,1,1,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,3" HorizontalAlignment="Center" Height="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Foreground="#FF999999" TextAlignment="Center" Width="245"><Run Text="Для записи линейных обьектов "/><LineBreak/><Run Text="с уклонами - ЛИНЕЙНЫЙ"/><LineBreak/><Run/></TextBlock>
+        <Button Style="{DynamicResource ButtonStyle_Rad_3}" x:Name="bt_Ok" Content="→ ОК ←" HorizontalAlignment="Left" Margin="66,560,0,0" VerticalAlignment="Top" Height="40" Width="190" FontFamily="GOST Common" ToolTip="Запись отметок для АР" Background="#FF303030" Padding="0,0,0,0" Foreground="#FF999999" BorderBrush="#FF999999" Click="Bt_OK_Click" FontSize="24" BorderThickness="2,2,2,2"/>
     </Grid>
 </Window>

@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +33,14 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
+    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/svetl/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetl/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Helpers/RevitAPI.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -74,15 +79,7 @@
       <workItem from="1734980117964" duration="181000" />
       <workItem from="1734980310087" duration="8443000" />
       <workItem from="1735026664660" duration="12932000" />
-      <workItem from="1735132914009" duration="153000" />
-      <workItem from="1735133084578" duration="174000" />
-      <workItem from="1735133266547" duration="724000" />
-      <workItem from="1735134002958" duration="471000" />
-      <workItem from="1735134483831" duration="88000" />
-      <workItem from="1735134612400" duration="158000" />
-      <workItem from="1735134835105" duration="10989000" />
-      <workItem from="1735145918403" duration="1299000" />
-      <workItem from="1735151453530" duration="12226000" />
+      <workItem from="1735212470760" duration="13126000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -100,15 +97,7 @@
       <option name="project" value="LOCAL" />
       <updated>1735038848011</updated>
     </task>
-    <task id="LOCAL-00003" summary="Окно WPF для Отметок Верха и Низа обновлено">
-      <option name="closed" value="true" />
-      <created>1735147220615</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1735147220615</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,38 +107,8 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="09049ffe-7af3-4150-a778-427b8dc17cbd" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="09049ffe-7af3-4150-a778-427b8dc17cbd">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:C:/Users/svetl/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -174,7 +133,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
-    <MESSAGE value="Окно WPF для Отметок Верха и Низа обновлено" />
-    <option name="LAST_COMMIT_MESSAGE" value="Окно WPF для Отметок Верха и Низа обновлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
   </component>
 </project>

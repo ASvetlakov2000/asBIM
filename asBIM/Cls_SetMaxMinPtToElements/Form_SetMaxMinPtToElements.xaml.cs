@@ -18,6 +18,7 @@ using Autodesk.Revit.DB;
 using MaterialDesignThemes;
 using MaterialDesignColors;
 using Notifications.Wpf;
+using Document = Autodesk.Revit.DB.Document;
 
 namespace asBIM
 {
@@ -31,27 +32,27 @@ namespace asBIM
             InitializeComponent();
         }
 
-        private void Bt_AR_Click(object sender, RoutedEventArgs e)
+        public void Bt_Elem_Click(object sender, RoutedEventArgs e)
         {
             // Метод SetElementsTBPoints
             Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
-            
             // TODO: 3.1 // Метод SetElementsTBPoints по разделам через UI
             //code.SetElementsTBPoints(doc);
             Close();
         }
 
-        private void Bt_EX_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-        
-        // TODO: 3. Добавить вывод инфо об плагине T&B
-
         private void Bt_Info_Click(object sender, RoutedEventArgs e)
         {
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
             info.ShowDialog();
+            Close();
+        }
+
+        private void Bt_Close_Click(object sender, RoutedEventArgs e)
+        {
+            Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
+
+            //code.SetElementsTBPoints_Null(doc);
             Close();
         }
     }
