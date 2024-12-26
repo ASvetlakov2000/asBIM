@@ -33,11 +33,21 @@ namespace asBIM
             Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
             form.ShowDialog();
 
-            SetElementsTBPoints(doc);
+            if (form.DialogResult == true)
+            {
+                SetElementsTBPoints(doc);
+                // Оповещение об успешной отработке команды
+                NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
+            }
+            if (form.DialogResult == false)
+            {
+                SetElementsTBPoints_Null(doc);
+                // Оповещение об успешной отработке команды
+                NotificationManagerWPF_SetMaxMinPtToElements.Error(error: message);
+            }
             
             // TODO: 4. Сделать вывод инфо: 1. Необработанные элементы, 2. Обработанные элементы, 3. Время работы команды
-            // Оповещение об успешной отработке команды
-            NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
+            
             // Оповещение об ошибке
             //NotificationManagerWPF_SetMaxMinPtToElements.Error(error: message);
             // Оповещение о времени работы команды

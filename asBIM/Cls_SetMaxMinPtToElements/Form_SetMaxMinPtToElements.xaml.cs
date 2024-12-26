@@ -36,8 +36,7 @@ namespace asBIM
         {
             // Метод SetElementsTBPoints
             Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
-            // TODO: 3.1 // Метод SetElementsTBPoints по разделам через UI
-            //code.SetElementsTBPoints(doc);
+            DialogResult = true;
             Close();
         }
 
@@ -45,14 +44,14 @@ namespace asBIM
         {
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
             info.ShowDialog();
+            DialogResult = false;
             Close();
         }
 
-        private void Bt_Close_Click(object sender, RoutedEventArgs e)
+        private void Bt_ОК_Click(object sender, RoutedEventArgs e)
         {
             Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
-
-            //code.SetElementsTBPoints_Null(doc);
+            DialogResult = false;
             Close();
         }
     }
