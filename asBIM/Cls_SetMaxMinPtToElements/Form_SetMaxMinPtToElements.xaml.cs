@@ -27,6 +27,18 @@ namespace asBIM
     /// </summary>
     public partial class Form_SetMaxMinPtToElements : Window
     {
+        public bool Tuner(bool showMessage = true)
+        {
+            if (DialogResult == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Form_SetMaxMinPtToElements()
         {
             InitializeComponent();
@@ -39,19 +51,25 @@ namespace asBIM
             DialogResult = true;
             Close();
         }
+        public void Bt_Linear_Click(object sender, RoutedEventArgs e)
+        {
+            // Метод SetElementsTBPoints_Null
+            Tuner(false);
+            //DialogResult = false;
+            Close();
+        }
+        
 
         private void Bt_Info_Click(object sender, RoutedEventArgs e)
         {
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
             info.ShowDialog();
-            DialogResult = false;
-            Close();
+            //DialogResult = false;
         }
 
         private void Bt_ОК_Click(object sender, RoutedEventArgs e)
         {
-            Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
-            DialogResult = false;
+            //DialogResult = false;
             Close();
         }
     }

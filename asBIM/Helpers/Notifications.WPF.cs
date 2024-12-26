@@ -1,11 +1,15 @@
 ﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Notifications.Wpf.Controls;
+ using asBIM;
+ using Autodesk.Revit.DB;
 
-namespace Notifications.Wpf
+ namespace Notifications.Wpf
 {
     public static class NotificationManagerWPF_SetMaxMinPtToElements
     {
@@ -17,7 +21,7 @@ namespace Notifications.Wpf
             notificationManager.Show(new NotificationContent
             {
                 Title = "Афигеть, оно работает!", 
-                Message = "(￢‿￢ )\n\nОтметки Верха и Низа элементов \nзаписаны!", 
+                Message = "\n(￢‿￢ )\n\nОтметки Верха и Низа элементов \nзаписаны!", 
                 Type = NotificationType.Success
             }, expirationTime: ts);
         }
@@ -30,7 +34,7 @@ namespace Notifications.Wpf
             notificationManager.Show(new NotificationContent
             {
                 Title = "Упс..!", 
-                Message = "\u00af\\_(ツ)_/\u00af\nЧто-то пошло не так. \n\nТы знаешь кому писать :)", 
+                Message = "\n\u00af\\_(ツ)_/\u00af\nЧто-то пошло не так. \n\nТы знаешь кому писать :)", 
                 Type = NotificationType.Error
             }, expirationTime: ts);
         }
@@ -48,5 +52,21 @@ namespace Notifications.Wpf
                 }, expirationTime: ts);
                 
         }
+        
+        public static void SychPls (this string sychPls)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 8);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = "Синхронизируйся!", 
+                Message = "\n\u00af\\_(ツ)_/\u00af\n\nПеред выполнением - синхронизируйся!\nРазработано дилетантом с CHAT GPT :)", 
+                Type = NotificationType.Information
+            }, expirationTime: ts);
+        }
+        
+        
+        
     }
 }

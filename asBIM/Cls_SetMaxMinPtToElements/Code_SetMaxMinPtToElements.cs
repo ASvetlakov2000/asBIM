@@ -30,6 +30,11 @@ namespace asBIM
             var doc = uidoc.Document;
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
+            
+            // Окошко с предупреждением о синхронизации
+            NotificationManagerWPF_SetMaxMinPtToElements.SychPls(sychPls: message);
+            
+            // Вызов UI
             Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
             form.ShowDialog();
 
@@ -39,12 +44,22 @@ namespace asBIM
                 // Оповещение об успешной отработке команды
                 NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
             }
-            if (form.DialogResult == false)
+
+            if (form.Tuner() == false)
             {
                 SetElementsTBPoints_Null(doc);
                 // Оповещение об успешной отработке команды
-                NotificationManagerWPF_SetMaxMinPtToElements.Error(error: message);
+                NotificationManagerWPF_SetMaxMinPtToElements.Success(success: message);
             }
+
+            
+            if (form.DialogResult == false)
+            {
+                 return Result.Succeeded;
+            }
+            
+
+
             
             // TODO: 4. Сделать вывод инфо: 1. Необработанные элементы, 2. Обработанные элементы, 3. Время работы команды
             
