@@ -27,7 +27,7 @@ namespace asBIM
             BuiltInCategory.OST_CurtainWallPanels, // Панели витражей
             BuiltInCategory.OST_GenericModel, // Общие модели
             BuiltInCategory.OST_MechanicalEquipment, // Механическое оборудование
-            // BuiltInCategory.OST_Pipes, // Трубы
+            BuiltInCategory.OST_PipeCurves, // Трубы
             // BuiltInCategory.OST_PipeFittings, // Фитинги труб
             // BuiltInCategory.OST_Ducts, // Воздуховоды
             // BuiltInCategory.OST_DuctFittings, // Фитинги воздуховодов

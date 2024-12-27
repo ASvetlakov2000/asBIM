@@ -2,11 +2,13 @@
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
+using Autodesk.Revit.DB.Plumbing;
 
 namespace asBIM
 {
@@ -105,6 +107,8 @@ namespace asBIM
             // Создание списка "КР" с группами
             List<BuiltInCategory> group_Linear_Cat = new List<BuiltInCategory>()
             {
+                
+                BuiltInCategory.OST_PipeCurves, // Трубы
 
             };
 
@@ -193,6 +197,64 @@ namespace asBIM
             // Возвращает XYZ elemBottomPointFeet_XYZ. Значения XYZ отметки Низа в футах
             return elemBottomPointFeet_XYZ;
         }
+        
+        // Было
+        // public static XYZ GetLinearStartPoint (Element element)
+        // {
+        //     StringBuilder sb = new StringBuilder();
+        //     
+        //     // Получаем Location элемента
+        //     Location location = element.Location;
+        //
+        //     LocationCurve locationCurve = null;
+        //     // Получаем кривую линейного обьекта
+        //     if (!(location is LocationCurve curve)) return XYZ.Zero;
+        //     // Получаем начальную и конечную точки
+        //     XYZ startPoint = curve.Curve.GetEndPoint(0);
+        //     //XYZ endPoint = curve.GetEndPoint(1);
+        //
+        //     string test = startPoint.ToString();
+        //
+        //     sb.Append("\n" + test);
+        //
+        //     return startPoint;
+        // }
+
+        
+        
+        // TODO: 6. Обработать перевертышей
+        /// Метод XYZ GetLinearPoint для получения Отметок в Начале и Отметок в Конце 
+        public static XYZ GetLinearPoint(MEPCurve curve, bool? end = null)
+        {
+            var location = curve.Location;
+            var locationCurve = (location as LocationCurve)?.Curve;
+            return locationCurve?.GetEndPoint((bool)end ? 1: 0);
+        }
+
+        // Способ 2
+        public static XYZ GetPoint(Element e, bool? max = null)
+        {
+            if(e is null) return new XYZ();
+            var location = e.Location;
+            switch (location)
+            {
+                case LocationCurve locationCurve:
+                    var top = locationCurve.Curve.GetEndPoint(0);
+                    var bottom = locationCurve.Curve.GetEndPoint(1);
+                    if (max is bool tr)
+                    {
+                        if(!tr)
+                            return top.Z > bottom.Z ? top : bottom;
+                    }
+                    return top.Z < bottom.Z ? top : bottom;
+                case LocationPoint locationPoint:
+                    return locationPoint.Point;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(location));
+            }
+        }
+
+
     }
 
     // Класс для определения уровня элемента. Для верхнего уровня и нижнего.
@@ -327,6 +389,6 @@ namespace asBIM
         }
         
         
-
     }
+    
 }

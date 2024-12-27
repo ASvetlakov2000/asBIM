@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="27.12_SetElementsTBPoints" />
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,11 +33,19 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
+    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/svetl/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/10/d9bd9adc/HostObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/71/af66cfdb/Pipe.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/c3/7ddc1225/Curve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/e8/c09d23bc/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af8acf00cf074a9d8c2f2190d6bd1428532bc0/5f/450ba3b4/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -67,8 +85,6 @@
       <workItem from="1734980310087" duration="8443000" />
       <workItem from="1735026664660" duration="12932000" />
       <workItem from="1735212470760" duration="13126000" />
-      <workItem from="1735240756178" duration="7779000" />
-      <workItem from="1735248634784" duration="1457000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -86,23 +102,7 @@
       <option name="project" value="LOCAL" />
       <updated>1735038848011</updated>
     </task>
-    <task id="LOCAL-00003" summary="27.12_SetElementsTBPoints">
-      <option name="closed" value="true" />
-      <created>1735248586703</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1735248586704</updated>
-    </task>
-    <task id="LOCAL-00004" summary="27.12_SetElementsTBPoints">
-      <option name="closed" value="true" />
-      <created>1735250224363</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1735250224363</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +138,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
-    <MESSAGE value="27.12_SetElementsTBPoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="27.12_SetElementsTBPoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
   </component>
 </project>

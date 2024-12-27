@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -13,7 +13,7 @@ using Notifications.Wpf.Controls;
 {
     public static class NotificationManagerWPF_SetMaxMinPtToElements
     {
-        public static void Success(this string success)
+        public static void Success_For_Elem(this string success)
         {
             var notificationManager = new NotificationManager();
             var ts = new TimeSpan(0, 0, 8);
@@ -21,7 +21,20 @@ using Notifications.Wpf.Controls;
             notificationManager.Show(new NotificationContent
             {
                 Title = "Афигеть, оно работает!", 
-                Message = "\n(￢‿￢ )\n\nОтметки Верха и Низа элементов \nзаписаны!", 
+                Message = "\n(￢‿￢ )\n\nОтметки Верха и Низа для единичных \nэлементов записаны!", 
+                Type = NotificationType.Success
+            }, expirationTime: ts);
+        }
+        
+        public static void Success_For_Linear(this string success)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 8);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = "Афигеть, оно работает!", 
+                Message = "\n(￢‿￢ )\n\nОтметки в Начале и Отметки в Конце\nдля линейных объектов записаны!", 
                 Type = NotificationType.Success
             }, expirationTime: ts);
         }
@@ -39,7 +52,7 @@ using Notifications.Wpf.Controls;
             }, expirationTime: ts);
         }
 
-        public static void TimeOfWork(this string warning)
+        public static void TimeOfWork(this string elementCount, string timeInSec)
         {
             var notificationManager = new NotificationManager();
             var ts = new TimeSpan(0, 0, 8);
@@ -47,7 +60,7 @@ using Notifications.Wpf.Controls;
             notificationManager.Show(new NotificationContent
                 {
                     Title = "Время выполнения",
-                    Message = "time",
+                    Message ="Время выполнения " + timeInSec + "сек" + "\n\nКоличество обработанных элементов: " + elementCount,
                     Type = NotificationType.Information
                 }, expirationTime: ts);
                 
@@ -65,8 +78,6 @@ using Notifications.Wpf.Controls;
                 Type = NotificationType.Information
             }, expirationTime: ts);
         }
-        
-        
         
     }
 }
