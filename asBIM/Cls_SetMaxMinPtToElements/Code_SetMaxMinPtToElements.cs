@@ -14,6 +14,7 @@ using System.Xaml;
 using System.Windows.Documents;
 using System.Xml.Linq;
 using System.Windows;
+using asBIM.ViewModel;
 using Notifications.Wpf;
 
 
@@ -29,64 +30,14 @@ namespace asBIM
             var uiapp = commandData.Application;
             var uidoc = uiapp.ActiveUIDocument;
             var doc = uidoc.Document;
-
+            
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
-            // Окошко с предупреждением о синхронизации
-            NotificationManagerWPF_SetMaxMinPtToElements.SychPls(sychPls: message);
-            
             // Вызов UI
-            Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
-            form.ShowDialog();
+            var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
+            var view = new Form_SetMaxMinPtToElements(vm);
+            view.Show();
 
-            if (form.DialogResult == true)
-            {
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                SetElementsTBPoints(doc);
-                sw.Stop();
-                
-                //// TODO: 7. Перевести отображение секунд в минуты и секунды
-                // TODO: 7.1 Добавить вывод количества обработанных элементов
-                var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
-                var elementCountInGroup  = groupedElements.Count();
-                string elementCountInGroupString = Convert.ToString(elementCountInGroup);
-                var timeInSecForCommand = Convert.ToString(Convert.ToDouble(sw.ElapsedMilliseconds) * 0.001);
-               
-                // Оповещение об успешной отработке команды
-                NotificationManagerWPF_SetMaxMinPtToElements.Success_For_Elem(success: message);
-                // Оповещение о времени отработки команды в секундах
-                NotificationManagerWPF_SetMaxMinPtToElements.TimeOfWork(elementCount: elementCountInGroupString, timeInSec: timeInSecForCommand);
-            }
-
-            if (form.Tuner() == false)
-            {
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                SetLinearElemTBPoints(doc);
-                sw.Stop();
-                
-                //
-                
-                
-                // TODO: 7. Перевести отображение секунд в минуты и секунды
-                // TODO: 7.2 Добавить вывод количества обработанных линейных обьектов
-                var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
-                var elementCountInGroup  = groupedElements.Count();
-                string elementCountInGroupString = Convert.ToString(elementCountInGroup);
-                var timeInSecForCommand = Convert.ToString(Convert.ToDouble(sw.ElapsedMilliseconds) * 0.001);
-                
-                // Оповещение об успешной отработке команды
-                NotificationManagerWPF_SetMaxMinPtToElements.Success_For_Linear(success: message);
-                // Оповещение о времени отработки команды в секундах
-                NotificationManagerWPF_SetMaxMinPtToElements.TimeOfWork(elementCount: elementCountInGroupString, timeInSec: timeInSecForCommand);
-            }
-            
-            if (form.DialogResult == false)
-            {
-                 return Result.Succeeded;
-            }
-            
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
         }
@@ -94,7 +45,7 @@ namespace asBIM
 
         // Метод SetElementsTBPoints
         // TODO: 5. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
-        public void SetElementsTBPoints(Document doc)
+        public static void SetElementsTBPoints(Document doc)
         {
             // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
@@ -213,7 +164,7 @@ namespace asBIM
         
         // Метод SetLinearElemTBPoints - записывает в параметры Отметка в Начале и Отметка в Конце
         // отметки для линейных обьектов.
-        public void SetLinearElemTBPoints(Document doc)
+        public static void SetLinearElemTBPoints(Document doc)
         {
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))

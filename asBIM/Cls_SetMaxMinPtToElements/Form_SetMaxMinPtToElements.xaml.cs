@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using asBIM.ViewModel;
 using Autodesk.Revit.Creation;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
@@ -39,11 +40,11 @@ namespace asBIM
             }
         }
 
-        public Form_SetMaxMinPtToElements()
+        public Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm)
         {
             InitializeComponent();
         }
-
+        
         public void Bt_Elem_Click(object sender, RoutedEventArgs e)
         {
             // Метод SetElementsTBPoints
@@ -63,7 +64,7 @@ namespace asBIM
         private void Bt_Info_Click(object sender, RoutedEventArgs e)
         {
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
-            info.ShowDialog();
+            info.Show();
             //DialogResult = false;
         }
 

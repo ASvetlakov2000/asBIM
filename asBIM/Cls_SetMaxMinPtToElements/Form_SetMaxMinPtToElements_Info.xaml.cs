@@ -33,8 +33,8 @@ namespace asBIM
 
         public void Bt_OK_Click(object sender, RoutedEventArgs e)
         { 
-           Form_SetMaxMinPtToElements frm = new Form_SetMaxMinPtToElements();
-           frm.InitializeComponent();
+           //Form_SetMaxMinPtToElements frm = new Form_SetMaxMinPtToElements(vm);
+           //frm.InitializeComponent();
            Close();
         }
     }

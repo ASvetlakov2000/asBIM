@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/RelayCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/ViewModelEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +48,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/c3/7ddc1225/Curve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/e8/c09d23bc/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af8acf00cf074a9d8c2f2190d6bd1428532bc0/5f/450ba3b4/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/08/9366c6c0/ExternalCommandData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/64/a829ebb7/UIApplication.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/95cd8cf2ccd2bb650b63829170ed7bc1282533b0e83fa5cacd7bc0626dc6/RelayCommand.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -85,6 +90,7 @@
       <workItem from="1734980310087" duration="8443000" />
       <workItem from="1735026664660" duration="12932000" />
       <workItem from="1735212470760" duration="13126000" />
+      <workItem from="1735378844356" duration="5169000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -102,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735038848011</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов.">
+      <option name="closed" value="true" />
+      <created>1735318256539</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735318256539</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов.">
+      <option name="closed" value="true" />
+      <created>1735318295715</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735318295715</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +160,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
+    <MESSAGE value="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов." />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов." />
   </component>
 </project>
