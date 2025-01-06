@@ -32,5 +32,7 @@ namespace asBIM
         {
             return "IExternalEventHandler";
         }
+        
+        // TODO: 1. НАСТРОИТЬ MVVM 
     }
 }

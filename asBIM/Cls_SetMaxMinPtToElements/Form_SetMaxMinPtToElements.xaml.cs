@@ -20,6 +20,7 @@ using MaterialDesignThemes;
 using MaterialDesignColors;
 using Notifications.Wpf;
 using Document = Autodesk.Revit.DB.Document;
+using CommunityToolkit.Mvvm.Input;
 
 namespace asBIM
 {
@@ -28,49 +29,51 @@ namespace asBIM
     /// </summary>
     public partial class Form_SetMaxMinPtToElements : Window
     {
-        public bool Tuner(bool showMessage = true)
+        // Было
+        // Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm)
+        
+        // GPT
+        // Form_SetMaxMinPtToElements(UIApplication uiApp)
+        
+        
+        public Form_SetMaxMinPtToElements()
         {
-            if (DialogResult == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm)
-        {
+            // Тест для MVVM
+            // InitializeComponent();
+            // DataContext = vm;
+            
+            // Тест для настройки окон
             InitializeComponent();
         }
         
         public void Bt_Elem_Click(object sender, RoutedEventArgs e)
         {
-            // Метод SetElementsTBPoints
-            Code_SetMaxMinPtToElements code = new Code_SetMaxMinPtToElements();
-            DialogResult = true;
-            Close();
-        }
-        public void Bt_Linear_Click(object sender, RoutedEventArgs e)
-        {
-            // Метод SetElementsTBPoints_Null
-            Tuner(false);
-            //DialogResult = false;
-            Close();
+            // Тест для MVVM
+            // SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
+            // Close();
         }
         
-
-        private void Bt_Info_Click(object sender, RoutedEventArgs e)
+        public void Bt_Linear_Click(object sender, RoutedEventArgs e)
         {
+            // Тест для MVVM
+            // SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
+            // Close();
+        }
+        
+        public void Bt_Info_Click(object sender, RoutedEventArgs e)
+        {
+            // Тест для MVVM
+            // Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
+            // info.Show();
+            
+            // Тест для настройки окон
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
             info.Show();
-            //DialogResult = false;
         }
 
-        private void Bt_ОК_Click(object sender, RoutedEventArgs e)
+        public void Bt_ОК_Click(object sender, RoutedEventArgs e)
         {
-            //DialogResult = false;
+            // Тест для настройки окон
             Close();
         }
     }

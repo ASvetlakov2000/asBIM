@@ -16,6 +16,7 @@ using System.Xml.Linq;
 using System.Windows;
 using asBIM.ViewModel;
 using Notifications.Wpf;
+using CommunityToolkit.Mvvm.Input;
 
 
 namespace asBIM
@@ -34,9 +35,20 @@ namespace asBIM
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
             // Вызов UI
-            var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
-            var view = new Form_SetMaxMinPtToElements(vm);
-            view.Show();
+            // var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
+            // в view передается null из-за проблем в XAML
+            // var view = new Form_SetMaxMinPtToElements(vm);
+            // view.Show();
+            
+            // Тест для настройки окон
+            // Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
+            // form.Show();
+            
+            // Тест для настройки команд
+            SetElementsTBPoints(doc);
+            
+            // Тест для настройки команд
+            SetLinearElemTBPoints(doc);
 
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
@@ -44,8 +56,8 @@ namespace asBIM
 
 
         // Метод SetElementsTBPoints
-        // TODO: 5. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
-        public static void SetElementsTBPoints(Document doc)
+        // TODO: 2. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
+        public void SetElementsTBPoints(Document doc)
         {
             // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
@@ -82,8 +94,8 @@ namespace asBIM
                             double elemTopPtElevFromLevel = Math.Abs(closestLevelForTop.Elevation - elementTopPointElevationSm);
                             // Конвертация из футов в мм
                             double elemTopPtElevFromLevelSm = UnitUtils.ConvertFromInternalUnits(elemTopPtElevFromLevel, UnitTypeId.Millimeters);
-                            // Округление topVal до 2 знаков после запятой
-                            double elemTopPtElevFromLevelSmRound = Math.Round(elemTopPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
+                            // Округление topVal до 0 знаков после запятой
+                            double elemTopPtElevFromLevelSmRound = Math.Round(elemTopPtElevFromLevelSm, 0, MidpointRounding.AwayFromZero);
                             
                             // Запись Имени Нижнего этажа.
                             topPointParam.Set(closestLevelForTop != null ? elemTopPtElevFromLevelSmRound  + " от " + closestLevelForTop.Name.Split('_').Last() : "Не определено");
@@ -100,8 +112,8 @@ namespace asBIM
                             double elemBotPtElevFromLevel = Math.Abs(closestLevelForBot.Elevation - elementBottomPointElevationSm);
                             // Конвертация из футов в мм
                             double elemBotPtElevFromLevelSm = UnitUtils.ConvertFromInternalUnits(elemBotPtElevFromLevel, UnitTypeId.Millimeters);
-                            // Округление botVal до 2 знаков после запятой
-                            double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 2, MidpointRounding.AwayFromZero);
+                            // Округление botVal до 0 знаков после запятой
+                            double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 0, MidpointRounding.AwayFromZero);
                             
                             // Запись Имени Нижнего этажа.
                             bottomPointParam.Set(closestLevelForBot != null ? elemBotPtElevFromLevelSmRound  + " от " + closestLevelForBot.Name.Split('_').Last() : "Не определено");
@@ -164,7 +176,7 @@ namespace asBIM
         
         // Метод SetLinearElemTBPoints - записывает в параметры Отметка в Начале и Отметка в Конце
         // отметки для линейных обьектов.
-        public static void SetLinearElemTBPoints(Document doc)
+        public void SetLinearElemTBPoints(Document doc)
         {
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
@@ -196,8 +208,8 @@ namespace asBIM
                             double linearElemStartPtElevFromLev = Math.Abs(closestLevelForTop.Elevation - linearElemStartPtElev);
                             // Конвертация из футов в мм
                             double linearElemStartPtElevFromLevSm = UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev, UnitTypeId.Millimeters);
-                            // Округление topVal до 2 знаков после запятой
-                            double linearElemStartPtElevFromLevSmRound = Math.Round(linearElemStartPtElevFromLevSm, 2, MidpointRounding.AwayFromZero);
+                            // Округление topVal до 0 знаков после запятой
+                            double linearElemStartPtElevFromLevSmRound = Math.Round(linearElemStartPtElevFromLevSm, 0, MidpointRounding.AwayFromZero);
                             
                             // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                             startPointParam.Set(closestLevelForTop != null ? linearElemStartPtElevFromLevSmRound  + " от " + closestLevelForTop.Name.Split('_').Last() : "Не определено");
@@ -211,8 +223,8 @@ namespace asBIM
                             double linearElemEndPtElevFromLev = Math.Abs(closestLevelForBottom.Elevation - linearElemEndPtElev);
                             // Конвертация из футов в мм
                             double linearElemEndPtElevFromLevSm = UnitUtils.ConvertFromInternalUnits(linearElemEndPtElevFromLev, UnitTypeId.Millimeters);
-                            // Округление topVal до 2 знаков после запятой
-                            double linearElemEndPtElevFromLevSmRound = Math.Round(linearElemEndPtElevFromLevSm, 2, MidpointRounding.AwayFromZero);
+                            // Округление topVal до 0 знаков после запятой
+                            double linearElemEndPtElevFromLevSmRound = Math.Round(linearElemEndPtElevFromLevSm, 0, MidpointRounding.AwayFromZero);
                             
                             // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                             endtPointParam.Set(closestLevelForBottom != null ? linearElemEndPtElevFromLevSmRound  + " от " + closestLevelForBottom.Name.Split('_').Last() : "Не определено");

@@ -68,67 +68,74 @@ namespace asBIM
             // Передача списку allElementsInDoc всех элементов из документа. 
             // Только экземпляры (не типы). Только элементы.
             allElementsInDoc = collectorMain.WhereElementIsNotElementType().ToElements();
-            // Создание списка "АР" с группами
+            
+            // Создание списка "Element" с группами
             List<BuiltInCategory> group_Element_Cat = new List<BuiltInCategory>()
                 {
                     // Перечисление всех категорий для АР
-                    BuiltInCategory.OST_Walls, //Стены
-                    BuiltInCategory.OST_Floors, //Полы
-                    BuiltInCategory.OST_Ceilings, //Потолки
-                    BuiltInCategory.OST_Columns, //Колонны
-                    BuiltInCategory.OST_StructuralColumns, //Конструктивные колонны
-                    BuiltInCategory.OST_Roofs, //Крыши
-                    BuiltInCategory.OST_Doors, //Двери
-                    BuiltInCategory.OST_Windows, //Окна
-                    BuiltInCategory.OST_Stairs, //Лестницы
-                    BuiltInCategory.OST_StairsRailing, //Ограждения лестниц
-                    BuiltInCategory.OST_Ramps, //Пандусы
-                    
-                    BuiltInCategory.OST_Girder,
-                    BuiltInCategory.OST_StructuralFraming,
-                    //BuiltInCategory.OST_Rebar, // Арматура
-                    
-                    // TODO: 7. Как проигнорировать некоторые категории?
+                    BuiltInCategory.OST_Walls, // Стены
+                    BuiltInCategory.OST_Floors, // Полы
+                    BuiltInCategory.OST_Ceilings, // Потолки
+                    BuiltInCategory.OST_Columns, // Колонны
+                    BuiltInCategory.OST_StructuralColumns, // Конструктивные колонны
+                    BuiltInCategory.OST_Roofs, // Крыши
+                    BuiltInCategory.OST_Doors, // Двери
+                    BuiltInCategory.OST_Windows, // Окна
+                    BuiltInCategory.OST_Stairs, // Лестницы
+                    BuiltInCategory.OST_StairsRailing, // Ограждения лестниц
+                    BuiltInCategory.OST_Ramps, // Пандусы
+                    BuiltInCategory.OST_Furniture, // Мебель
+                    BuiltInCategory.OST_CurtainWallMullions, // Импосты витражей
+                    BuiltInCategory.OST_CurtainWallPanels, // Панели витражей
+                    BuiltInCategory.OST_GenericModel, // Общие модели
+                    BuiltInCategory.OST_MechanicalEquipment, // Механическое оборудование
+                    BuiltInCategory.OST_PipeFitting, // Фитинги труб
+                    BuiltInCategory.OST_DuctFitting, // Фитинги воздуховодов
+                    BuiltInCategory.OST_PlumbingFixtures, // Сантехнические приборы
+                    BuiltInCategory.OST_LightingFixtures, // Светильники
+                    BuiltInCategory.OST_ElectricalEquipment, // Электрооборудование
+                    BuiltInCategory.OST_ElectricalFixtures, // Электроприборы
+                    BuiltInCategory.OST_Casework, // Корпусная мебель
+                    BuiltInCategory.OST_CommunicationDevices, // Устройства связи
+                    BuiltInCategory.OST_FireAlarmDevices, // Устройства пожарной сигнализации
+                    BuiltInCategory.OST_DataDevices, // Устройства передачи данных
+                    BuiltInCategory.OST_NurseCallDevices, // Устройства вызова медсестры
+                    BuiltInCategory.OST_SecurityDevices, // Устройства безопасности
+                    BuiltInCategory.OST_FurnitureSystems, // Системы мебели
+                    BuiltInCategory.OST_SpecialityEquipment, // Специальное оборудование
+                    BuiltInCategory.OST_LightingDevices, // Осветительные устройства
+                    BuiltInCategory.OST_Parking, // Парковочные места
+                    BuiltInCategory.OST_Railings, // Ограждения
+                    BuiltInCategory.OST_Topography, // Топография
+                    BuiltInCategory.OST_Planting, // Растения
+                    BuiltInCategory.OST_Entourage, // Окружение
+                    BuiltInCategory.OST_StructuralFraming, // Каркасы
+                    BuiltInCategory.OST_StructuralTruss, // Фермы
                     BuiltInCategory.OST_StructuralFoundation, // Конструктивные фундаменты
-
-                    BuiltInCategory.OST_CurtainWallPanels, //Панели навесных стен
-                    BuiltInCategory.OST_CurtaSystem, //Системы навесных стен
-                    BuiltInCategory.OST_CurtainWallMullions, //Импосты навесных стен
-                
-                    BuiltInCategory.OST_GenericModel, //Обобщённые модели
-                    BuiltInCategory.OST_Furniture, //Мебель
-                    BuiltInCategory.OST_FurnitureSystems, //Мебельные системы
-               
-                    BuiltInCategory.OST_SpecialityEquipment, //Специальное оборудование
-                
-                    BuiltInCategory.OST_Parts, //Части
+                    BuiltInCategory.OST_Cameras, // Камеры
+                    BuiltInCategory.OST_Parts, // Части
+                    BuiltInCategory.OST_StructuralFraming, // Каркас несущий
+                    
                 };
 
-            // Создание списка "КР" с группами
+            // Создание списка "Linear" с группами
             List<BuiltInCategory> group_Linear_Cat = new List<BuiltInCategory>()
             {
                 
                 BuiltInCategory.OST_PipeCurves, // Трубы
+                BuiltInCategory.OST_DuctCurves, // Воздуховоды
+                BuiltInCategory.OST_CableTray, // Кабельные лотки
+                BuiltInCategory.OST_Conduit, // Короба
+                BuiltInCategory.OST_PipeInsulations, // Трубы - Изоляция
+                BuiltInCategory.OST_DuctInsulations // Воздуховоды - Изоляция
 
             };
-
-            // TODO: 2. Продолжить списки.
-
-            // TODO: 1. Продолжить списки с категориями для:
-            // TODO: 1.1 ЭОМ
-            // TODO: 1.2 ВК
-            // TODO: 1.3 ОВ1
-            // TODO: 1.4 ОВ2
-            // TODO: 1.5 СС
-            // TODO: 1.6 АИ
-            // TODO: 1.7 ПТ
 
             // Создание словаря с Группами Элементов из Документа
             Dictionary<string, List<Element>> groupedElementsDict = new Dictionary<string, List<Element>>
             {
                 ["Element"] = new List<Element>(),
                 ["Linear"] = new List<Element>(),
-                // TODO: 2.1. Продолжить словарь 
             };
 
             // Группировка элементов с сортировкой по категориям. 
@@ -222,7 +229,6 @@ namespace asBIM
 
         
         
-        // TODO: 6. Обработать перевертышей
         /// Метод XYZ GetLinearPoint для получения Отметок в Начале и Отметок в Конце 
         public static XYZ GetLinearPoint(MEPCurve curve, bool? end = null)
         {
