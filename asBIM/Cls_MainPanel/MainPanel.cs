@@ -41,29 +41,17 @@ namespace asBIM
                 b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
             });
 
-            // Кнопка № ???
-            //Создание панели "Запись"
-            //var panel2 = tab.Panel("Запись");
-            ////Создание кнопки "Запись"
-            //panel2.CreateButton<Code_SetParamertToVisibleElementInActiveView>("Запись параметров",
-            //"Параметров \nв элементы", b =>
-            //{
-            //    b.SetLargeImage(Resources.ЗаписьПараметра_32);
-            //    b.SetSmallImage(Resources.ЗаписьПараметра_16);
-            //    b.SetLongDescription("Запись параметров для элементов на активном виде");
-            //});
-
-            // Кнопка в Разработке
-            ////Создание панели "Создать"
-            //var panel3 = tab.Panel("Создать");
-            ////Создание кнопки "Создать"
-            //panel3.CreateButton<CreateShaded3DViev>("Создание 3D вида",
-            //"Презентационный \n3D вида", b =>
-            //{
-            //    b.SetLargeImage(Resources.ОбьемныйВидГрафика_32);
-            //    b.SetSmallImage(Resources.ОбьемныйВидГрафика_16);
-            //    b.SetLongDescription("Создание презентационного 3D вида с тенями и сглаженными линиями");
-            //});
+             
+            //Создание панели "Создать"
+            var panel3 = tab.Panel("Разместить");
+            //Создание кнопки "Создать"
+            panel3.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
+            "Разместить группы \nв пространствах", b =>
+            {
+                b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
+                b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                b.SetLongDescription("Размещение групп в пространствах ТХ");
+            });
 
             return Result.Succeeded;
         }

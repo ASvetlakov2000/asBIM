@@ -139,18 +139,6 @@
     <None Include="Resources\Инфо_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ЗаписьПараметра_16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ЗаписьПараметра_32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ОбьемныйВидГрафика_16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ОбьемныйВидГрафика_32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml" />
     <Page Include="Cls_SetParamertToVisibleElementInActiveView\Form_SetParamertToVisibleElementInActiveView.xaml">
