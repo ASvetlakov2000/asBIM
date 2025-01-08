@@ -133,10 +133,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\Инфо_16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Инфо_32.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
@@ -153,16 +149,16 @@
     <None Include="Resources\PlaceGroupsInSpacesTX_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TB_Points_16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TB_Points_32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Info_16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TB_Points_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TB_Points_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
