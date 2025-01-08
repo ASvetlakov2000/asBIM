@@ -147,16 +147,22 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TB_Points_32.png" />
+    <None Include="Resources\PlaceGroupsInSpacesTX_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlaceGroupsInSpacesTX_16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TB_Points_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlaceGroupsInSpacesTX_32.png" />
+    <None Include="Resources\TB_Points_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlaceGroupsInSpacesTX_16.png" />
+    <None Include="Resources\Info_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />

@@ -63,6 +63,26 @@ namespace asBIM.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info_16 {
+            get {
+                object obj = ResourceManager.GetObject("Info_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Info_32 {
+            get {
+                object obj = ResourceManager.GetObject("Info_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlaceGroupsInSpacesTX_16 {
             get {
                 object obj = ResourceManager.GetObject("PlaceGroupsInSpacesTX_16", resourceCulture);
@@ -116,26 +136,6 @@ namespace asBIM.Properties {
         internal static System.Drawing.Bitmap ЗаписьПараметра_32 {
             get {
                 object obj = ResourceManager.GetObject("ЗаписьПараметра_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Инфо_16 {
-            get {
-                object obj = ResourceManager.GetObject("Инфо_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Инфо_32 {
-            get {
-                object obj = ResourceManager.GetObject("Инфо_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

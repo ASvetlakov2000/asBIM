@@ -26,8 +26,8 @@ namespace asBIM
             panel1.CreateButton<Info>("Функционал",
           "О плагине\nasBIM", b =>
           {
-              b.SetLargeImage(Resources.Инфо_32);
-              b.SetSmallImage(Resources.Инфо_16);
+              b.SetLargeImage(Resources.Info_32);
+              b.SetSmallImage(Resources.Info_16);
               b.SetLongDescription("Описание функционала плагина asBIM");
           });
 
