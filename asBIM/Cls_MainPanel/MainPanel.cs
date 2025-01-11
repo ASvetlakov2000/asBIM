@@ -21,15 +21,15 @@ namespace asBIM
 
             // Кнопка №1chfh
             //Создание панели "Инфо"
-            var panel1 = tab.Panel("Инфо");
-            //Создание кнопки "Инфо"
-            panel1.CreateButton<Info>("Функционал",
-          "О плагине\nasBIM", b =>
-          {
-              b.SetLargeImage(Resources.Info_32);
-              b.SetSmallImage(Resources.Info_16);
-              b.SetLongDescription("Описание функционала плагина asBIM");
-          });
+          //   var panel1 = tab.Panel("Инфо");
+          //   //Создание кнопки "Инфо"
+          //   panel1.CreateButton<Info>("Функционал",
+          // "О плагине\nasBIM", b =>
+          // {
+          //     b.SetLargeImage(Resources.);
+          //     b.SetSmallImage();
+          //     b.SetLongDescription("Описание функционала плагина asBIM");
+          // });
 
             //Кнопка №2
             //Создание панели "Запись"
@@ -46,7 +46,7 @@ namespace asBIM
             var panel3 = tab.Panel("Разместить");
             //Создание кнопки "Создать"
             panel3.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
-            "Разместить группы \nв пространствах", b =>
+            "Группы ТХ", b =>
             {
                 b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
                 b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);

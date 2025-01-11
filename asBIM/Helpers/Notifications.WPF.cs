@@ -79,5 +79,30 @@ using Notifications.Wpf.Controls;
             }, expirationTime: ts);
         }
         
+        // TODO: Сделать универсальный способ передачи текста в уведомления
+
     }
+    
+    // TODO: Сделать универсальный способ передачи текста в уведомления
+    
+    public static class NotificationManagerWPF_PlaceGroupsInSpacesTX
+    {
+        public static void SharedParamAdded(this string sharedParamAdded)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 10);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = "Общий параметр добавлен!", 
+                Message = "\n(￢‿￢ )" +
+                          "\n\nПараметр: " +
+                          "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
+                          "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
+                          "\n\nПример заполнения: 010101", 
+                Type = NotificationType.Information
+            }, expirationTime: ts);
+        }
+    }
+    
 }

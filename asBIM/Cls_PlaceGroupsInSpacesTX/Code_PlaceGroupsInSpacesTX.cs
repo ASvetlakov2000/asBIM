@@ -18,6 +18,7 @@ using System.Windows;
 using asBIM.ViewModel;
 using Notifications.Wpf;
 using CommunityToolkit.Mvvm.Input;
+using Nice3point.Revit.Extensions;
 
 
 namespace asBIM
@@ -27,6 +28,7 @@ namespace asBIM
 
     public class Code_PlaceGroupsInSpacesTX : IExternalCommand
     {
+        Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiapp = commandData.Application;
@@ -35,16 +37,42 @@ namespace asBIM
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
+            // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
+
+            List<Category> categories = new List<Category>
+            {
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces),
+            };
+
+            // TODO: Вызывается каждый раз при выполнении. Исправить
+            SharedParameterHelper.AddSharedParameterFromFOP(
+                doc,
+                // путь к ФОП
+                OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра","txt"),
+                // Имя создаваемого параметра
+                "PRO_ID группы в пространстве", 
+                // Куда относится параметр
+                BuiltInParameterGroup.PG_IDENTITY_DATA, 
+                // Параметр для экземпляра
+                true, 
+                // ссылка на список с категориями
+                categories);
             
-            // GetSpacesFromDoc(doc);
-            // GetTxGroupsFromDoc(doc);
-            
+            NotificationManagerWPF_PlaceGroupsInSpacesTX.SharedParamAdded(sharedParamAdded: message);
+
+            // Установка значения "Изменяется по экз групп" для общего параметра "PRO_ID группы в пространстве"
+            // TODO: Не работает
+            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamGuid, true);
+
+            // Размещение групп по одноименным пространствам
             PlacementOfGroupsInSpaces(doc, GetSpacesFromDoc(doc), GetTxGroupsFromDoc(doc));
             
 
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
         }
+            
+        
 
 
         /// <summary>
@@ -163,12 +191,15 @@ namespace asBIM
         /// </summary>
         /// <param name="elem">Элемент</param>
         /// <returns>Координаты центра</returns>
-        public XYZ GetSpaceCenter(Element elem)
+        public XYZ GetSpaceBottomCenter(Element elem)
         {
             BoundingBoxXYZ bounding = elem.get_BoundingBox(null);
             if (bounding != null)
             {
-                return (bounding.Max + bounding.Min) * 0.5;
+                XYZ center = (bounding.Max + bounding.Min) * 0.5;
+                LocationPoint loc = elem.Location as LocationPoint;
+                XYZ spaceCenter  = new XYZ(center.X, center.Y, loc.Point.Z);
+                return spaceCenter;
             }
             return null;
         }
@@ -181,18 +212,22 @@ namespace asBIM
         /// </summary>
         public void PlacementOfGroupsInSpaces(Document doc, List<SpatialElement> spacesList, List<Group> groupsList)
         {
+            // Проверка на отсутствие Пространств
             if (!spacesList.Any())
             {
                 TaskDialog.Show("Ошибка!", "В проекте отсутствуют пространства.");
                 return;
             }
+            
+            // Проверка на отсутствие Групп
             if (!groupsList.Any())
             {
                 TaskDialog.Show("Ошибка!", "В проекте отсутствуют группы.");
                 return;
             }
-
+            
             StringBuilder sb = new StringBuilder();
+            StringBuilder sbSpacesWithoutName = new StringBuilder(); // Для хранения ID пространств без имени
 
             using (Transaction tr = new Transaction(doc, "Расстановка групп в пространства"))
             {
@@ -201,56 +236,97 @@ namespace asBIM
                 {
                     // Получаем имя пространства
                     string spaceName = space.Name.Split(' ').FirstOrDefault();
+                    string spaceID = space.Id.ToString();
 
-                    // TODO: 1. Отредактировать проверку на пустое пространство
-                    // Проверяем, что имя пространства не пустое
-                    if (string.IsNullOrEmpty(spaceName)) 
+                    // GUID общего параметра из ФОП [PRO_ТХ_Группа в пространстве]
+                    Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
+                    
+                    Parameter placedGropupsChecker =
+                        space.get_Parameter(shParamGuid);
+                    
+                    if (placedGropupsChecker != null && !placedGropupsChecker.HasValue)
                     {
-                        sb.AppendLine("Пространство с отсутствующим или некорректным именем пропущено.");
-                        
-                        // Мое. Продолжить
-                        sb.AppendLine(space.Number.ToString());
-                        TaskDialog.Show("Ошибка", "Пространство №" + sb.ToString() + "без имени.");
-                        // Мое. Продолжить
-                        
-                        continue; // Переходим к следующему пространству
-                    }
+                        // TODO: 1. Отредактировать проверку на пустое пространство
+                        // TODO: 2. Добавить проверку на пустое имя пространства через ID
 
-                    // Сопоставляем пространство с группами
-                    var matchingGroups = groupsList
-                        .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
-                                        group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
-                        .ToList();
-
-                    if (matchingGroups.Any())
-                    {
-                        foreach (var group in matchingGroups)
+                        // TODO: // НЕ РАБОТАЕТ
+                        // Проверяем, что имя пространства не пустое
+                        if (string.IsNullOrWhiteSpace(spaceName))
                         {
-                            XYZ placementPoint = GetSpaceCenter(space);
-                            if (placementPoint != null)
+                            // Добавляем ID пространства в список
+                            sbSpacesWithoutName.AppendLine($"ID: {spaceID}");
+                            continue; // Переходим к следующему пространству
+                        }
+                        // НЕ РАБОТАЕТ
+
+                        // Сопоставляем пространство с группами
+                        var matchingGroups = groupsList
+                            .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
+                                            group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+
+                        if (matchingGroups.Any())
+                        {
+                            foreach (var group in matchingGroups)
                             {
-                                try
+                                XYZ placementPoint = GetSpaceBottomCenter(space);
+                                // string groupId = group.GroupId.ToString();
+                                if (placementPoint != null)
                                 {
-                                    doc.Create.PlaceGroup(placementPoint, group.GroupType);
-                                    sb.AppendLine($"Группа '{group.Name}' размещена в пространстве '{spaceName}'.");
-                                }
-                                catch (Exception ex)
-                                {
-                                    sb.AppendLine($"Ошибка при размещении группы '{group.Name}': {ex.Message}");
+                                    try
+                                    {
+                                        // Размещение групп в одноименных пространствах 
+                                        Group placedGroup = doc.Create.PlaceGroup(placementPoint, group.GroupType);
+                                        // Получение ID размещенной группы
+                                        ElementId placedGroupId = placedGroup.Id;
+                                        
+                                        Parameter spaceParameterID = space.get_Parameter(shParamGuid);
+                                        if (spaceParameterID != null)
+                                        {
+                                            spaceParameterID.Set(placedGroupId.ToString());
+                                        }
+                                        sb.AppendLine($"Группа с ID [{placedGroupId}] и Именем [{group.Name}] \nразмещена в пространстве [{spaceName}].");
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        sb.AppendLine($"Ошибка при размещении исходной группы с ID [{group.Id}] и Именем [{group.Name}]: {ex.Message}");
+                                    }
                                 }
                             }
                         }
+                        else
+                        {
+                            sb.AppendLine("------------------------------------------------------");
+                            sb.AppendLine(
+                                $"Пространство с Именем [{spaceName}] и ID [{spaceID}] \nне совпадает ни с одной группой.");
+                            sb.AppendLine("------------------------------------------------------");
+                        }
                     }
-                    else
+                    if (placedGropupsChecker != null && placedGropupsChecker.HasValue)
                     {
-                        sb.AppendLine($"Пространство '{spaceName}' не совпадает ни с одной группой.");
+                    continue;
                     }
                 }
+                
                 tr.Commit();
             }
-
+            
+            // TODO: // НЕ РАБОТАЕТ
+            // Проверяем, есть ли пространства без имени
+            if (sbSpacesWithoutName.Length > 0)
+            {
+                sb.AppendLine("------------------------------------------------------");
+                sb.AppendLine("Следующие пространства не имеют имени:");
+                sb.AppendLine(sbSpacesWithoutName.ToString());
+                sb.AppendLine("------------------------------------------------------");
+            }
+            // НЕ РАБОТАЕТ
+            
+            
             TaskDialog.Show("Результаты сопоставления", sb.ToString());
         }
+        
+        
         
     }
 } 

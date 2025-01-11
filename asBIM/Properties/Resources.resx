@@ -118,12 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Info_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Info_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PlaceGroupsInSpacesTX_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlaceGroupsInSpacesTX_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,17 +129,5 @@
   </data>
   <data name="TB_Points_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TB_Points_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ЗаписьПараметра_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ЗаписьПараметра_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ЗаписьПараметра_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ЗаписьПараметра_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ОбьемныйВидГрафика_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ОбьемныйВидГрафика_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ОбьемныйВидГрафика_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ОбьемныйВидГрафика_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

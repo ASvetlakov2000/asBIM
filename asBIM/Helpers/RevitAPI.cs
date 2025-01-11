@@ -4,11 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
 using Autodesk.Revit.DB.Plumbing;
+using Autodesk.Revit.ApplicationServices;
+using System.Windows.Forms;
+using Application = Autodesk.Revit.ApplicationServices.Application;
+using Binding = Autodesk.Revit.DB.Binding;
+
 
 namespace asBIM
 {
@@ -28,10 +34,12 @@ namespace asBIM
         {
             return e.LookupParameter(name);
         }
+
         public static Parameter GetParameter(this Element e, BuiltInParameter bip)
         {
             return e.get_Parameter(bip);
         }
+
         public static Parameter GetParameter(this Element e, Guid guid)
         {
             return e.get_Parameter(guid);
@@ -68,60 +76,60 @@ namespace asBIM
             // Передача списку allElementsInDoc всех элементов из документа. 
             // Только экземпляры (не типы). Только элементы.
             allElementsInDoc = collectorMain.WhereElementIsNotElementType().ToElements();
-            
+
             // Создание списка "Element" с группами
             List<BuiltInCategory> group_Element_Cat = new List<BuiltInCategory>()
-                {
-                    // Перечисление всех категорий для АР
-                    BuiltInCategory.OST_Walls, // Стены
-                    BuiltInCategory.OST_Floors, // Полы
-                    BuiltInCategory.OST_Ceilings, // Потолки
-                    BuiltInCategory.OST_Columns, // Колонны
-                    BuiltInCategory.OST_StructuralColumns, // Конструктивные колонны
-                    BuiltInCategory.OST_Roofs, // Крыши
-                    BuiltInCategory.OST_Doors, // Двери
-                    BuiltInCategory.OST_Windows, // Окна
-                    BuiltInCategory.OST_Stairs, // Лестницы
-                    BuiltInCategory.OST_StairsRailing, // Ограждения лестниц
-                    BuiltInCategory.OST_Ramps, // Пандусы
-                    BuiltInCategory.OST_Furniture, // Мебель
-                    BuiltInCategory.OST_CurtainWallMullions, // Импосты витражей
-                    BuiltInCategory.OST_CurtainWallPanels, // Панели витражей
-                    BuiltInCategory.OST_GenericModel, // Общие модели
-                    BuiltInCategory.OST_MechanicalEquipment, // Механическое оборудование
-                    BuiltInCategory.OST_PipeFitting, // Фитинги труб
-                    BuiltInCategory.OST_DuctFitting, // Фитинги воздуховодов
-                    BuiltInCategory.OST_PlumbingFixtures, // Сантехнические приборы
-                    BuiltInCategory.OST_LightingFixtures, // Светильники
-                    BuiltInCategory.OST_ElectricalEquipment, // Электрооборудование
-                    BuiltInCategory.OST_ElectricalFixtures, // Электроприборы
-                    BuiltInCategory.OST_Casework, // Корпусная мебель
-                    BuiltInCategory.OST_CommunicationDevices, // Устройства связи
-                    BuiltInCategory.OST_FireAlarmDevices, // Устройства пожарной сигнализации
-                    BuiltInCategory.OST_DataDevices, // Устройства передачи данных
-                    BuiltInCategory.OST_NurseCallDevices, // Устройства вызова медсестры
-                    BuiltInCategory.OST_SecurityDevices, // Устройства безопасности
-                    BuiltInCategory.OST_FurnitureSystems, // Системы мебели
-                    BuiltInCategory.OST_SpecialityEquipment, // Специальное оборудование
-                    BuiltInCategory.OST_LightingDevices, // Осветительные устройства
-                    BuiltInCategory.OST_Parking, // Парковочные места
-                    BuiltInCategory.OST_Railings, // Ограждения
-                    BuiltInCategory.OST_Topography, // Топография
-                    BuiltInCategory.OST_Planting, // Растения
-                    BuiltInCategory.OST_Entourage, // Окружение
-                    BuiltInCategory.OST_StructuralFraming, // Каркасы
-                    BuiltInCategory.OST_StructuralTruss, // Фермы
-                    BuiltInCategory.OST_StructuralFoundation, // Конструктивные фундаменты
-                    BuiltInCategory.OST_Cameras, // Камеры
-                    BuiltInCategory.OST_Parts, // Части
-                    BuiltInCategory.OST_StructuralFraming, // Каркас несущий
-                    
-                };
+            {
+                // Перечисление всех категорий для АР
+                BuiltInCategory.OST_Walls, // Стены
+                BuiltInCategory.OST_Floors, // Полы
+                BuiltInCategory.OST_Ceilings, // Потолки
+                BuiltInCategory.OST_Columns, // Колонны
+                BuiltInCategory.OST_StructuralColumns, // Конструктивные колонны
+                BuiltInCategory.OST_Roofs, // Крыши
+                BuiltInCategory.OST_Doors, // Двери
+                BuiltInCategory.OST_Windows, // Окна
+                BuiltInCategory.OST_Stairs, // Лестницы
+                BuiltInCategory.OST_StairsRailing, // Ограждения лестниц
+                BuiltInCategory.OST_Ramps, // Пандусы
+                BuiltInCategory.OST_Furniture, // Мебель
+                BuiltInCategory.OST_CurtainWallMullions, // Импосты витражей
+                BuiltInCategory.OST_CurtainWallPanels, // Панели витражей
+                BuiltInCategory.OST_GenericModel, // Общие модели
+                BuiltInCategory.OST_MechanicalEquipment, // Механическое оборудование
+                BuiltInCategory.OST_PipeFitting, // Фитинги труб
+                BuiltInCategory.OST_DuctFitting, // Фитинги воздуховодов
+                BuiltInCategory.OST_PlumbingFixtures, // Сантехнические приборы
+                BuiltInCategory.OST_LightingFixtures, // Светильники
+                BuiltInCategory.OST_ElectricalEquipment, // Электрооборудование
+                BuiltInCategory.OST_ElectricalFixtures, // Электроприборы
+                BuiltInCategory.OST_Casework, // Корпусная мебель
+                BuiltInCategory.OST_CommunicationDevices, // Устройства связи
+                BuiltInCategory.OST_FireAlarmDevices, // Устройства пожарной сигнализации
+                BuiltInCategory.OST_DataDevices, // Устройства передачи данных
+                BuiltInCategory.OST_NurseCallDevices, // Устройства вызова медсестры
+                BuiltInCategory.OST_SecurityDevices, // Устройства безопасности
+                BuiltInCategory.OST_FurnitureSystems, // Системы мебели
+                BuiltInCategory.OST_SpecialityEquipment, // Специальное оборудование
+                BuiltInCategory.OST_LightingDevices, // Осветительные устройства
+                BuiltInCategory.OST_Parking, // Парковочные места
+                BuiltInCategory.OST_Railings, // Ограждения
+                BuiltInCategory.OST_Topography, // Топография
+                BuiltInCategory.OST_Planting, // Растения
+                BuiltInCategory.OST_Entourage, // Окружение
+                BuiltInCategory.OST_StructuralFraming, // Каркасы
+                BuiltInCategory.OST_StructuralTruss, // Фермы
+                BuiltInCategory.OST_StructuralFoundation, // Конструктивные фундаменты
+                BuiltInCategory.OST_Cameras, // Камеры
+                BuiltInCategory.OST_Parts, // Части
+                BuiltInCategory.OST_StructuralFraming, // Каркас несущий
+
+            };
 
             // Создание списка "Linear" с группами
             List<BuiltInCategory> group_Linear_Cat = new List<BuiltInCategory>()
             {
-                
+
                 BuiltInCategory.OST_PipeCurves, // Трубы
                 BuiltInCategory.OST_DuctCurves, // Воздуховоды
                 BuiltInCategory.OST_CableTray, // Кабельные лотки
@@ -164,11 +172,15 @@ namespace asBIM
                 }
 
             }
+
             // 
             return groupedElementsDict;
         }
     }
 
+    /// <summary>
+    /// Класс для определения отметок верха и низа элемента по Bounding Box
+    /// </summary>
     internal static class ElementTopBottomPt
     {
         /// <summary>
@@ -204,7 +216,7 @@ namespace asBIM
             // Возвращает XYZ elemBottomPointFeet_XYZ. Значения XYZ отметки Низа в футах
             return elemBottomPointFeet_XYZ;
         }
-        
+
         // Было
         // public static XYZ GetLinearStartPoint (Element element)
         // {
@@ -227,20 +239,20 @@ namespace asBIM
         //     return startPoint;
         // }
 
-        
-        
+
+
         /// Метод XYZ GetLinearPoint для получения Отметок в Начале и Отметок в Конце 
         public static XYZ GetLinearPoint(MEPCurve curve, bool? end = null)
         {
             var location = curve.Location;
             var locationCurve = (location as LocationCurve)?.Curve;
-            return locationCurve?.GetEndPoint((bool)end ? 1: 0);
+            return locationCurve?.GetEndPoint((bool)end ? 1 : 0);
         }
 
         // Способ 2
         public static XYZ GetPoint(Element e, bool? max = null)
         {
-            if(e is null) return new XYZ();
+            if (e is null) return new XYZ();
             var location = e.Location;
             switch (location)
             {
@@ -249,9 +261,10 @@ namespace asBIM
                     var bottom = locationCurve.Curve.GetEndPoint(1);
                     if (max is bool tr)
                     {
-                        if(!tr)
+                        if (!tr)
                             return top.Z > bottom.Z ? top : bottom;
                     }
+
                     return top.Z < bottom.Z ? top : bottom;
                 case LocationPoint locationPoint:
                     return locationPoint.Point;
@@ -263,7 +276,9 @@ namespace asBIM
 
     }
 
-    // Класс для определения уровня элемента. Для верхнего уровня и нижнего.
+    /// <summary>
+    /// Класс для определения принадлежности уровня элемента
+    /// </summary>
     internal static class LevelInfo
     {
         /// <summary>
@@ -294,10 +309,11 @@ namespace asBIM
                     levelInformation.Append("---------------------------------------------");
                 }
             }
+
             TaskDialog.Show("Информация по уровням", levelInformation.ToString());
         }
-        
-        
+
+
         /// <summary>
         /// Метод FindBottomElemLevel для определения Нижнего уровня отметки Низа элемента
         /// </summary>
@@ -305,8 +321,8 @@ namespace asBIM
         /// <param name="levels">Список с Уровнями из Документа</param>
         /// <returns></returns>
         public static Level FindBottomElemLevel(double elementBottomPointElevationSm, IEnumerable<Level> levels)
-        {	
-			// Бокс для хранения результата метода
+        {
+            // Бокс для хранения результата метода
             Level closestBottomLevel = null;
 
             foreach (var level in levels)
@@ -314,31 +330,31 @@ namespace asBIM
                 var elev = level.Elevation;
                 var upper_Level = level.FindTopLevel(levels);
                 var lower_Level = level.FindBotLevel(levels);
-                
+
                 // Если Нижняя точка меньше Верхнего уровня && Нижняя точка больше или равна Нижнему уровню,
                 // то запишется значение уровня ниже точки.
                 // Условие для точек между уровнями, но не границах
-                if (elementBottomPointElevationSm < upper_Level.Elevation && 
+                if (elementBottomPointElevationSm < upper_Level.Elevation &&
                     elementBottomPointElevationSm + 0.003 >= lower_Level.Elevation) // + 0.003 - погрешность BoundingBox
                 {
                     closestBottomLevel = lower_Level;
                 }
-                
+
                 // Если Нижняя точка ниже Самого низкого уровня, то запишется значение самого низкого уровня в проекте.
                 // Граничное условие для точек ниже самого низкого уровня
-                if (elementBottomPointElevationSm < lower_Level.Elevation && 
+                if (elementBottomPointElevationSm < lower_Level.Elevation &&
                     lower_Level.Id == level.Id)
                 {
                     closestBottomLevel = lower_Level;
                 }
-                
+
                 // Если Нижняя точка больше или равна отметки самого высокого уровня,
                 // то запишется самый высокий уровень в проекте
                 // РЕШЕНИЕ - ">=" а не ">"
-                if (elementBottomPointElevationSm + 0.003 >= upper_Level.Elevation && 
+                if (elementBottomPointElevationSm + 0.003 >= upper_Level.Elevation &&
                     upper_Level.Id == level.Id) // + 0.003 - погрешность BoundingBox
                 {
-                     closestBottomLevel = upper_Level;
+                    closestBottomLevel = upper_Level;
                 }
             }
 
@@ -365,11 +381,11 @@ namespace asBIM
                 .Where(x => x.Elevation >= level.Elevation);
             // Запись Уровня в topLevel с условием (если в перечислении уровней oLevels число уровней больше 2-ух, то - пропустить 1-й и взять первый, если нет - взять первый)
             topLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
-            
+
             return topLevel;
         }
-        
-        
+
+
         /// <summary>
         /// Метод берет первый элемент который в списке по убыванию
         /// В данном случае берет самый близкий Нижний уровень 
@@ -387,14 +403,395 @@ namespace asBIM
                 OrderByDescending(l => l.Elevation)
                 // Фильтрует только те уровни, которые находятся ниже или на той же высоте, что и level.
                 //.Where(x => x.Elevation <= level.Elevation); //
-                .Where(x => x.Elevation <= level.Elevation); // Коллекция уровней oLevels, отсортированная от самого высокого к низкому, но не выше текущего уровня.
+                .Where(x => x.Elevation <=
+                            level.Elevation); // Коллекция уровней oLevels, отсортированная от самого высокого к низкому, но не выше текущего уровня.
             // Запись Уровня в botLevel с условием (если в перечислении уровней oLevels число уровней больше 2-ух, то - пропустить 1-й и взять первый, если нет - взять первый)
             botLevel = oLevels.Count() >= 2 ? oLevels.Skip(1).FirstOrDefault() : oLevels.FirstOrDefault();
-            
+
             return botLevel;
         }
-        
-        
+
+
     }
-    
+
+
+/// <summary>
+/// Добавляет общий параметр в проект Revit.
+/// </summary>
+
+    public static class SharedParameterHelper
+    {
+        /// <summary>
+        /// Добавляет общий параметр в проект Revit с дополнительными настройками. Используется когда в ФОП нет параметра
+        /// </summary>
+        /// <param name="doc">Текущий документ Revit.</param>
+        /// <param name="parameterName">Имя общего параметра.</param>
+        /// <param name="parameterGroup">Группа общего параметра (например, Data или Structural).</param>
+        /// <param name="specTypeId">Тип спецификации параметра (например, SpecTypeId.StringText, SpecTypeId.Area).</param>
+        /// <param name="isInstance">True, если параметр экземплярный, иначе типовой.</param>
+        /// <param name="isReadOnly">True, если параметр только для чтения, иначе False.</param>
+        /// <param name="allowValuesPerGroup">True, если значения могут изменяться по экземпляру группы.</param>
+        /// <param name="categories">Список категорий, к которым нужно привязать параметр.</param>
+        public static void AddSharedParameter(
+            Document doc,
+            string parameterName,
+            BuiltInParameterGroup parameterGroup,
+            ForgeTypeId specTypeId,
+            bool isInstance,
+            // bool isReadOnly,
+            bool allowValuesPerGroup,
+            List<Category> categories)
+        {
+            // Проверка на наличие общего файла параметров
+            Application app = doc.Application;
+            DefinitionFile sharedParameterFile = app.OpenSharedParameterFile();
+
+            if (sharedParameterFile == null)
+            {
+                TaskDialog.Show("Ошибка", "Общий файл параметров не настроен. Укажите общий файл параметров в настройках Revit.");
+                return;
+            }
+
+            // Поиск или создание группы в общем файле параметров
+            DefinitionGroup group = sharedParameterFile.Groups.get_Item("Параметры для asBim")
+                ?? sharedParameterFile.Groups.Create("Параметры для asBim");
+
+            // Поиск или создание общего параметра
+            ExternalDefinition definition = group.Definitions.get_Item(parameterName) as ExternalDefinition;
+
+            if (definition == null)
+            {
+                ExternalDefinitionCreationOptions options = new ExternalDefinitionCreationOptions(parameterName, specTypeId)
+                {
+                    Description = "Общий параметр, добавленный через API. asBim",
+                    Visible = true,
+                };
+                definition = group.Definitions.Create(options) as ExternalDefinition;
+            }
+
+            // Проверка на существование параметра в проекте по имени
+            ElementId existingParamId = GetParameterElementIdByName(doc, parameterName);
+            if (existingParamId != null)
+            {
+                // РАСКОММЕНТИТЬ TaskDialog ДЛЯ ПРОВЕРКИ НА СУЩЕСТВОВАНИЕ ПАРАМЕТРА
+                TaskDialog.Show("Информация", $"Параметр [{parameterName}] уже существует в проекте.");
+                return;
+            }
+            
+            // Проверка, существует ли параметр с таким GUID в проекте
+            ElementId existingParamName = GetParameterElementId(doc, definition);
+            if (existingParamName != null)
+            {
+                TaskDialog.Show("Информация", $"Параметр [{parameterName}] уже существует в проекте.");
+                return;
+            }
+            
+            // Создание категории для привязки
+            CategorySet categorySet = new CategorySet();
+            foreach (Category category in categories)
+            {
+                categorySet.Insert(category);
+            }
+
+            // Создание привязки
+            Binding binding = isInstance ? (Binding)new InstanceBinding(categorySet) : new TypeBinding(categorySet);
+
+            using (Transaction transaction = new Transaction(doc, "Добавление общего параметра"))
+            {
+                transaction.Start();
+
+                // Добавление параметра в BindingMap
+                BindingMap bindingMap = doc.ParameterBindings;
+                if (!bindingMap.Insert(definition, binding, parameterGroup))
+                {
+                    TaskDialog.Show("Ошибка", $"Не удалось добавить общий параметр [{parameterName}].");
+                    transaction.RollBack();
+                    return;
+                }
+
+                // Получение ID параметра
+                ElementId paramElementId = GetParameterElementId(doc, definition);
+
+                if (paramElementId != null)
+                {
+                    // TODO: 4. Обновление кода для смены "Значения могут изменяться по экземпляру группы"
+                    
+                    // Настройка "Значения могут изменяться по экземпляру группы"
+                    ParameterElement parameterElement = doc.GetElement(paramElementId) as ParameterElement;
+                    if (parameterElement != null && parameterElement is SharedParameterElement sharedParamElement)
+                    {
+                        sharedParamElement.GetDefinition().SetAllowVaryBetweenGroups(doc, allowValuesPerGroup);
+                        
+                        // Настройка "Только для чтения"
+                        // parameterElement.SetUserModifiable(!isReadOnly);
+                    }
+                }
+
+                transaction.Commit();
+            }
+            
+            TaskDialog.Show("Успех", $"Общий параметр '{parameterName}' успешно добавлен.");
+        }
+
+        /// <summary>
+        /// Получает ElementId для общего параметра.
+        /// </summary>
+        private static ElementId GetParameterElementId(Document doc, ExternalDefinition definition)
+        {
+            foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
+            {
+                Definition paramDef = paramElement.GetDefinition();
+                if (paramDef is ExternalDefinition extDef && extDef.GUID == definition.GUID)
+                {
+                    return paramElement.Id;
+                }
+            }
+            return null;
+        }
+        
+        /// <summary>
+        /// Проверяет существование параметра с указанным именем в проекте.
+        /// </summary>
+        private static ElementId GetParameterElementIdByName(Document doc, string parameterName)
+        {
+            foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
+            {
+                Definition paramDef = paramElement.GetDefinition();
+                if (paramDef != null && paramDef.Name == parameterName)
+                {
+                    return paramElement.Id;
+                }
+            }
+            return null;
+            
+            // Пример использования
+            // Пример добавления категорий для общего параметра
+
+            // List<Category> categories = new List<Category>
+            // {
+            //     doc.Settings.Categories.get_Item(BuiltInCategory.OST_Walls),
+            //     doc.Settings.Categories.get_Item(BuiltInCategory.OST_Floors)
+            // };
+            //
+
+            // Пример Вызова
+
+            // SharedParameterHelper.AddSharedParameter(
+            // doc,
+            // "Custom Parameter",
+            // BuiltInParameterGroup.PG_DATA,
+            // SpecTypeId.StringText,
+            // isInstance: true,
+            // isEditable: true,
+            // isInstancePerGroupType: true,
+            // categories: categories
+            // );
+
+            // Пример Вызова
+            
+        }
+        
+       
+        /// <summary>
+        /// Добавляет общий параметр из ФОПа в проект Revit с дополнительными настройками. Используется когда в ФОП уже создан параметр
+        /// </summary>
+        /// <param name="doc">Текущий документ Revit.</param>
+        /// <param name="sharedParameterFilePath">Путь к ФОПу.</param>
+        /// <param name="parameterName">Имя общего параметра.</param>
+        /// <param name="parameterGroup">Группа общего параметра (например, Data или Structural).</param>
+        /// <param name="isInstance">True, если параметр экземплярный, иначе типовой.</param>
+        /// <param name="category">Список категорий, к которым нужно привязать параметр.</param>
+        /// <param name="allowValuesPerGroup">True, если значения могут изменяться по экземпляру группы.</param>
+
+        
+        public static void AddSharedParameterFromFOP(
+        Document doc, 
+        string sharedParameterFilePath, 
+        string parameterName, 
+        BuiltInParameterGroup parameterGroup,
+        bool isInstance,
+        List<Category> categories)
+        // ForgeTypeId forgeTypeId)
+        {
+            // Получаем приложение Revit
+            Application app = doc.Application;
+
+            // Загружаем файл общих параметров
+            app.SharedParametersFilename = sharedParameterFilePath;
+            DefinitionFile defFile = app.OpenSharedParameterFile();
+
+            if (defFile == null)
+            {
+                TaskDialog.Show("Ошибка", "Не удалось открыть файл общих параметров.");
+                return;
+            }
+
+            // Находим определение параметра по имени в ФОПе
+            Definition definition = null;
+            foreach (DefinitionGroup group in defFile.Groups)
+            {
+                definition = group.Definitions.get_Item(parameterName);
+                if (definition != null)
+                    break;
+            }
+            
+            // Проверка на наличие параметра по имени. Если нет то TaskDialog с ошибкой
+            if (definition == null)
+            {
+                TaskDialog.Show("Ошибка", "Определение параметра не найдено.");
+                return;
+            }
+
+            // Создаем параметр
+            using (Transaction tx = new Transaction(doc, "Добавление общего параметра"))
+            {
+                tx.Start();
+
+                // Создание категории для привязки
+                CategorySet categorySet = new CategorySet();
+                foreach (Category category in categories)
+                {
+                    categorySet.Insert(category);
+                }
+
+                // Создаем экземпляр параметра
+                ExternalDefinition externalDef = definition as ExternalDefinition;
+
+                // Устанавливаем ForgeTypeId
+                // if (externalDef != null)
+                // {
+                //     externalDef.SetForgeTypeId(forgeTypeId);
+                // }
+
+                // Создаем привязку в зависимости от типа параметра
+                Binding binding;
+                if (isInstance)
+                {
+                    // Создаем привязку для экземпляров
+                    binding = doc.Application.Create.NewInstanceBinding(categorySet);
+                }
+                else
+                {
+                    // Создаем привязку для типов
+                    binding = doc.Application.Create.NewTypeBinding(categorySet);
+                }
+                
+                // Получение ID параметра
+                // ElementId paramElementId = GetParameterElementId(doc, externalDef);
+                //
+                // if (paramElementId != null)
+                // {
+                //     // TODO: 4. Обновление кода для смены "Значения могут изменяться по экземпляру группы"
+                //
+                //     // Настройка "Значения могут изменяться по экземпляру группы"
+                //     ParameterElement parameterElement = doc.GetElement(paramElementId) as ParameterElement;
+                //     // Настройка "Значения могут изменяться по экземпляру группы"
+                //     if (parameterElement != null && parameterElement is SharedParameterElement sharedParamElement)
+                //     {
+                //         sharedParamElement.GetDefinition().SetAllowVaryBetweenGroups(doc, allowValuesPerGroup);
+                //     
+                //         // Настройка "Только для чтения"
+                //         // parameterElement.SetUserModifiable(!isReadOnly);
+                //     }
+                // }
+
+                // Добавляем параметр в проект
+                doc.ParameterBindings.Insert(externalDef, binding);
+
+                tx.Commit();
+            }
+            
+            /*
+             ПРИМЕР ИСПОЛЬЗОВАНИЯ
+             
+            string sharedParameterFilePath = @"C:\Users\12kiw\Desktop\Андрей\00000_С#\00000_С#\03_Revit_Plugin\05_Helpers\ФОП_Г03.txt"; 
+            string parameterName = "PRO_ТХ_Группа в пространстве"; // Укажите имя общего параметра
+            BuiltInCategory category = BuiltInCategory.OST_MEPSpaces; // Укажите категорию, к которой будет применяться параметр
+            bool isInstance = true; // Укажите, является ли параметр экземплярным
+            bool allowValuesPerGroup = true;
+
+            SharedParameterHelper.AddSharedParameterFromFOP(doc, sharedParameterFilePath, parameterName, category, allowValuesPerGroup, isInstance);
+            
+            ПРИМЕР ИСПОЛЬЗОВАНИЯ
+            */
+        }
+
+        ///<summaru>
+        /// Метод для поиска параметра в документе по GUID
+        ///</summaru>
+        /// <param name="doc">Текущий документ Revit.</param>
+        /// <param name="parameterGuid">Guid параметра, который надо найти в документе.</param>
+        /// <returns>true если параметр найден, false если параметр не найден</returns>>
+        public static bool FindsharedParameterByGUID(Document doc, Guid parameterGuid)
+        {
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            IEnumerable<SharedParameterElement> sharedParameters = collector
+                .OfClass(typeof(SharedParameterElement))
+                .Cast<SharedParameterElement>();
+
+            return sharedParameters.Any(param => param.GuidValue == parameterGuid);
+        }
+
+        
+        /// <summary>
+        /// Метод для задания значения `SetAllowVaryBetweenGroups` 
+        /// option for instance binding param
+        /// </summary>
+        public static void SetInstanceParamVaryBetweenGroupsBehaviour(
+            Document doc, 
+            Guid guid, 
+            bool allowVaryBetweenGroups = true)
+        {
+            try // last resort
+            {
+                SharedParameterElement sp 
+                    = SharedParameterElement.Lookup( doc, guid );
+
+                // Should never happen as we will call 
+                // this only for *existing* shared param.
+
+                if( null == sp ) return; 
+
+                InternalDefinition def = sp.GetDefinition();
+
+                if( def.VariesAcrossGroups != allowVaryBetweenGroups )
+                {
+                    // Must be within an outer transaction!
+
+                    def.SetAllowVaryBetweenGroups( doc, allowVaryBetweenGroups ); 
+                }
+            }
+            catch { } // ideally, should report something to log...
+        }
+    }
+
+
+    public static class OpenFile
+    {
+        public static string OpenSingleFile(string title,string format)
+        {
+            var path = string.Empty;
+            using var openFileDialog = new OpenFileDialog
+            {
+                // Заголовок
+                Title = title,
+                // Фильтр выбора формата
+                Filter = $"Revit (*.{format})|*.{format}|" + "All files (*.*)|*.*"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                path = openFileDialog.FileName;
+            }
+            return path;
+        }
+    }
 }
+
+
+
+    
+
+
+    
+
+

@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/App.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/RelayCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/ViewModelEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements_Info.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/Info_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/Info_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ЗаписьПараметра_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ЗаписьПараметра_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ОбьемныйВидГрафика_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ОбьемныйВидГрафика_32.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/packages.config" afterDir="false" />
     </list>
@@ -21,6 +29,12 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,22 +49,20 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
+    &quot;accountId&quot;: &quot;fbb4727e-0802-4424-b4cb-b6f7ae4f6d12&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/10/d9bd9adc/HostObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/71/af66cfdb/Pipe.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/c3/7ddc1225/Curve.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/e8/c09d23bc/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af8acf00cf074a9d8c2f2190d6bd1428532bc0/5f/450ba3b4/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/08/9366c6c0/ExternalCommandData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/64/a829ebb7/UIApplication.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/95cd8cf2ccd2bb650b63829170ed7bc1282533b0e83fa5cacd7bc0626dc6/RelayCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a26704d10e145e2890fa38a6cc0df67531820/d4/a9965e2a/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fb606afebf34d0ebd6606952150a06d605220/02/d305e331/ButtonBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fb606afebf34d0ebd6606952150a06d605220/8f/30fd4494/WpfXamlLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0c221501f3a41f8ac0af9d6a9dc9ff335fd90/75/0a3face9/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/3d/6f990eb0/ParameterElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/4e/336c654b/InternalDefinition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/57/5e48a959/Element.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/c8/f6d1cbf4/InstanceBinding.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/ed/e88fedc9/ElementBinding.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3412790787aba3d1f64ee73e0b8809ff88ccdc92cdda1483a23f9575a86d45d/ParameterExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -62,20 +74,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Process.11680:Revit.executor": "Debug",
+    "Attach to Process.11788:Revit.executor": "Debug",
+    "Attach to Process.14324:Revit.executor": "Debug",
+    "Attach to Process.15576:Revit.executor": "Debug",
+    "Attach to Process.8924:Revit.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,6 +108,32 @@
       <workItem from="1735026664660" duration="12932000" />
       <workItem from="1735212470760" duration="13126000" />
       <workItem from="1735378844356" duration="5169000" />
+      <workItem from="1735547174621" duration="27000" />
+      <workItem from="1735576292338" duration="123000" />
+      <workItem from="1735576434771" duration="1159000" />
+      <workItem from="1735912188989" duration="542000" />
+      <workItem from="1735912744947" duration="79000" />
+      <workItem from="1735989587900" duration="5892000" />
+      <workItem from="1736084484461" duration="5067000" />
+      <workItem from="1736089687114" duration="627000" />
+      <workItem from="1736104466136" duration="8671000" />
+      <workItem from="1736155137384" duration="9328000" />
+      <workItem from="1736164811322" duration="1300000" />
+      <workItem from="1736167346057" duration="21679000" />
+      <workItem from="1736193430483" duration="3000" />
+      <workItem from="1736194804840" duration="8398000" />
+      <workItem from="1736203795870" duration="137000" />
+      <workItem from="1736203950784" duration="1025000" />
+      <workItem from="1736361224721" duration="345000" />
+      <workItem from="1736361587839" duration="91000" />
+      <workItem from="1736361686951" duration="80000" />
+      <workItem from="1736361776496" duration="256000" />
+      <workItem from="1736362043127" duration="6390000" />
+      <workItem from="1736440497704" duration="21117000" />
+      <workItem from="1736520202305" duration="717000" />
+      <workItem from="1736525413745" duration="23418000" />
+      <workItem from="1736622506263" duration="1004000" />
+      <workItem from="1736623555054" duration="5317000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -124,11 +167,45 @@
       <option name="project" value="LOCAL" />
       <updated>1735318295715</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1. Добавлены категории для &#10;Элементов и Линейных.&#10;Логика плагина готова.&#10;2. Тестовый MVVM с ошибками.">
+      <option name="closed" value="true" />
+      <created>1736165138206</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736165138206</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Добавлена команда для раздела ТХ.&#10;Команда Code_PlaceGroupsInSpacesTX размещает группы в пространства, если имя группы и пространства совпадают.">
+      <option name="closed" value="true" />
+      <created>1736202096104</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736202096104</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Добавление иконок">
+      <option name="closed" value="true" />
+      <created>1736203540363</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736203540363</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="75" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="75" />
+    <coverage-tree-state>
+      <expand />
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -161,6 +238,10 @@
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;" />
     <MESSAGE value="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;&#10;2. Отлажена запись параметра &quot;PRO_Уровень низа:&#10;- переопределены условия&#10;- задана погрешность BoundingBox" />
     <MESSAGE value="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов." />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Добавлена логика расчета линейных элементов.&#10;2. Добавлено отображением времени работы и количества элементов." />
+    <MESSAGE value="Добавлены категории для Элементов и Линейных" />
+    <MESSAGE value="1. Добавлены категории для &#10;Элементов и Линейных.&#10;Логика плагина готова.&#10;2. Тестовый MVVM с ошибками." />
+    <MESSAGE value="Добавлена команда для раздела ТХ.&#10;Команда Code_PlaceGroupsInSpacesTX размещает группы в пространства, если имя группы и пространства совпадают." />
+    <MESSAGE value="Добавление иконок" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление иконок" />
   </component>
 </project>
