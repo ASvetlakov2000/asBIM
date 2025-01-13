@@ -33,25 +33,45 @@ namespace asBIM
 
             //Кнопка №2
             //Создание панели "Запись"
-            var panel2 = tab.Panel("Параметризация");
-            panel2.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
+            var panel1 = tab.Panel("Запись");
+            panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
             {
                 b.SetLargeImage(Resources.TB_Points_32);
                 b.SetSmallImage(Resources.TB_Points_16);
                 b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
             });
 
-             
-            //Создание панели "Создать"
-            var panel3 = tab.Panel("Разместить");
+            //Создание панели "Разместить"
+            var panel2 = tab.Panel("ТХ");
             //Создание кнопки "Создать"
-            panel3.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
-            "Группы ТХ", b =>
-            {
-                b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
-                b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
-                b.SetLongDescription("Размещение групп в пространствах ТХ");
-            });
+            panel2.CreateButton<PlaceGroupsInSpacesTX_ParamAdd>("Добавить параметры",
+                "Добавить параметры", b =>
+                {
+                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
+                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                    b.SetLongDescription("Добавить параметры для записи ID групп в пространствах ТХ");
+                });
+
+            panel2.CreateSeparator();
+            
+            panel2.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
+                "Группы ТХ", b =>
+                {
+                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
+                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                    b.SetLongDescription("Размещение групп в пространствах ТХ");
+                });
+             
+            // //Создание панели "Разместить"
+            // var panel3 = tab.Panel("Разместить");
+            // //Создание кнопки "Создать"
+            // panel3.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
+            // "Группы ТХ", b =>
+            // {
+            //     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
+            //     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+            //     b.SetLongDescription("Размещение групп в пространствах ТХ");
+            // });
 
             return Result.Succeeded;
         }

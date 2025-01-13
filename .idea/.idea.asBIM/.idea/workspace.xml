@@ -5,25 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_12_15__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_26_12_2024_19_56__Default_Changelist_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Properties/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Properties/Resources.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/Info_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/Info_32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ЗаписьПараметра_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ЗаписьПараметра_32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ОбьемныйВидГрафика_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/ОбьемныйВидГрафика_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/PlaceGroupsInSpacesTX_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/PlaceGroupsInSpacesTX_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/TB_Points_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Resources/TB_Points_32.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +37,24 @@
     &quot;assignee&quot;: &quot;ASvetlakov2000&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;fbb4727e-0802-4424-b4cb-b6f7ae4f6d12&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ASvetlakov2000/asBIM.git",
+    "accountId": "aaba96f7-47bc-4ebe-ac67-e41aa9d18557"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a26704d10e145e2890fa38a6cc0df67531820/d4/a9965e2a/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fb606afebf34d0ebd6606952150a06d605220/02/d305e331/ButtonBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fb606afebf34d0ebd6606952150a06d605220/8f/30fd4494/WpfXamlLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0c221501f3a41f8ac0af9d6a9dc9ff335fd90/75/0a3face9/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/3d/6f990eb0/ParameterElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/4e/336c654b/InternalDefinition.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/57/5e48a959/Element.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/c8/f6d1cbf4/InstanceBinding.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/ed/e88fedc9/ElementBinding.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3412790787aba3d1f64ee73e0b8809ff88ccdc92cdda1483a23f9575a86d45d/ParameterExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/4c/a49a9762/ReversibleStackPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/57/fa0d0f99/NotificationsOverlayWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/94/8bc4473e/NotificationTemplateSelector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -74,25 +66,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Process.11680:Revit.executor": "Debug",
-    "Attach to Process.11788:Revit.executor": "Debug",
-    "Attach to Process.14324:Revit.executor": "Debug",
-    "Attach to Process.15576:Revit.executor": "Debug",
-    "Attach to Process.8924:Revit.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -134,6 +126,7 @@
       <workItem from="1736525413745" duration="23418000" />
       <workItem from="1736622506263" duration="1004000" />
       <workItem from="1736623555054" duration="5317000" />
+      <workItem from="1736800762274" duration="10048000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />

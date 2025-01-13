@@ -11,98 +11,60 @@ using Notifications.Wpf.Controls;
 
  namespace Notifications.Wpf
 {
-    public static class NotificationManagerWPF_SetMaxMinPtToElements
+    public static class NotificationManagerWPF
     {
-        public static void Success_For_Elem(this string success)
-        {
-            var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
-
-            notificationManager.Show(new NotificationContent
-            {
-                Title = "Афигеть, оно работает!", 
-                Message = "\n(￢‿￢ )\n\nОтметки Верха и Низа для единичных \nэлементов записаны!", 
-                Type = NotificationType.Success
-            }, expirationTime: ts);
-        }
-        
-        public static void Success_For_Linear(this string success)
-        {
-            var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
-
-            notificationManager.Show(new NotificationContent
-            {
-                Title = "Афигеть, оно работает!", 
-                Message = "\n(￢‿￢ )\n\nОтметки в Начале и Отметки в Конце\nдля линейных объектов записаны!", 
-                Type = NotificationType.Success
-            }, expirationTime: ts);
-        }
-        
-        public static void Error(this string error)
-        {
-            var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
-
-            notificationManager.Show(new NotificationContent
-            {
-                Title = "Упс..!", 
-                Message = "\n\u00af\\_(ツ)_/\u00af\nЧто-то пошло не так. \n\nТы знаешь кому писать :)", 
-                Type = NotificationType.Error
-            }, expirationTime: ts);
-        }
-
-        public static void TimeOfWork(this string elementCount, string timeInSec)
-        {
-            var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
-            
-            notificationManager.Show(new NotificationContent
-                {
-                    Title = "Время выполнения",
-                    Message ="Время выполнения " + timeInSec + "сек" + "\n\nКоличество обработанных элементов: " + elementCount,
-                    Type = NotificationType.Information
-                }, expirationTime: ts);
-                
-        }
-        
-        public static void SychPls (this string sychPls)
-        {
-            var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
-
-            notificationManager.Show(new NotificationContent
-            {
-                Title = "Синхронизируйся!", 
-                Message = "\n\u00af\\_(ツ)_/\u00af\n\nПеред выполнением - синхронизируйся!\nРазработано дилетантом с CHAT GPT :)", 
-                Type = NotificationType.Information
-            }, expirationTime: ts);
-        }
-        
-        // TODO: Сделать универсальный способ передачи текста в уведомления
-
-    }
-    
-    // TODO: Сделать универсальный способ передачи текста в уведомления
-    
-    public static class NotificationManagerWPF_PlaceGroupsInSpacesTX
-    {
-        public static void SharedParamAdded(this string sharedParamAdded)
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "message" > Сообщение </param>
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "description" > Описание </param>
+        /// </summary>
+        public static void Message(string title, string description)
         {
             var notificationManager = new NotificationManager();
             var ts = new TimeSpan(0, 0, 10);
 
             notificationManager.Show(new NotificationContent
             {
-                Title = "Общий параметр добавлен!", 
-                Message = "\n(￢‿￢ )" +
-                          "\n\nПараметр: " +
-                          "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
-                          "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
-                          "\n\nПример заполнения: 010101", 
+                Title = title,
+                Message = description,
                 Type = NotificationType.Information
             }, expirationTime: ts);
         }
+
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "elementCount" > Количество элементов </param>
+        /// <param name = "timeInSec" > Описание </param>
+        /// </summary>
+        public static void TimeOfWork(string title, string timeInSec)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 8);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = timeInSec,
+                // Message = "Время выполнения " + timeInSec + "сек.",
+                Type = NotificationType.Information
+            }, expirationTime: ts);
+
+        }
+
+        public static void ElemCount(string title, string elementCount)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 8);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = elementCount,
+                // Message = "\n\nКоличество обработанных элементов: " + elementCount,
+                Type = NotificationType.Information
+            }, expirationTime: ts);
+
+        }
     }
-    
 }

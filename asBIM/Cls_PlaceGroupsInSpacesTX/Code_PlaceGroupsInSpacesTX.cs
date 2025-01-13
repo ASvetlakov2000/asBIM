@@ -28,7 +28,11 @@ namespace asBIM
 
     public class Code_PlaceGroupsInSpacesTX : IExternalCommand
     {
+        // Guid общего параметра "PRO_ID группы в пространстве"
         Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
+        // Имя общего параметра "PRO_ID группы в пространстве
+        string shParamName = "PRO_ID группы в пространстве";
+        
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiapp = commandData.Application;
@@ -38,8 +42,8 @@ namespace asBIM
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
             // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
-
-            List<Category> categories = new List<Category>
+            /*
+             List<Category> categories = new List<Category>
             {
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces),
             };
@@ -48,32 +52,66 @@ namespace asBIM
             SharedParameterHelper.AddSharedParameterFromFOP(
                 doc,
                 // путь к ФОП
-                OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра","txt"),
+                OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра", "txt"),
                 // Имя создаваемого параметра
-                "PRO_ID группы в пространстве", 
+                shParamName,
                 // Куда относится параметр
-                BuiltInParameterGroup.PG_IDENTITY_DATA, 
+                BuiltInParameterGroup.PG_IDENTITY_DATA,
                 // Параметр для экземпляра
-                true, 
+                true,
                 // ссылка на список с категориями
                 categories);
+
+            // Уведомление. "Общий параметр добавлен!"
+            NotificationManagerWPF.Message(
+                "Общий параметр добавлен!",
+                "\n(￢‿￢ )" +
+                "\n\nПараметр: " +
+                "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
+                "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
+                "\n\nПример заполнения: 010101");
+                */
+            // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
             
-            NotificationManagerWPF_PlaceGroupsInSpacesTX.SharedParamAdded(sharedParamAdded: message);
 
             // Установка значения "Изменяется по экз групп" для общего параметра "PRO_ID группы в пространстве"
             // TODO: Не работает
-            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamGuid, true);
+            // SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamGuid, true);
 
+            // Время выполнения
+            Stopwatch swPlaceGroups = new Stopwatch();
+            swPlaceGroups.Start();
+        
             // Размещение групп по одноименным пространствам
             PlacementOfGroupsInSpaces(doc, GetSpacesFromDoc(doc), GetTxGroupsFromDoc(doc));
+        
+            swPlaceGroups.Stop();
+            var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
+        
+            // Уведомление. "Время работы"
+            NotificationManagerWPF.TimeOfWork("Время работы", 
+                timeInSec:"Время выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"));
             
-
+            
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
         }
-            
         
-
+        /// <summary>
+        /// Метод для проверки наличия общего параметра в проекте
+        /// <param name = "doc" > Документ </param>
+        /// <param name = "shParamName" > Guid общего параметра</param>
+        /// <returns>True - если параметр найден, False - если параметр не найден</returns>
+        /// </summary>
+        public bool SharedParametrValidChecker(Document doc, string shParamName)
+        {
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            IEnumerable<SharedParameterElement> sharedParameters = collector
+                .OfClass(typeof(SharedParameterElement))
+                .Cast<SharedParameterElement>();
+            string paramName = sharedParameters.First().Name;
+            return sharedParameters.Any(param => paramName == shParamName);
+        }
 
         /// <summary>
         /// Метод для сбора Пространств 
@@ -212,6 +250,9 @@ namespace asBIM
         /// </summary>
         public void PlacementOfGroupsInSpaces(Document doc, List<SpatialElement> spacesList, List<Group> groupsList)
         {
+            // Счетчик для количества элементв
+            string placedGroupCountStr = null;
+            
             // Проверка на отсутствие Пространств
             if (!spacesList.Any())
             {
@@ -260,14 +301,14 @@ namespace asBIM
                         // НЕ РАБОТАЕТ
 
                         // Сопоставляем пространство с группами
-                        var matchingGroups = groupsList
+                        List<Group> matchingGroups = groupsList
                             .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
                                             group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
                             .ToList();
 
                         if (matchingGroups.Any())
                         {
-                            foreach (var group in matchingGroups)
+                            foreach (Group group in matchingGroups)
                             {
                                 XYZ placementPoint = GetSpaceBottomCenter(space);
                                 // string groupId = group.GroupId.ToString();
@@ -280,6 +321,12 @@ namespace asBIM
                                         // Получение ID размещенной группы
                                         ElementId placedGroupId = placedGroup.Id;
                                         
+                                        // Подсчет количества элементов
+                                        // TODO: Подсчет количества элементов
+                                        IList<Group> placedGroupCount = new List<Group>();
+                                        placedGroupCount.Add(placedGroup);
+                                        placedGroupCountStr = Convert.ToString(placedGroupCount.Count);
+
                                         Parameter spaceParameterID = space.get_Parameter(shParamGuid);
                                         if (spaceParameterID != null)
                                         {
@@ -308,6 +355,10 @@ namespace asBIM
                     }
                 }
                 
+                // Уведомление. Подсчет количества элементов
+                NotificationManagerWPF.ElemCount(
+                    "Количество обработанных элементов",
+                    elementCount: placedGroupCountStr);
                 tr.Commit();
             }
             
