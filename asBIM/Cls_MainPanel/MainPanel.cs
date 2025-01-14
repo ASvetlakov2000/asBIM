@@ -47,8 +47,8 @@ namespace asBIM
             panel2.CreateButton<PlaceGroupsInSpacesTX_ParamAdd>("Добавить параметры",
                 "Добавить параметры", b =>
                 {
-                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
-                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_Params_32);
+                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_Params_16);
                     b.SetLongDescription("Добавить параметры для записи ID групп в пространствах ТХ");
                 });
 
