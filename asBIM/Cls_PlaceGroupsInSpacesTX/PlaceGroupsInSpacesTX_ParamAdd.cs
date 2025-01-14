@@ -48,7 +48,8 @@ namespace asBIM
                     // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
                     List<Category> categories = new List<Category>
                     {
-                        doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces),
+                        doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces), // Пространства
+                        doc.Settings.Categories.get_Item(BuiltInCategory.OST_IOSModelGroups), // Группы
                     };
                     
                     // TODO: Вызывается каждый раз при выполнении. Исправить

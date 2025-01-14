@@ -15,9 +15,9 @@ using Notifications.Wpf.Controls;
     {
         /// <summary>
         /// Вывод окна Notifications.WPF c Сообщением
-        /// <param name = "message" > Сообщение </param>
         /// <param name = "title" > Заголовок </param>
-        /// <param name = "description" > Описание </param>
+        /// <param name = "description" > Сообщение </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
         /// </summary>
         public static void MessageSucces(string title, string description, NotificationType notificationType)
         {
@@ -28,15 +28,15 @@ using Notifications.Wpf.Controls;
             {
                 Title = title,
                 Message = description,
-                Type = NotificationType.Success
+                Type = notificationType
             }, expirationTime: ts);
         }
         
         /// <summary>
         /// Вывод окна Notifications.WPF c Сообщением
-        /// <param name = "message" > Сообщение </param>
         /// <param name = "title" > Заголовок </param>
-        /// <param name = "description" > Описание </param>
+        /// <param name = "description" > Сообщение </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
         /// </summary>
         public static void MessageInfo(string title, string description, NotificationType notificationType)
         {
@@ -47,14 +47,34 @@ using Notifications.Wpf.Controls;
             {
                 Title = title,
                 Message = description,
-                Type = NotificationType.Information
+                Type = notificationType
+            }, expirationTime: ts);
+        }
+        
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "description" > Сообщение </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
+        /// </summary>
+        public static void MessageInfoSmile(string title, string description, string smile, NotificationType notificationType)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 10);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = description + smile,
+                Type = notificationType
             }, expirationTime: ts);
         }
 
         /// <summary>
         /// Вывод окна Notifications.WPF c Сообщением
-        /// <param name = "elementCount" > Количество элементов </param>
-        /// <param name = "timeInSec" > Описание </param>
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "timeInSec" > Время работы команды </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
         /// </summary>
         public static void TimeOfWork(string title, string timeInSec, NotificationType notificationType)
         {
@@ -66,11 +86,17 @@ using Notifications.Wpf.Controls;
                 Title = title,
                 Message = timeInSec,
                 // Message = "Время выполнения " + timeInSec + "сек.",
-                Type = NotificationType.Information
+                Type = notificationType
             }, expirationTime: ts);
 
         }
 
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "elementCount" > Количество элементов </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
+        /// </summary>
         public static void ElemCount(string title, string elementCount, NotificationType notificationType)
         {
             var notificationManager = new NotificationManager();

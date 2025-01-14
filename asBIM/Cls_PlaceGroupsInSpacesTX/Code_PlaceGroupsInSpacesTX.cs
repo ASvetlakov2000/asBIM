@@ -20,6 +20,8 @@ using asBIM.ViewModel;
 using Notifications.Wpf;
 using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
+using System.Text.RegularExpressions;
+using Group = Autodesk.Revit.DB.Group;
 
 
 namespace asBIM
@@ -42,53 +44,13 @@ namespace asBIM
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
-            // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
-            
-            /*
-             List<Category> categories = new List<Category>
-            {
-                doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces),
-            };
-
-            // TODO: Вызывается каждый раз при выполнении. Исправить
-            SharedParameterHelper.AddSharedParameterFromFOP(
-                doc,
-                // путь к ФОП
-                OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра", "txt"),
-                // Имя создаваемого параметра
-                shParamName,
-                // Куда относится параметр
-                BuiltInParameterGroup.PG_IDENTITY_DATA,
-                // Параметр для экземпляра
-                true,
-                // ссылка на список с категориями
-                categories);
-
-            // Уведомление. "Общий параметр добавлен!"
-            NotificationManagerWPF.Message(
-                "Общий параметр добавлен!",
-                "\n(￢‿￢ )" +
-                "\n\nПараметр: " +
-                "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
-                "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
-                "\n\nПример заполнения: 010101");
-                */
-            
-            // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
-            
-
-            // Установка значения "Изменяется по экз групп" для общего параметра "PRO_ID группы в пространстве"
-            // TODO: Не работает
-            // SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamGuid, true);
-
             // Время выполнения
             Stopwatch swPlaceGroups = new Stopwatch();
             swPlaceGroups.Start();
-        
             // Размещение групп по одноименным пространствам
             PlacementOfGroupsInSpaces(doc, GetSpacesFromDoc(doc), GetTxGroupsFromDoc(doc));
-        
             swPlaceGroups.Stop();
+            // Время выполнения
             var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
         
             // Уведомление. "Время работы"
@@ -96,18 +58,17 @@ namespace asBIM
                 timeInSec:"\nВремя выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
             
-            
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
         }
         
         /// <summary>
-        /// Метод для проверки наличия общего параметра в проекте
+        /// Метод для проверки наличия общего параметра в проекте. По имени параметра
         /// <param name = "doc" > Документ </param>
         /// <param name = "shParamName" > Guid общего параметра</param>
         /// <returns>True - если параметр найден, False - если параметр не найден</returns>
         /// </summary>
-        public bool SharedParametrValidChecker(Document doc, string shParamName)
+        public bool SharedParametrValidCheckerByName(Document doc, string shParamName)
         {
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             IEnumerable<SharedParameterElement> sharedParameters = collector
@@ -118,12 +79,15 @@ namespace asBIM
         }
 
         /// <summary>
-        /// Метод для сбора Пространств 
+        /// Метод для сбора Пространств.  Сортировка +- по номеру
         /// <param name = "doc" > Документ </param>
         /// <returns>centerOfSpace - список с Пространствами, отсортированный по возрастанию значению номера (целое)</returns>
         /// </summary>
         public List<SpatialElement> GetSpacesFromDoc(Document doc)
         {
+            string spaceFullName;
+            string spaceClearName;
+            
             // Замена "," на "."
             NumberFormatInfo format = new NumberFormatInfo {NumberDecimalSeparator = "."};
             // Сбор Пространств в коллекцию с сортировкой по категории и выбор только элементов
@@ -135,7 +99,23 @@ namespace asBIM
                 // Конвертация номера Пространств из строки в целое
                 .OrderBy(space => Convert.ToDouble(space.Number, format))
                 .ToList();
-            
+
+            foreach (SpatialElement space in spacesList)
+            {
+                spaceFullName = space.Name;
+                spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
+                if (spaceFullName == spaceClearName)
+                {
+                    NotificationManagerWPF.MessageInfoSmile(
+                            "Ошибка!\nВ проекте пространства без имени!",
+                            $"\nУ [Номер] - {spaceClearName}],  [ID] - {space.Id}", 
+                            "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                            "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                            "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                            NotificationType.Error );
+                }
+            }
+
             // ОТЛАДКА 2
             // string spaceName = null;
             //
@@ -177,7 +157,7 @@ namespace asBIM
         }
         
         /// <summary>
-        /// Метод GetTxGroupsFromDoc для сбора Групп
+        /// Метод GetTxGroupsFromDoc для сбора Групп. Сортировка +- по имени
         /// <param name = "doc" > Документ </param>
         /// <returns>centerOfSpace - список с Группами, отсортированный по возрастанию значения имени (строки)</returns>
         /// </summary>
@@ -267,14 +247,27 @@ namespace asBIM
             // Проверка на отсутствие Пространств
             if (!spacesList.Any())
             {
-                TaskDialog.Show("Ошибка!", "В проекте отсутствуют пространства.");
+                NotificationManagerWPF.MessageInfoSmile(
+                    "Ошибка!",
+                    "\nВ проекте отсутствуют пространства", 
+                    "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                    NotificationType.Warning );
+                
                 return;
             }
             
             // Проверка на отсутствие Групп
             if (!groupsList.Any())
             {
-                TaskDialog.Show("Ошибка!", "В проекте отсутствуют группы.");
+                NotificationManagerWPF.MessageInfoSmile(
+                    "Ошибка!",
+                    "\nВ проекте отсутствуют группы", 
+                    "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                    NotificationType.Warning );
+                
                 return;
             }
             
@@ -318,6 +311,7 @@ namespace asBIM
                                             group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
                             .ToList();
 
+                        // TODO: Добавить вычетание пространства без имени из списка не распределенных
                         if (matchingGroups.Any())
                         {
                             foreach (Group group in matchingGroups)
@@ -332,22 +326,15 @@ namespace asBIM
                                         Group placedGroup = doc.Create.PlaceGroup(placementPoint, group.GroupType);
                                         // Получение ID размещенной группы
                                         ElementId placedGroupId = placedGroup.Id;
-                                        
-                                        // Подсчет количества элементов
-                                        // TODO: Подсчет количества элементов
-                                        // IList<Group> placedGroupCount = new List<Group>();
+                                        // Подсчет количества элементов. Удачных
+                                        // Добавление элемента в счетчик отработанных пространств
                                         placedGroupCount.Add(placedGroup);
-                                        
-                                        
-                                        //sbSpacesWithName.AppendLine($"Количество размещенных групп: {placedGroupCount.Count.ToString()}");
-
+                                        // Запись ID Группы в пространство
                                         Parameter spaceParameterID = space.get_Parameter(shParamGuid);
                                         if (spaceParameterID != null)
                                         {
                                             spaceParameterID.Set(placedGroupId.ToString());
                                         }
-                                        
-                                        // sb.AppendLine($"Группа с ID [{placedGroupId}] и Именем [{group.Name}] \nразмещена в пространстве [{spaceName}].");
                                     }
                                     catch (Exception ex)
                                     {
@@ -358,8 +345,10 @@ namespace asBIM
                         }
                         else
                         {
+                            // Подсчет количества элементов. Не удачных
+                            // Добавление элемента в счетчик не отработанных пространств
                             placedErrGroupCount.Add(matchingGroups.FirstOrDefault());
-                            sb.AppendLine($"Пространство с Именем [{spaceName}] и ID [{spaceID}].");
+                            sb.AppendLine($"[Имя] - {spaceName},  [ID] - {spaceID}.");
                         }
                     }
                     if (placedGropupsChecker != null && placedGropupsChecker.HasValue)
@@ -374,7 +363,7 @@ namespace asBIM
                 // Уведомление. Подсчет количества элементов. Не удачно
                 NotificationManagerWPF.ElemCount(
                     "Не обработанные элементы",
-                    elementCount: $"{placedErrGroupCountStr} \n\n{sb}", NotificationType.Error);
+                    elementCount: $"{placedErrGroupCountStr} \n\nПеречень пространств с ошибкой:\n{sb}", NotificationType.Warning);
 
                 // Уведомление. Подсчет количества элементов. Успех
                 NotificationManagerWPF.ElemCount(
