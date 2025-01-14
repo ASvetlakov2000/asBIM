@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Form_SetMaxMinPtToElements.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/PlaceGroupsInSpacesTX_16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/PlaceGroupsInSpacesTX_32.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/TB_Points_16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Resources/TB_Points_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/ASvetlakov2000/asBIM.git",
-    "accountId": "aaba96f7-47bc-4ebe-ac67-e41aa9d18557"
+    "accountId": "112b2762-b040-49d9-aa1e-59cb4b82b45c"
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
@@ -66,25 +66,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Process.11680:Revit.executor": "Debug",
+    "Attach to Process.11788:Revit.executor": "Debug",
+    "Attach to Process.14324:Revit.executor": "Debug",
+    "Attach to Process.15576:Revit.executor": "Debug",
+    "Attach to Process.8924:Revit.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -127,6 +127,7 @@
       <workItem from="1736622506263" duration="1004000" />
       <workItem from="1736623555054" duration="5317000" />
       <workItem from="1736800762274" duration="10048000" />
+      <workItem from="1736843543185" duration="17251000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />

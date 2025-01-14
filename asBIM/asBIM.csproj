@@ -105,7 +105,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VCRevitRibbonUtil">
-      <HintPath>..\..\..\Desktop\00000_С#\03_Revit_Plugin\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
+      <HintPath>\\serverproxima\users$\Profiles\Svetlakov.a\Desktop\C#\00_Revit Plugins\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

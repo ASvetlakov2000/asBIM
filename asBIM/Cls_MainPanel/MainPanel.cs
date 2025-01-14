@@ -33,7 +33,7 @@ namespace asBIM
 
             //Кнопка №2
             //Создание панели "Запись"
-            var panel1 = tab.Panel("Запись");
+            var panel1 = tab.Panel("RA | Запись");
             panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
             {
                 b.SetLargeImage(Resources.TB_Points_32);
@@ -44,8 +44,8 @@ namespace asBIM
             //Создание панели "Разместить"
             var panel2 = tab.Panel("ТХ");
             //Создание кнопки "Создать"
-            panel2.CreateButton<PlaceGroupsInSpacesTX_ParamAdd>("Добавить параметры",
-                "Добавить параметры", b =>
+            panel2.CreateButton<PlaceGroupsInSpacesTX_ParamAdd>("Добавить\nпараметры",
+                "Добавить\nпараметры", b =>
                 {
                     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_Params_32);
                     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_Params_16);
@@ -55,7 +55,7 @@ namespace asBIM
             panel2.CreateSeparator();
             
             panel2.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
-                "Группы ТХ", b =>
+                "Разместить\nГруппы ТХ", b =>
                 {
                     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
                     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);

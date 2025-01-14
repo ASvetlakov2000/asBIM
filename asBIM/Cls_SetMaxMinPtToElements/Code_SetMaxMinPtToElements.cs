@@ -35,21 +35,24 @@ namespace asBIM
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
             // Вызов UI
-            // var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
+            var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
             // в view передается null из-за проблем в XAML
-            // var view = new Form_SetMaxMinPtToElements(vm);
-            // view.Show();
+            var view = new Form_SetMaxMinPtToElements(vm);
+            view.Show();
             
             // Тест для настройки окон
             // Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
             // form.Show();
+            // Вызов UI
+            
+            // Без UI
+            // Тест для настройки команд
+            // SetElementsTBPoints(doc);
             
             // Тест для настройки команд
-            SetElementsTBPoints(doc);
+            // SetLinearElemTBPoints(doc);
+            // Без UI
             
-            // Тест для настройки команд
-            SetLinearElemTBPoints(doc);
-
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
             return Result.Succeeded;
         }

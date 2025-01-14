@@ -30,45 +30,45 @@ namespace asBIM
     public partial class Form_SetMaxMinPtToElements : Window
     {
         // Было
-        // Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm)
+        // Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm);
         
         // GPT
         // Form_SetMaxMinPtToElements(UIApplication uiApp)
         
         
-        public Form_SetMaxMinPtToElements()
+        public Form_SetMaxMinPtToElements(SetMaxMinPtToElements_ViewModel vm)
         {
             // Тест для MVVM
-            // InitializeComponent();
+            InitializeComponent();
             // DataContext = vm;
             
             // Тест для настройки окон
-            InitializeComponent();
+            // InitializeComponent();
         }
         
         public void Bt_Elem_Click(object sender, RoutedEventArgs e)
         {
             // Тест для MVVM
-            // SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
-            // Close();
+            SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
+            Close();
         }
         
         public void Bt_Linear_Click(object sender, RoutedEventArgs e)
         {
             // Тест для MVVM
-            // SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
-            // Close();
+            SetMaxMinPtToElements_ViewModel vm = (SetMaxMinPtToElements_ViewModel)sender;
+            Close();
         }
         
         public void Bt_Info_Click(object sender, RoutedEventArgs e)
         {
             // Тест для MVVM
-            // Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
-            // info.Show();
-            
-            // Тест для настройки окон
             Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
             info.Show();
+            
+            // Тест для настройки окон
+            // Form_SetMaxMinPtToElements_Info info = new Form_SetMaxMinPtToElements_Info();
+            // info.Show();
         }
 
         public void Bt_ОК_Click(object sender, RoutedEventArgs e)

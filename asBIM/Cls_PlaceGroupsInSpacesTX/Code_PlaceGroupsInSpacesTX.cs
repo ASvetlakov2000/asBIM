@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Globalization;
 using System.Xaml;
 using System.Windows.Documents;
 using System.Xml.Linq;
@@ -42,6 +43,7 @@ namespace asBIM
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
             // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
+            
             /*
              List<Category> categories = new List<Category>
             {
@@ -71,6 +73,7 @@ namespace asBIM
                 "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
                 "\n\nПример заполнения: 010101");
                 */
+            
             // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
             
 
@@ -90,7 +93,8 @@ namespace asBIM
         
             // Уведомление. "Время работы"
             NotificationManagerWPF.TimeOfWork("Время работы", 
-                timeInSec:"Время выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"));
+                timeInSec:"\nВремя выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"),
+                NotificationType.Information);
             
             
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
@@ -120,6 +124,8 @@ namespace asBIM
         /// </summary>
         public List<SpatialElement> GetSpacesFromDoc(Document doc)
         {
+            // Замена "," на "."
+            NumberFormatInfo format = new NumberFormatInfo {NumberDecimalSeparator = "."};
             // Сбор Пространств в коллекцию с сортировкой по категории и выбор только элементов
             FilteredElementCollector collectorSpaces = new FilteredElementCollector(doc);
             collectorSpaces.OfCategory(BuiltInCategory.OST_MEPSpaces).ToElements();
@@ -127,7 +133,7 @@ namespace asBIM
             // Сортировка Пространств в списке по Номеру Пространств
             List<SpatialElement> spacesList = collectorSpaces.Cast<SpatialElement>()
                 // Конвертация номера Пространств из строки в целое
-                .OrderBy(space => Convert.ToInt32(space.Number))
+                .OrderBy(space => Convert.ToDouble(space.Number, format))
                 .ToList();
             
             // ОТЛАДКА 2
@@ -250,8 +256,13 @@ namespace asBIM
         /// </summary>
         public void PlacementOfGroupsInSpaces(Document doc, List<SpatialElement> spacesList, List<Group> groupsList)
         {
-            // Счетчик для количества элементв
-            string placedGroupCountStr = null;
+            // Счетчик для количества элементов. Удачно
+            string placedGroupCountStr;
+            IList<Group> placedGroupCount = new List<Group>();
+            
+            // Счетчик для количества элементов. Не дачно
+            string placedErrGroupCountStr;
+            IList<Group> placedErrGroupCount = new List<Group>();
             
             // Проверка на отсутствие Пространств
             if (!spacesList.Any())
@@ -268,7 +279,8 @@ namespace asBIM
             }
             
             StringBuilder sb = new StringBuilder();
-            StringBuilder sbSpacesWithoutName = new StringBuilder(); // Для хранения ID пространств без имени
+            // StringBuilder sbSpacesWithName = new StringBuilder(); // Для хранения ID пространств с именем. Удачно
+            // StringBuilder sbSpacesWithoutName = new StringBuilder(); // Для хранения ID пространств без имени. Не удачно
 
             using (Transaction tr = new Transaction(doc, "Расстановка групп в пространства"))
             {
@@ -292,12 +304,12 @@ namespace asBIM
 
                         // TODO: // НЕ РАБОТАЕТ
                         // Проверяем, что имя пространства не пустое
-                        if (string.IsNullOrWhiteSpace(spaceName))
-                        {
-                            // Добавляем ID пространства в список
-                            sbSpacesWithoutName.AppendLine($"ID: {spaceID}");
-                            continue; // Переходим к следующему пространству
-                        }
+                        // if (string.IsNullOrWhiteSpace(spaceName))
+                        // {
+                        //     // Добавляем ID пространства в список
+                        //     sbSpacesWithoutName.AppendLine($"ID: {spaceID}");
+                        //     continue; // Переходим к следующему пространству
+                        // }
                         // НЕ РАБОТАЕТ
 
                         // Сопоставляем пространство с группами
@@ -323,16 +335,19 @@ namespace asBIM
                                         
                                         // Подсчет количества элементов
                                         // TODO: Подсчет количества элементов
-                                        IList<Group> placedGroupCount = new List<Group>();
+                                        // IList<Group> placedGroupCount = new List<Group>();
                                         placedGroupCount.Add(placedGroup);
-                                        placedGroupCountStr = Convert.ToString(placedGroupCount.Count);
+                                        
+                                        
+                                        //sbSpacesWithName.AppendLine($"Количество размещенных групп: {placedGroupCount.Count.ToString()}");
 
                                         Parameter spaceParameterID = space.get_Parameter(shParamGuid);
                                         if (spaceParameterID != null)
                                         {
                                             spaceParameterID.Set(placedGroupId.ToString());
                                         }
-                                        sb.AppendLine($"Группа с ID [{placedGroupId}] и Именем [{group.Name}] \nразмещена в пространстве [{spaceName}].");
+                                        
+                                        // sb.AppendLine($"Группа с ID [{placedGroupId}] и Именем [{group.Name}] \nразмещена в пространстве [{spaceName}].");
                                     }
                                     catch (Exception ex)
                                     {
@@ -343,41 +358,32 @@ namespace asBIM
                         }
                         else
                         {
-                            sb.AppendLine("------------------------------------------------------");
-                            sb.AppendLine(
-                                $"Пространство с Именем [{spaceName}] и ID [{spaceID}] \nне совпадает ни с одной группой.");
-                            sb.AppendLine("------------------------------------------------------");
+                            placedErrGroupCount.Add(matchingGroups.FirstOrDefault());
+                            sb.AppendLine($"Пространство с Именем [{spaceName}] и ID [{spaceID}].");
                         }
                     }
                     if (placedGropupsChecker != null && placedGropupsChecker.HasValue)
                     {
-                    continue;
+                     continue;
                     }
                 }
                 
-                // Уведомление. Подсчет количества элементов
+                placedGroupCountStr = $"\nКоличество размещенных групп: {placedGroupCount.Count.ToString()}";
+                placedErrGroupCountStr = $"\nКоличество не размещенных групп: {placedErrGroupCount.Count.ToString()}";
+                
+                // Уведомление. Подсчет количества элементов. Не удачно
                 NotificationManagerWPF.ElemCount(
-                    "Количество обработанных элементов",
-                    elementCount: placedGroupCountStr);
+                    "Не обработанные элементы",
+                    elementCount: $"{placedErrGroupCountStr} \n\n{sb}", NotificationType.Error);
+
+                // Уведомление. Подсчет количества элементов. Успех
+                NotificationManagerWPF.ElemCount(
+                    "Обработанные элементы",
+                    elementCount: placedGroupCountStr, NotificationType.Success);
+                
                 tr.Commit();
             }
-            
-            // TODO: // НЕ РАБОТАЕТ
-            // Проверяем, есть ли пространства без имени
-            if (sbSpacesWithoutName.Length > 0)
-            {
-                sb.AppendLine("------------------------------------------------------");
-                sb.AppendLine("Следующие пространства не имеют имени:");
-                sb.AppendLine(sbSpacesWithoutName.ToString());
-                sb.AppendLine("------------------------------------------------------");
-            }
-            // НЕ РАБОТАЕТ
-            
-            
-            TaskDialog.Show("Результаты сопоставления", sb.ToString());
         }
-        
-        
         
     }
 } 

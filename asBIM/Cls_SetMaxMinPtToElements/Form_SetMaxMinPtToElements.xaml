@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:asBIM"
              
+             
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:viewModel="clr-namespace:asBIM.ViewModel"
              x:Class="asBIM.Form_SetMaxMinPtToElements"
@@ -117,7 +118,7 @@
                 FontSize="24" 
                 BorderThickness="2,2,2,2" BorderBrush="#FF505050" Background="#DADADA" Foreground="#FF505050"/>
 
-        <Button Command="{Binding CodeSetMaxMinPtToElements}"
+        <Button Command="{Binding CodeSetMaxMinPtToLinear}"
                 CommandParameter="2"
                 Style="{DynamicResource ButtonStyle_Rad_3}" 
                 Click="Bt_Linear_Click" 
@@ -133,7 +134,7 @@
                 FontSize="24" 
                 BorderThickness="2,2,2,2" Grid.RowSpan="2" BorderBrush="#FF505050" Background="#DADADA" Foreground="#FF505050"/>
 
-        <Button Command="{Binding  CodeSetMaxMinPtToElements}"
+        <Button Command="{Binding  CodeSetMaxMinPtInfo}"
                 CommandParameter="3"
                 Style="{DynamicResource ButtonStyle_Rad_3}" 
                 Click="Bt_Info_Click" 

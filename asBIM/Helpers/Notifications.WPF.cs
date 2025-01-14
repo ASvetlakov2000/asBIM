@@ -19,7 +19,26 @@ using Notifications.Wpf.Controls;
         /// <param name = "title" > Заголовок </param>
         /// <param name = "description" > Описание </param>
         /// </summary>
-        public static void Message(string title, string description)
+        public static void MessageSucces(string title, string description, NotificationType notificationType)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 10);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = description,
+                Type = NotificationType.Success
+            }, expirationTime: ts);
+        }
+        
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "message" > Сообщение </param>
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "description" > Описание </param>
+        /// </summary>
+        public static void MessageInfo(string title, string description, NotificationType notificationType)
         {
             var notificationManager = new NotificationManager();
             var ts = new TimeSpan(0, 0, 10);
@@ -37,10 +56,10 @@ using Notifications.Wpf.Controls;
         /// <param name = "elementCount" > Количество элементов </param>
         /// <param name = "timeInSec" > Описание </param>
         /// </summary>
-        public static void TimeOfWork(string title, string timeInSec)
+        public static void TimeOfWork(string title, string timeInSec, NotificationType notificationType)
         {
             var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
+            var ts = new TimeSpan(0, 0, 10);
 
             notificationManager.Show(new NotificationContent
             {
@@ -52,17 +71,17 @@ using Notifications.Wpf.Controls;
 
         }
 
-        public static void ElemCount(string title, string elementCount)
+        public static void ElemCount(string title, string elementCount, NotificationType notificationType)
         {
             var notificationManager = new NotificationManager();
-            var ts = new TimeSpan(0, 0, 8);
+            var ts = new TimeSpan(0, 0, 10);
 
             notificationManager.Show(new NotificationContent
             {
                 Title = title,
                 Message = elementCount,
                 // Message = "\n\nКоличество обработанных элементов: " + elementCount,
-                Type = NotificationType.Information
+                Type = notificationType
             }, expirationTime: ts);
 
         }

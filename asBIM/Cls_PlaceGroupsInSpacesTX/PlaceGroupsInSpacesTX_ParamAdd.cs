@@ -41,10 +41,8 @@ namespace asBIM
             var doc = uidoc.Document;
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
-
-            using (Transaction tx = new Transaction(doc, "Добавление параметра"))
-            {
-                tx.Start();
+            
+            // TODO: Добавить проверку на наличие параметра
                 try
                 {
                     // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
@@ -52,7 +50,7 @@ namespace asBIM
                     {
                         doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces),
                     };
-
+                    
                     // TODO: Вызывается каждый раз при выполнении. Исправить
                     SharedParameterHelper.AddSharedParameterFromFOP(
                         doc,
@@ -66,25 +64,24 @@ namespace asBIM
                         true,
                         // ссылка на список с категориями
                         categories);
-
+                    
                     // Уведомление. "Общий параметр добавлен!"
-                    NotificationManagerWPF.Message(
+                    NotificationManagerWPF.MessageInfo(
                         "Общий параметр добавлен!",
                         "\n(￢‿￢ )" +
                         "\n\nПараметр: " +
                         "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
                         "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
-                        "\n\nПример заполнения: 010101");
+                        "\n\nПример заполнения: 010101", NotificationType.Success);
                     // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(e);
+                    TaskDialog.Show("Ошибка", ex.Message);
                     throw;
                 }
                 
-                tx.Commit();
-            }
+                // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
 
             return Result.Succeeded;
         }
