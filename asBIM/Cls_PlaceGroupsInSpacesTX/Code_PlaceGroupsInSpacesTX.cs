@@ -251,6 +251,33 @@ namespace asBIM
                                         Parameter spaceParameterID = space.get_Parameter(shParamGuid);
                                         if (spaceParameterID != null)
                                             spaceParameterID.Set(placedGroupId.ToString());
+
+                                        Parameter groupParameterID = placedGroup.get_Parameter(shParamGuid);
+                                        if (groupParameterID != null)
+                                            groupParameterID.Set(placedGroupId.ToString());
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        sb.AppendLine(
+                                            $"Ошибка при размещении исходной группы с ID [{group.Id}] и Именем [{group.Name}]: {ex.Message}");
+                                    }
+                                }
+                                
+                                if (placementPoint != null && paramValue == "Test")
+                                {
+                                    try
+                                    {
+                                        // Размещение групп в одноименных пространствах 
+                                        Group placedGroup = doc.Create.PlaceGroup(placementPoint, group.GroupType);
+                                        // Получение ID размещенной группы
+                                        ElementId placedGroupId = placedGroup.Id;
+                                        // Подсчет количества элементов. Удачных
+                                        // Добавление элемента в счетчик отработанных пространств
+                                        placedGroupCount.Add(placedGroup);
+                                        // Запись ID Группы в пространство
+                                        Parameter spaceParameterID = space.get_Parameter(shParamGuid);
+                                        if (spaceParameterID != null)
+                                            spaceParameterID.Set(placedGroupId.ToString());
                                         
                                         Parameter groupParameterID = placedGroup.get_Parameter(shParamGuid);
                                         if (groupParameterID != null)

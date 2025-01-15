@@ -44,7 +44,7 @@ namespace asBIM
             //Создание панели "Разместить"
             var panel2 = tab.Panel("ТХ");
             //Создание кнопки "Создать"
-            panel2.CreateButton<PlaceGroupsInSpacesTX_ParamAdd>("Добавить\nпараметры",
+            panel2.CreateButton<Code_PlaceGroupsInSpacesTX_ParamAdd>("Добавить\nпараметры",
                 "Добавить\nпараметры", b =>
                 {
                     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_Params_32);

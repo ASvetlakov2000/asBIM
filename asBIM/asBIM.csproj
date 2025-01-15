@@ -112,7 +112,7 @@
   <ItemGroup>
     <Compile Include="Cls_PlaceGroupsInSpacesTX\Cls_DeleteGroupFromSpaceTX.cs" />
     <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_PlaceGroupsInSpacesTX.cs" />
-    <Compile Include="Cls_PlaceGroupsInSpacesTX\PlaceGroupsInSpacesTX_ParamAdd.cs" />
+    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_PlaceGroupsInSpacesTX_ParamAdd.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Code_SetMaxMinPtToElements.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml.cs">

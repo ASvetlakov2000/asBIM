@@ -21,7 +21,7 @@ using Notifications.Wpf;
 using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
 using asBIM;
-using Autodesk.Revit.UI.Selection;
+
 
 
 namespace asBIM
@@ -29,7 +29,7 @@ namespace asBIM
     [TransactionAttribute(TransactionMode.Manual)]
     [RegenerationAttribute(RegenerationOption.Manual)]
 
-    public class Cls_DeleteGroupFromSpaceTX : IExternalCommand
+    public class Code_DeleteGroupFromSpaceTX : IExternalCommand
     {
         // Guid общего параметра "PRO_ID группы в пространстве"
         Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
@@ -44,53 +44,72 @@ namespace asBIM
             var doc = uidoc.Document;
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
-            DeleteSelectionGroup deleteSelGroup = new DeleteSelectionGroup();
+            
+            DeleteGroupFromSpace(doc, uiapp);
             
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
 
             return Result.Succeeded;
         }
-        
-        
-    }
-    
-    
-    
-    internal class DeleteSelectionGroup : ISelectionFilter
-    {
-        // Guid groupGuid, Guid spaceGuid,
-        
-        public void DeleteGroupFromSpace(Document doc, ref string message)
-        {
-            /*Reference pickedRef = null;
-            Selection selection;
-            Group deletingGroup  = selection.PickObject(ObjectType.Element);
-            ElementId elementIdToDelete = deletingGroup.Id;
-            using (Transaction transaction = new Transaction(doc, "Delete Element"))
-            {
-                transaction.Start();
-                try
-                {
-                    // Удаление элемента
-                    doc.Delete(elementIdToDelete);
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    // Обработка ошибок
-                    message = ex.Message;
-                    transaction.RollBack();
-                }
-            }*/
-        }
-        public bool AllowElement(Element element)
-        {
-            return true;
-        }
 
-        public bool AllowReference(Reference reference, XYZ point)
+        public void DeleteGroupFromSpace(Document doc, UIApplication uiapp)
         {
-            return false;
+            Reference pickedRef = null;
+            Selection sel = uiapp.ActiveUIDocument.Selection;
+            pickedRef = sel.PickObject(ObjectType.Element, "Выберите группу для удаления");
+            Element pickedElement = doc.GetElement(pickedRef);
+            Group group = pickedElement as Group;
+
+            if (group != null)
+            {
+                ElementId pickedGroup = group.Id;
+                using (Transaction transaction = new Transaction(doc, "Delete Element"))
+                {
+                    transaction.Start();
+                    try
+                    {
+                        ClearSpaceParamValue(doc, group);
+                        doc.Delete(pickedGroup);
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        TaskDialog.Show("Ошибка!", ex.Message);
+                        transaction.RollBack();
+                    }
+                }
+            }
+            else
+                NotificationManagerWPF.MessageInfoSmile(
+                    "Удаление группы", 
+                    "\nУдалять можно только группы!",
+                    "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af", 
+                    NotificationType.Warning);
+        }
+        
+        public void ClearSpaceParamValue(Document doc, Group group)
+        {
+            // Сбор Пространств в коллекцию с сортировкой по категории и выбор только элементов
+            FilteredElementCollector collectorSpaces = new FilteredElementCollector(doc);
+            collectorSpaces.OfCategory(BuiltInCategory.OST_MEPSpaces).ToElements();
+            // Сбор Пространств в список.
+            // Сортировка Пространств в списке по Номеру Пространств
+            List<SpatialElement> spacesList = collectorSpaces.Cast<SpatialElement>()
+                // Конвертация номера Пространств из строки в целое
+                .OrderBy(space => Convert.ToDouble(space.Number))
+                .ToList();
+
+            foreach (SpatialElement space in spacesList)
+            {
+                Parameter spaceShParamID = space.get_Parameter(shParamGuid);
+                string spaceShParamIDString = spaceShParamID.AsString();
+                if (spaceShParamIDString == group.Id.ToString())
+                {
+                    spaceShParamID.Set("Test");
+                }
+            }
         }
     }
+    
 }

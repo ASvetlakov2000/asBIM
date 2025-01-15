@@ -14,6 +14,7 @@ using Autodesk.Revit.ApplicationServices;
 using System.Windows.Forms;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Binding = Autodesk.Revit.DB.Binding;
+using Autodesk.Revit.UI.Selection;
 
 
 namespace asBIM
@@ -783,6 +784,25 @@ namespace asBIM
                 path = openFileDialog.FileName;
             }
             return path;
+        }
+    }
+    
+    internal class DeleteSelectionGroup : ISelectionFilter
+    {
+        // Guid groupGuid, Guid spaceGuid,
+        public void DoSmth()
+        {
+            
+        }
+
+        public bool AllowElement(Element element)
+        {
+            return false;
+        }
+
+        public bool AllowReference(Reference reference, XYZ point)
+        {
+            return false;
         }
     }
 }
