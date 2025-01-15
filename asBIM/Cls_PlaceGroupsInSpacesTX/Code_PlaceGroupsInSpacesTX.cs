@@ -22,6 +22,7 @@ using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
 using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
+using Autodesk.Revit.UI.Selection;
 
 
 namespace asBIM
@@ -116,43 +117,6 @@ namespace asBIM
                 }
             }
 
-            // ОТЛАДКА 2
-            // string spaceName = null;
-            //
-            // StringBuilder sb = new StringBuilder();
-            // // Перебираем все найденные Пространства и выводим информацию по ним
-            // foreach (Element space in spacesList)
-            // {
-            //     // Приведение Element к SpatialElement
-            //     SpatialElement spatialElement = space as SpatialElement;
-            //     // Проверка на null
-            //     if (spatialElement != null)
-            //     {
-            //         // Получение имени Пространств. Берется из списка типа Element
-            //         string spNames = space.Name;
-            //         // Получение только Имени Пространства путем удаления Номера через разделитель "пробел".
-            //         spaceName = spNames.Split(' ').First();
-            //         
-            //         // ОТЛАДКА 1
-            //         // Вывод списка Пространств через StringBuilder
-            //         sb.AppendLine(spaceName);
-            //         sb.AppendLine("-----------------");
-            //     }
-            // }
-            // if (spacesList.Count > 0)
-            // {
-            //     TaskDialog.Show("Отладка. Перечень пространств", sb.ToString());
-            // }
-            // else
-            // {
-            //     TaskDialog.Show("Упс!", "В проекте отсутствуют пространства!");
-            // }
-            // // ОТЛАДКА 2
-            
-            // ОТЛАДКА 3. координат Пространств
-            // GetSpaceCenter(spacesList);
-            // ОТЛАДКА 3. координат Пространств
-            
             return spacesList;
         }
         
@@ -172,40 +136,6 @@ namespace asBIM
                 // Конвертация номера Групп из строки в целое
                 .OrderBy(group => group.Name)
                 .ToList();
-            
-            // // ОТЛАДКА 2
-            // StringBuilder sb = new StringBuilder();
-            //
-            // // Перебираем все найденные Группы и выводим информацию по ним
-            // foreach (Element group in groupsList)
-            // {
-            //     // Приведение Element к Group
-            //     Group g = group as Group;
-            //     // Проверка на null
-            //     if (g != null)
-            //     {
-            //         // Получение имени Групп. Берется из списка типа Element
-            //         string groupNames = g.Name;
-            //         
-            //         // ОТЛАДКА 1
-            //         sb.AppendLine(groupNames);
-            //         sb.AppendLine("---------------");
-            //     }
-            // }
-            // if (groupsList.Count > 0)
-            // {
-            //     TaskDialog.Show("Отладка. Перечень групп",sb.ToString());
-            // }
-            // else
-            // {
-            //     TaskDialog.Show("Упс!","В проекте отсутствуют группы!");
-            // }
-            // // ОТЛАДКА 2
-
-            // ОТЛАДКА 3. координат Групп
-            //GetSpaceCenter(groupsList);
-            // ОТЛАДКА 3. координат Групп
-            
             
             return groupsList;
         }
@@ -289,22 +219,10 @@ namespace asBIM
                     
                     Parameter placedGropupsChecker =
                         space.get_Parameter(shParamGuid);
+                    string paramValue = placedGropupsChecker.ToString(); 
                     
                     if (placedGropupsChecker != null && !placedGropupsChecker.HasValue)
                     {
-                        // TODO: 1. Отредактировать проверку на пустое пространство
-                        // TODO: 2. Добавить проверку на пустое имя пространства через ID
-
-                        // TODO: // НЕ РАБОТАЕТ
-                        // Проверяем, что имя пространства не пустое
-                        // if (string.IsNullOrWhiteSpace(spaceName))
-                        // {
-                        //     // Добавляем ID пространства в список
-                        //     sbSpacesWithoutName.AppendLine($"ID: {spaceID}");
-                        //     continue; // Переходим к следующему пространству
-                        // }
-                        // НЕ РАБОТАЕТ
-
                         // Сопоставляем пространство с группами
                         List<Group> matchingGroups = groupsList
                             .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
@@ -318,7 +236,7 @@ namespace asBIM
                             {
                                 XYZ placementPoint = GetSpaceBottomCenter(space);
                                 // string groupId = group.GroupId.ToString();
-                                if (placementPoint != null)
+                                if (placementPoint != null && !placedGropupsChecker.HasValue)
                                 {
                                     try
                                     {
@@ -332,9 +250,11 @@ namespace asBIM
                                         // Запись ID Группы в пространство
                                         Parameter spaceParameterID = space.get_Parameter(shParamGuid);
                                         if (spaceParameterID != null)
-                                        {
                                             spaceParameterID.Set(placedGroupId.ToString());
-                                        }
+                                        
+                                        Parameter groupParameterID = placedGroup.get_Parameter(shParamGuid);
+                                        if (groupParameterID != null)
+                                            groupParameterID.Set(placedGroupId.ToString());
                                     }
                                     catch (Exception ex)
                                     {
@@ -351,10 +271,7 @@ namespace asBIM
                             sb.AppendLine($"[Имя] - {spaceName},  [ID] - {spaceID}.");
                         }
                     }
-                    if (placedGropupsChecker != null && placedGropupsChecker.HasValue)
-                    {
-                     continue;
-                    }
+
                 }
                 
                 placedGroupCountStr = $"\nКоличество размещенных групп: {placedGroupCount.Count.ToString()}";
@@ -373,6 +290,6 @@ namespace asBIM
                 tr.Commit();
             }
         }
-        
     }
+    
 } 

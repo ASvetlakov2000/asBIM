@@ -110,6 +110,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cls_PlaceGroupsInSpacesTX\Cls_DeleteGroupFromSpaceTX.cs" />
     <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_PlaceGroupsInSpacesTX.cs" />
     <Compile Include="Cls_PlaceGroupsInSpacesTX\PlaceGroupsInSpacesTX_ParamAdd.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Code_SetMaxMinPtToElements.cs" />

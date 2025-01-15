@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Cls_DeleteGroupFromSpaceTX.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/94/8bc4473e/NotificationTemplateSelector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/620f6e7eba834c42a2f2db6b22950df6531838/8b/d00583ad/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="SKIP_HIGHLIGHTING" />
@@ -123,7 +123,8 @@
       <workItem from="1736622506263" duration="1004000" />
       <workItem from="1736623555054" duration="5317000" />
       <workItem from="1736800762274" duration="10048000" />
-      <workItem from="1736891656085" duration="3261000" />
+      <workItem from="1736891656085" duration="3284000" />
+      <workItem from="1736955489893" duration="16360000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -181,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736203540363</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Отладка Code_PlaceGroupsInSpacesTX">
+      <option name="closed" value="true" />
+      <created>1736894944298</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1736894944298</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +241,7 @@
     <MESSAGE value="1. Добавлены категории для &#10;Элементов и Линейных.&#10;Логика плагина готова.&#10;2. Тестовый MVVM с ошибками." />
     <MESSAGE value="Добавлена команда для раздела ТХ.&#10;Команда Code_PlaceGroupsInSpacesTX размещает группы в пространства, если имя группы и пространства совпадают." />
     <MESSAGE value="Добавление иконок" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление иконок" />
+    <MESSAGE value="Отладка Code_PlaceGroupsInSpacesTX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отладка Code_PlaceGroupsInSpacesTX" />
   </component>
 </project>
