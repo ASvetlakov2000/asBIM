@@ -69,6 +69,25 @@ using Notifications.Wpf.Controls;
                 Type = notificationType
             }, expirationTime: ts);
         }
+        
+        /// <summary>
+        /// Вывод окна Notifications.WPF c Сообщением
+        /// <param name = "title" > Заголовок </param>
+        /// <param name = "description" > Сообщение </param>
+        /// <param name = "notificationType" > Тип уведомления </param>
+        /// </summary>
+        public static void MessageSmileInfo(string title,  string smile, string description, NotificationType notificationType)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, 10);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = smile + description,
+                Type = notificationType
+            }, expirationTime: ts);
+        }
 
         /// <summary>
         /// Вывод окна Notifications.WPF c Сообщением

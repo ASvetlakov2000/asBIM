@@ -29,7 +29,7 @@ namespace asBIM
     [TransactionAttribute(TransactionMode.Manual)]
     [RegenerationAttribute(RegenerationOption.Manual)]
 
-    public class Code_DeleteGroupFromSpaceTX : IExternalCommand
+    public class Code_TX_PlaceGroupsInSpaces_DelGrp : IExternalCommand
     {
         // Guid общего параметра "PRO_ID группы в пространстве"
         Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
@@ -63,7 +63,7 @@ namespace asBIM
             if (group != null)
             {
                 ElementId pickedGroup = group.Id;
-                using (Transaction transaction = new Transaction(doc, "Delete Element"))
+                using (Transaction transaction = new Transaction(doc, "Удалить группу"))
                 {
                     transaction.Start();
                     try
@@ -94,11 +94,7 @@ namespace asBIM
             FilteredElementCollector collectorSpaces = new FilteredElementCollector(doc);
             collectorSpaces.OfCategory(BuiltInCategory.OST_MEPSpaces).ToElements();
             // Сбор Пространств в список.
-            // Сортировка Пространств в списке по Номеру Пространств
-            List<SpatialElement> spacesList = collectorSpaces.Cast<SpatialElement>()
-                // Конвертация номера Пространств из строки в целое
-                .OrderBy(space => Convert.ToDouble(space.Number))
-                .ToList();
+            List<SpatialElement> spacesList = collectorSpaces.Cast<SpatialElement>().ToList();
 
             foreach (SpatialElement space in spacesList)
             {
@@ -106,7 +102,7 @@ namespace asBIM
                 string spaceShParamIDString = spaceShParamID.AsString();
                 if (spaceShParamIDString == group.Id.ToString())
                 {
-                    spaceShParamID.Set("Test");
+                    spaceShParamID.Set(String.Empty);
                 }
             }
         }

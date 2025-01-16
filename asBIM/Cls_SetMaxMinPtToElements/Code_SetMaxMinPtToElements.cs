@@ -35,10 +35,10 @@ namespace asBIM
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
 
             // Вызов UI
-            var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
-            // в view передается null из-за проблем в XAML
-            var view = new Form_SetMaxMinPtToElements(vm);
-            view.Show();
+            // var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
+            // // в view передается null из-за проблем в XAML
+            // var view = new Form_SetMaxMinPtToElements(vm);
+            // view.Show();
             
             // Тест для настройки окон
             // Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
@@ -46,11 +46,27 @@ namespace asBIM
             // Вызов UI
             
             // Без UI
-            // Тест для настройки команд
-            // SetElementsTBPoints(doc);
             
+            // Время выполнения
+            Stopwatch swPlaceGroups = new Stopwatch();
+            swPlaceGroups.Start();
+            
+            // TODO: 3. Добавить проверку на наличие параметра Отметки Верха и Низа
             // Тест для настройки команд
-            // SetLinearElemTBPoints(doc);
+            SetElementsTBPoints(doc);
+            
+            // TODO: 4. Добавить проверку на наличие параметра Отметки в Начале и в Конце
+            // Тест для настройки команд
+            SetLinearElemTBPoints(doc);
+            
+            swPlaceGroups.Stop();
+            // Время выполнения
+            var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
+            // Уведомление. "Время работы"
+            NotificationManagerWPF.TimeOfWork("Время работы", 
+                timeInSec:"\nВремя выполнения: " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"),
+                NotificationType.Information);
+            
             // Без UI
             
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
@@ -58,12 +74,18 @@ namespace asBIM
         }
 
 
-        // Метод SetElementsTBPoints
-        // TODO: 2. ОПИСАНИЕ ДЕЙСТВИЯ МЕТОДА "SetElementsTBPoints" С ЦИКЛОМ РИЧ ДОПОЛНИТЬ !!!
+        /// <summary>
+        /// Метод для записи Отметок Верха и Низа для Элементов по BoundingBox
+        /// <param name = "doc" > Документ </param>
+        /// </summary>
         public void SetElementsTBPoints(Document doc)
         {
             // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
+            
+            // Счетчик для количества элементов. Удачно
+            string elemCountStr;
+            IList<Element> elemCount = new List<Element>();
 
             //Транзакция
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
@@ -120,6 +142,10 @@ namespace asBIM
                             
                             // Запись Имени Нижнего этажа.
                             bottomPointParam.Set(closestLevelForBot != null ? elemBotPtElevFromLevelSmRound  + " от " + closestLevelForBot.Name.Split('_').Last() : "Не определено");
+                            
+                            // Счетчик элементов 
+                            elemCount.Add(elemincollector);
+                            
                             // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             
                         }
@@ -130,6 +156,13 @@ namespace asBIM
                         TaskDialog.Show("Ошибка", ex.Message);
                     }
                 }
+
+                elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
+                NotificationManagerWPF.MessageSmileInfo(
+                    "Запись параметров для Элементов", 
+                    "\n(￢‿￢ )",elemCountStr,
+                    NotificationType.Success);
+                
                 tr.Commit();
             }
 
@@ -137,51 +170,58 @@ namespace asBIM
         
         
         //Метод для обнуления значений
-        public void SetElementsTBPoints_Null(Document doc)
-        {
-            // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
-            var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
+        // public void SetElementsTBPoints_Null(Document doc)
+        // {
+        //     // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
+        //     var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
+        //
+        //     //Транзакция
+        //     using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
+        //     {
+        //         tr.Start();
+        //         // Цикл с перебором всех элементов в коллекции
+        //         foreach (Element elemincollector in groupedElements["Element"])
+        //         {
+        //             try
+        //             {
+        //                 //Получение "Общего параметра по Guid" из Revit в переменную topPointParam из эл в коллекции. Отметка верха
+        //                 Parameter topPointParam = elemincollector.get_Parameter(new Guid("22c86588-f717-403e-b1c6-1607cac39965"));
+        //                 //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
+        //                 Parameter bottomPointParam = elemincollector.get_Parameter(new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5")); 
+        //                 
+        //                 // Проверка на null "Общего параметра по Guid" из Revit
+        //                 if (topPointParam != null && bottomPointParam != null)
+        //                 {
+        //                     // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА. Удаление значений
+        //                     topPointParam.Set("");
+        //                     
+        //                     // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА. Удаление значений
+        //                     bottomPointParam.Set("");
+        //                 }
+        //             }
+        //
+        //             catch (Exception ex)
+        //             {
+        //                 TaskDialog.Show("Ошибка", ex.Message);
+        //             }
+        //         }
+        //         tr.Commit();
+        //     }
+        // }
         
-            //Транзакция
-            using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
-            {
-                tr.Start();
-                // Цикл с перебором всех элементов в коллекции
-                foreach (Element elemincollector in groupedElements["Element"])
-                {
-                    try
-                    {
-                        //Получение "Общего параметра по Guid" из Revit в переменную topPointParam из эл в коллекции. Отметка верха
-                        Parameter topPointParam = elemincollector.get_Parameter(new Guid("22c86588-f717-403e-b1c6-1607cac39965"));
-                        //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
-                        Parameter bottomPointParam = elemincollector.get_Parameter(new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5")); 
-                        
-                        // Проверка на null "Общего параметра по Guid" из Revit
-                        if (topPointParam != null && bottomPointParam != null)
-                        {
-                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА. Удаление значений
-                            topPointParam.Set("");
-                            
-                            // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА. Удаление значений
-                            bottomPointParam.Set("");
-                        }
-                    }
         
-                    catch (Exception ex)
-                    {
-                        TaskDialog.Show("Ошибка", ex.Message);
-                    }
-                }
-                tr.Commit();
-            }
-        }
-        
-        
-        // Метод SetLinearElemTBPoints - записывает в параметры Отметка в Начале и Отметка в Конце
-        // отметки для линейных обьектов.
+        /// <summary>
+        /// Метод SetLinearElemTBPoints - записывает в параметры Отметка в Начале и Отметка в Конце
+        /// <param name = "doc" > Документ </param>
+        /// </summary>
         public void SetLinearElemTBPoints(Document doc)
         {
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
+            
+            // Счетчик для количества элементов. Удачно
+            string elemCountStr;
+            IList<Element> elemCount = new List<Element>();
+            
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
             {
                 tr.Start();
@@ -217,7 +257,6 @@ namespace asBIM
                             // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                             startPointParam.Set(closestLevelForTop != null ? linearElemStartPtElevFromLevSmRound  + " от " + closestLevelForTop.Name.Split('_').Last() : "Не определено");
                             
-                            
                             // Получение Отметки в Начале для линейных обьектов 
                             double linearElemEndPtElev = ElementTopBottomPt.GetLinearPoint(elemincollector, false).Z;
                             // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию список уровней
@@ -229,8 +268,10 @@ namespace asBIM
                             // Округление topVal до 0 знаков после запятой
                             double linearElemEndPtElevFromLevSmRound = Math.Round(linearElemEndPtElevFromLevSm, 0, MidpointRounding.AwayFromZero);
                             
-                            // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                            // Счетчик элементов 
+                            elemCount.Add(elemincollector);
                             endtPointParam.Set(closestLevelForBottom != null ? linearElemEndPtElevFromLevSmRound  + " от " + closestLevelForBottom.Name.Split('_').Last() : "Не определено");
+                            // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                         }
                     }
         
@@ -239,6 +280,13 @@ namespace asBIM
                         TaskDialog.Show("Ошибка", ex.Message);
                     }
                 }
+                
+                elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
+                NotificationManagerWPF.MessageSmileInfo(
+                    "Запись параметров для Линейных", 
+                    "\n(￢‿￢ )",elemCountStr,
+                    NotificationType.Success);
+                
                 tr.Commit();
             }
         }
