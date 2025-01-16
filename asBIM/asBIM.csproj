@@ -105,14 +105,14 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VCRevitRibbonUtil">
-      <HintPath>..\..\..\Desktop\00000_С#\03_Revit_Plugin\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
+      <HintPath>\\serverproxima\users$\Profiles\Svetlakov.a\Desktop\C#\00_Revit Plugins\02_Сторонние сборки\Сборка для добавление кнопки\VCRevitRibbonUtil.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cls_PlaceGroupsInSpacesTX\Cls_DeleteGroupFromSpaceTX.cs" />
-    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_PlaceGroupsInSpacesTX.cs" />
-    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_PlaceGroupsInSpacesTX_ParamAdd.cs" />
+    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_TX_PlaceGroupsInSpaces_DelGr.cs" />
+    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_TX_PlaceGroupsInSpaces.cs" />
+    <Compile Include="Cls_PlaceGroupsInSpacesTX\Code_TX_PlaceGroupsInSpaces_ParamAdd.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Code_SetMaxMinPtToElements.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml.cs" />
     <Compile Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml.cs">

@@ -7,10 +7,9 @@
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Cls_DeleteGroupFromSpaceTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Cls_DeleteGroupFromSpaceTX.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/PlaceGroupsInSpacesTX_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX_ParamAdd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Cls_DeleteGroupFromSpaceTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces_DelGr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_PlaceGroupsInSpacesTX_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces_ParamAdd.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,28 +63,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Process.11680:Revit.executor": "Debug",
-    "Attach to Process.11788:Revit.executor": "Debug",
-    "Attach to Process.14324:Revit.executor": "Debug",
-    "Attach to Process.15576:Revit.executor": "Debug",
-    "Attach to Process.19440:Revit.executor": "Debug",
-    "Attach to Process.21292:Revit.executor": "Debug",
-    "Attach to Process.29584:RevitWorker.executor": "Debug",
-    "Attach to Process.8924:Revit.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

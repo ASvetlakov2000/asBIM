@@ -26,7 +26,7 @@ namespace asBIM
     [TransactionAttribute(TransactionMode.Manual)]
     [RegenerationAttribute(RegenerationOption.Manual)]
 
-    public class Code_PlaceGroupsInSpacesTX_ParamAdd : IExternalCommand
+    public class Code_TX_PlaceGroupsInSpaces_ParamAdd : IExternalCommand
     {
         // Guid общего параметра "PRO_ID группы в пространстве"
         Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");

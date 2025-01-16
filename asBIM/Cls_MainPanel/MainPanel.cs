@@ -44,7 +44,7 @@ namespace asBIM
             //Создание панели "Разместить"
             var panel2 = tab.Panel("ТХ");
             //Создание кнопки "Создать"
-            panel2.CreateButton<Code_PlaceGroupsInSpacesTX_ParamAdd>("Добавить\nпараметры",
+            panel2.CreateButton<Code_TX_PlaceGroupsInSpaces_ParamAdd>("Добавить\nпараметры",
                 "Добавить\nпараметры", b =>
                 {
                     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_Params_32);
@@ -54,7 +54,17 @@ namespace asBIM
 
             panel2.CreateSeparator();
             
-            panel2.CreateButton<Code_PlaceGroupsInSpacesTX>("Разместить группы",
+            panel2.CreateButton<Code_TX_PlaceGroupsInSpaces>("Разместить группы",
+                "Разместить\nГруппы ТХ", b =>
+                {
+                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
+                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                    b.SetLongDescription("Размещение групп в пространствах ТХ");
+                });
+            
+            panel2.CreateSeparator();
+            
+            panel2.CreateButton<Code_DeleteGroupFromSpaceTX>("Разместить группы",
                 "Разместить\nГруппы ТХ", b =>
                 {
                     b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
