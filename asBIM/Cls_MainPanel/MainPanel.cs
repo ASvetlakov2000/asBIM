@@ -67,10 +67,12 @@ namespace asBIM
             panel2.CreateButton<Code_DeleteGroupFromSpaceTX>("Разместить группы",
                 "Разместить\nГруппы ТХ", b =>
                 {
-                    b.SetLargeImage(Resources.PlaceGroupsInSpacesTX_32);
-                    b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
+                    b.SetLargeImage(Resources.Delete_32);
+                    b.SetSmallImage(Resources.Delete_16);
                     b.SetLongDescription("Размещение групп в пространствах ТХ");
                 });
+
+
              
             // //Создание панели "Разместить"
             // var panel3 = tab.Panel("Разместить");
