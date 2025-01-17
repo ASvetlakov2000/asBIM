@@ -103,26 +103,6 @@ namespace asBIM.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PlaceGroupsInSpacesTX_Params_16 {
-            get {
-                object obj = ResourceManager.GetObject("PlaceGroupsInSpacesTX_Params_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PlaceGroupsInSpacesTX_Params_32 {
-            get {
-                object obj = ResourceManager.GetObject("PlaceGroupsInSpacesTX_Params_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap TB_Points_16 {
             get {
                 object obj = ResourceManager.GetObject("TB_Points_16", resourceCulture);
