@@ -98,7 +98,7 @@ namespace asBIM
             // Сортировка Пространств в списке по Номеру Пространств
             List<SpatialElement> spacesList = collectorSpaces.Cast<SpatialElement>()
                 // Конвертация номера Пространств из строки в целое
-                .OrderBy(space => Convert.ToDouble(space.Number, format))
+                .OrderBy(space => Convert.ToString(space.Number, format))
                 .ToList();
 
             foreach (SpatialElement space in spacesList)
@@ -345,6 +345,7 @@ namespace asBIM
                     elementCount: placedGroupCountStr, NotificationType.Success);
                 
                 tr.Commit();
+                
             }
         }
     }

@@ -195,8 +195,9 @@ namespace asBIM
             BoundingBoxXYZ bounding = element.get_BoundingBox(null);
             // Присвоение перем. elemTopPointFeet_XYZ значения отметки Верхней точки BoundingBox элемента 
             // Без вычитания расстояния от Начала Координат (НК)
+            
             XYZ elemTopPointFeet_XYZ = bounding.Max;
-
+            
             // Возращает XYZ elemTopPointFeet_XYZ. Значения XYZ отметки Верха в футах
             return elemTopPointFeet_XYZ;
         }

@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Завершение плагинов:&#10;- Cls_PlaceGroupsInSpacesTX&#10;- Cls_SetMaxMinPtToElements">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +132,7 @@
       <workItem from="1737018010632" duration="22469000" />
       <workItem from="1737046698951" duration="39000" />
       <workItem from="1737103046731" duration="11690000" />
+      <workItem from="1737118803669" duration="3513000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
