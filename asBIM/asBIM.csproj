@@ -179,6 +179,12 @@
   <ItemGroup>
     <None Include="Resources\Delete_32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TB_Points_AddParam_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TB_Points_AddParam_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

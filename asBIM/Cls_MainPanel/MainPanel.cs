@@ -26,18 +26,26 @@ namespace asBIM
         {
             //Создание вкладки "asBIM"
             var tab = Ribbon.GetApplicationRibbon(a).Tab("asBIM");
-        
+
             //Кнопка №1
             //Создание панели "Запись"
             var panel1 = tab.Panel("RA | Запись");
+            panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
+            {
+                b.SetLargeImage(Resources.TB_Points_AddParam_32);
+                b.SetSmallImage(Resources.TB_Points_AddParam_16);
+                b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
+            });
+
+            //Кнопка №2
             panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
             {
                 b.SetLargeImage(Resources.TB_Points_32);
                 b.SetSmallImage(Resources.TB_Points_16);
                 b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
             });
-        
-            //Кнопка №2
+
+            //Кнопка №3
             //Создание панели "Разместить"
             var panel2 = tab.Panel("ТХ");
             //Создание кнопки "Создать"
@@ -48,10 +56,10 @@ namespace asBIM
                     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_Params_16);
                     b.SetLongDescription("Добавить параметры для записи ID групп в пространствах ТХ");
                 });
-        
+
             panel2.CreateSeparator();
-            
-            //Кнопка №3
+
+            //Кнопка №4
             panel2.CreateButton<Code_TX_PlaceGroupsInSpaces>("Разместить группы",
                 "Разместить\nГруппы ТХ", b =>
                 {
@@ -59,10 +67,10 @@ namespace asBIM
                     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
                     b.SetLongDescription("Размещение групп в пространствах ТХ");
                 });
-            
+
             panel2.CreateSeparator();
-            
-            //Кнопка №4
+
+            //Кнопка №5
             panel2.CreateButton<Code_TX_PlaceGroupsInSpaces_DelGrp>("Удалить группы",
                 "Удалить\nГруппы ТХ", b =>
                 {
@@ -70,9 +78,9 @@ namespace asBIM
                     b.SetSmallImage(Resources.Delete_16);
                     b.SetLongDescription("Удаление групп в пространствах ТХ с очисткой параметра пространств");
                 });
-        
-        
-             
+
+
+
             // //Создание панели "Разместить"
             // var panel3 = tab.Panel("Разместить");
             // //Создание кнопки "Создать"
@@ -83,7 +91,7 @@ namespace asBIM
             //     b.SetSmallImage(Resources.PlaceGroupsInSpacesTX_16);
             //     b.SetLongDescription("Размещение групп в пространствах ТХ");
             // });
-        
+
             return Result.Succeeded;
         }
         public Result OnShutdown(UIControlledApplication a)

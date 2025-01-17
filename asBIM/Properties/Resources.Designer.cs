@@ -139,5 +139,25 @@ namespace asBIM.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TB_Points_AddParam_16 {
+            get {
+                object obj = ResourceManager.GetObject("TB_Points_AddParam_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TB_Points_AddParam_32 {
+            get {
+                object obj = ResourceManager.GetObject("TB_Points_AddParam_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
