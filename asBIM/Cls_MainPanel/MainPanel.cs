@@ -30,12 +30,14 @@ namespace asBIM
             //Кнопка №1
             //Создание панели "Запись"
             var panel1 = tab.Panel("RA | Запись");
-            panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
+            panel1.CreateButton<Code_SetMaxMinPtToElements>("Добавить\nпараметры RA", "Добавить\nпараметры RA", b =>
             {
                 b.SetLargeImage(Resources.TB_Points_AddParam_32);
                 b.SetSmallImage(Resources.TB_Points_AddParam_16);
-                b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
+                b.SetLongDescription("Добавить параметры для записи Отметок Верха и Низа, Отметок Начала и конца");
             });
+            
+            panel1.CreateSeparator();
 
             //Кнопка №2
             panel1.CreateButton<Code_SetMaxMinPtToElements>("Отметки \nВерха/Низа", "Отметки \nВерха/Низа", b =>
@@ -44,10 +46,11 @@ namespace asBIM
                 b.SetSmallImage(Resources.TB_Points_16);
                 b.SetLongDescription("Параметризация для Гравиона\n\nЗапись значений в параметры: \nPRO_Отметка верха \nPRO_Отметка низа\n\nОтметки записываются от уровня на котором находится элемент");
             });
-
+            
             //Кнопка №3
             //Создание панели "Разместить"
             var panel2 = tab.Panel("ТХ");
+            
             //Создание кнопки "Создать"
             panel2.CreateButton<Code_TX_PlaceGroupsInSpaces_ParamAdd>("Добавить\nпараметры",
                 "Добавить\nпараметры", b =>
