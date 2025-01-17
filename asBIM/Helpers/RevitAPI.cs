@@ -723,7 +723,7 @@ namespace asBIM
         /// <param name="doc">Текущий документ Revit.</param>
         /// <param name="parameterGuid">Guid параметра, который надо найти в документе.</param>
         /// <returns>true если параметр найден, false если параметр не найден</returns>>
-        public static bool FindsharedParameterByGUID(Document doc, Guid parameterGuid)
+        public static bool FindSharedParameterByGUID(Document doc, Guid parameterGuid)
         {
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             IEnumerable<SharedParameterElement> sharedParameters = collector
