@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace asBIM
+namespace asBIM.Helpers
 {
     public class RelayCommand : ICommand
     {

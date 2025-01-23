@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows;
-using System.Windows.Media.Animation;
-using System.Windows.Threading;
-using Notifications.Wpf.Controls;
- using asBIM;
- using Autodesk.Revit.DB;
+using Notifications.Wpf;
 
- namespace Notifications.Wpf
+
+namespace asBIM.Helpers
 {
     public static class NotificationManagerWPF
     {

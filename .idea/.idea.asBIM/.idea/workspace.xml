@@ -4,10 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Завершение плагинов:&#10;- Cls_PlaceGroupsInSpacesTX&#10;- Cls_SetMaxMinPtToElements">
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_TX_WriteSpaceParamFrSCV/Code_TX_WriteSpaceParamFrSCV.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Helpers/Ribbon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_TX_PlaceGroupsInSpaces/Code_TX_PlaceGroupsInSpaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces_DelGrp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_TX_PlaceGroupsInSpaces/Code_TX_PlaceGroupsInSpaces_DelGrp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_PlaceGroupsInSpacesTX/Code_TX_PlaceGroupsInSpaces_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_TX_PlaceGroupsInSpaces/Code_TX_PlaceGroupsInSpaces_ParamAdd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements_ParamAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements_ParamAdd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetParamertToVisibleElementInActiveView/Code_SetParamertToVisibleElementInActiveView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetParamertToVisibleElementInActiveView/Form_SetParamertToVisibleElementInActiveView.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetParamertToVisibleElementInActiveView/Form_SetParamertToVisibleElementInActiveView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/AllUsedCategoryList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Helpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Helpers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RelayCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RelayCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/ViewModelEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/ViewModelEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,17 +58,19 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/57/fa0d0f99/NotificationsOverlayWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab2f7b3123da4cc5a881693329668d8e38f430/8a/e789bc06/ImageSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0f8d183e43847009e4e164aee6d042f91960/1c/0674dd39/Bitmap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/d8/81e7a4ae/SplitButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -80,7 +101,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -132,7 +153,13 @@
       <workItem from="1737018010632" duration="22469000" />
       <workItem from="1737046698951" duration="39000" />
       <workItem from="1737103046731" duration="11690000" />
-      <workItem from="1737118803669" duration="3513000" />
+      <workItem from="1737118803669" duration="3695000" />
+      <workItem from="1737454755433" duration="700000" />
+      <workItem from="1737455467274" duration="12662000" />
+      <workItem from="1737480836737" duration="2885000" />
+      <workItem from="1737539101207" duration="8119000" />
+      <workItem from="1737629137531" duration="3169000" />
+      <workItem from="1737632349301" duration="1652000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -230,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737116785238</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces">
+      <option name="closed" value="true" />
+      <created>1737123727123</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737123727123</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +320,7 @@
     <MESSAGE value="Переименование классов" />
     <MESSAGE value="Отладка" />
     <MESSAGE value="Завершение плагинов:&#10;- Cls_PlaceGroupsInSpacesTX&#10;- Cls_SetMaxMinPtToElements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Завершение плагинов:&#10;- Cls_PlaceGroupsInSpacesTX&#10;- Cls_SetMaxMinPtToElements" />
+    <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
   </component>
 </project>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Autodesk.Revit.UI;
 
-namespace asBIM
+namespace asBIM.Helpers
 {
     public class ViewModelEvent : IExternalEventHandler
     {

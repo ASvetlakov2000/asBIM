@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.DB;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using Autodesk.Revit.DB;
 
-namespace asBIM
+namespace asBIM.Helpers
 {
     internal class Helpers
     {

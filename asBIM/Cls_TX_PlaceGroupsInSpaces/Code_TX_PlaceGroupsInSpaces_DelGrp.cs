@@ -22,13 +22,11 @@ using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
 using asBIM;
 
-
-
-namespace asBIM
+namespace asBIM.Cls_TX_PlaceGroupsInSpaces
 {
-    [TransactionAttribute(TransactionMode.Manual)]
-    [RegenerationAttribute(RegenerationOption.Manual)]
-
+    [Transaction(TransactionMode.Manual)]
+    [Regeneration(RegenerationOption.Manual)]
+    
     public class Code_TX_PlaceGroupsInSpaces_DelGrp : IExternalCommand
     {
         // Guid общего параметра "PRO_ID группы в пространстве"
@@ -44,17 +42,29 @@ namespace asBIM
             var doc = uidoc.Document;
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
-            
-            DeleteGroupFromSpace(doc, uiapp);
-            
+            try
+            {
+                DeleteGroupFromSpace(doc, uiapp);
+            }
+            // Обработка исключений при щелчке правой кнопкой или нажатии ESC
+            catch (Autodesk.Revit.Exceptions.OperationCanceledException)
+            {
+                return Result.Cancelled;
+            }
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
 
             return Result.Succeeded;
         }
 
+        /// <summary>
+        /// Метод для удаления групп после расстановки с помощью Code_TX_PlaceGroupsInSpaces.
+        /// Удаляет группы и значение в параметре "PRO_ID группы в пространстве"
+        /// <param name = "doc" > Документ </param>
+        /// <param name = "uiapp" > Документ, интерфейс </param>
+        /// </summary>
         public void DeleteGroupFromSpace(Document doc, UIApplication uiapp)
         {
-            Reference pickedRef = null;
+            Reference pickedRef;
             Selection sel = uiapp.ActiveUIDocument.Selection;
             pickedRef = sel.PickObject(ObjectType.Element, "Выберите группу для удаления");
             Element pickedElement = doc.GetElement(pickedRef);
@@ -80,14 +90,20 @@ namespace asBIM
                 }
             }
             else
-                NotificationManagerWPF.MessageInfoSmile(
+                Helpers.NotificationManagerWPF.MessageInfoSmile(
                     "Удаление группы", 
                     "\nУдалять можно только группы!",
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +
                     "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af", 
                     NotificationType.Warning);
+            
         }
         
+        /// <summary>
+        /// Удаляет значение в параметре "PRO_ID группы в пространстве"
+        /// <param name = "doc" > Документ </param>
+        /// <param name = "group" > Группа, в которой удаляется значение "PRO_ID группы в пространстве"</param>
+        /// </summary>
         public void ClearSpaceParamValue(Document doc, Group group)
         {
             // Сбор Пространств в коллекцию с сортировкой по категории и выбор только элементов
@@ -98,11 +114,12 @@ namespace asBIM
 
             foreach (SpatialElement space in spacesList)
             {
-                Parameter spaceShParamID = space.get_Parameter(shParamGuid);
-                string spaceShParamIDString = spaceShParamID.AsString();
-                if (spaceShParamIDString == group.Id.ToString())
+                Parameter spaceShParamId = space.get_Parameter(shParamGuid);
+                string spaceShParamIdString = spaceShParamId.AsString();
+                
+                if (spaceShParamIdString == group.Id.ToString())
                 {
-                    spaceShParamID.Set(String.Empty);
+                    spaceShParamId.Set(String.Empty);
                 }
             }
         }

@@ -1,30 +1,15 @@
-﻿using Autodesk.Revit.Attributes;
+﻿using System;
+using System.Collections.Generic;
+using asBIM.Helpers;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using asBIM.Properties;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Xaml;
-using System.Windows.Documents;
-using System.Xml.Linq;
-using System.Windows;
-using asBIM.ViewModel;
 using Notifications.Wpf;
-using CommunityToolkit.Mvvm.Input;
-using Nice3point.Revit.Extensions;
-using asBIM;
 
-namespace asBIM
+namespace asBIM.Cls_TX_PlaceGroupsInSpaces
 {
-    [TransactionAttribute(TransactionMode.Manual)]
-    [RegenerationAttribute(RegenerationOption.Manual)]
+    [Transaction(TransactionMode.Manual)]
+    [Regeneration(RegenerationOption.Manual)]
 
     public class Code_TX_PlaceGroupsInSpaces_ParamAdd : IExternalCommand
     {
@@ -42,7 +27,6 @@ namespace asBIM
 
             // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
             
-            // TODO: Добавить проверку на наличие параметра
                 try
                 {
                     // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
@@ -51,8 +35,7 @@ namespace asBIM
                         doc.Settings.Categories.get_Item(BuiltInCategory.OST_MEPSpaces), // Пространства
                         doc.Settings.Categories.get_Item(BuiltInCategory.OST_IOSModelGroups), // Группы
                     };
-                    
-                    // TODO: Вызывается каждый раз при выполнении. Исправить
+
                     SharedParameterHelper.AddSharedParameterFromFOP(
                         doc,
                         // путь к ФОП

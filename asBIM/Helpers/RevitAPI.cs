@@ -1,23 +1,16 @@
-﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Windows;
-using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Animation;
-using Autodesk.Revit.DB.Plumbing;
-using Autodesk.Revit.ApplicationServices;
 using System.Windows.Forms;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Binding = Autodesk.Revit.DB.Binding;
-using Autodesk.Revit.UI.Selection;
 
 
-namespace asBIM
+namespace asBIM.Helpers
 {
     internal static class RevitAPI
     {
@@ -218,32 +211,14 @@ namespace asBIM
             // Возвращает XYZ elemBottomPointFeet_XYZ. Значения XYZ отметки Низа в футах
             return elemBottomPointFeet_XYZ;
         }
+        
 
-        // Было
-        // public static XYZ GetLinearStartPoint (Element element)
-        // {
-        //     StringBuilder sb = new StringBuilder();
-        //     
-        //     // Получаем Location элемента
-        //     Location location = element.Location;
-        //
-        //     LocationCurve locationCurve = null;
-        //     // Получаем кривую линейного обьекта
-        //     if (!(location is LocationCurve curve)) return XYZ.Zero;
-        //     // Получаем начальную и конечную точки
-        //     XYZ startPoint = curve.Curve.GetEndPoint(0);
-        //     //XYZ endPoint = curve.GetEndPoint(1);
-        //
-        //     string test = startPoint.ToString();
-        //
-        //     sb.Append("\n" + test);
-        //
-        //     return startPoint;
-        // }
-
-
-
-        /// Метод XYZ GetLinearPoint для получения Отметок в Начале и Отметок в Конце 
+        /// <summary>
+        /// Метод XYZ GetLinearPoint для получения Отметок в Начале и Отметок в Конце
+        /// </summary>
+        /// <param name="curve">Принимает обьекты на основе кривой</param>
+        /// <param name="end">Принимает конечную точку кривой, для проверки на начало или конец</param>
+        /// <returns>XYZ locationCurve?.GetEndPoint((bool)end ? 1 : 0)</returns>>
         public static XYZ GetLinearPoint(MEPCurve curve, bool? end = null)
         {
             var location = curve.Location;
@@ -417,10 +392,9 @@ namespace asBIM
     }
 
 
-/// <summary>
-/// Добавляет общий параметр в проект Revit.
-/// </summary>
-
+    /// <summary>
+    /// Добавляет общий параметр в проект Revit.
+    /// </summary>
     public static class SharedParameterHelper
     {
         /// <summary>
@@ -538,6 +512,8 @@ namespace asBIM
         /// <summary>
         /// Получает ElementId для общего параметра.
         /// </summary>
+        /// <param name="doc">Текущий документ Revit.</param>
+        /// <param name="definition">Настройки общих параметров.</param>
         private static ElementId GetParameterElementId(Document doc, ExternalDefinition definition)
         {
             foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
@@ -554,6 +530,9 @@ namespace asBIM
         /// <summary>
         /// Проверяет существование параметра с указанным именем в проекте.
         /// </summary>
+        /// <param name="doc">Текущий документ Revit.</param>
+        /// <param name="parameterName">Имя искомого параметра.</param>
+        /// <returns>paramElement.Id</returns>>
         private static ElementId GetParameterElementIdByName(Document doc, string parameterName)
         {
             foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
@@ -604,8 +583,6 @@ namespace asBIM
         /// <param name="isInstance">True, если параметр экземплярный, иначе типовой.</param>
         /// <param name="category">Список категорий, к которым нужно привязать параметр.</param>
         /// <param name="allowValuesPerGroup">True, если значения могут изменяться по экземпляру группы.</param>
-
-        
         public static void AddSharedParameterFromFOP(
         Document doc, 
         string sharedParameterFilePath, 
@@ -768,6 +745,12 @@ namespace asBIM
     }
 
 
+    ///<summary>
+    /// Метод для открытия файла и передачи его пути
+    ///</summary>
+    /// <param name="title">Заголовок в UI.</param>
+    /// <param name="format">Формат открываемого файлаа.</param>
+    /// <returns>path - путь к файлу</returns>>
     public static class OpenFile
     {
         public static string OpenSingleFile(string title,string format)

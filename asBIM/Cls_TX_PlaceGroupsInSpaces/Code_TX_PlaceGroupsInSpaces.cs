@@ -5,30 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using asBIM.Properties;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Dynamic;
 using System.Globalization;
-using System.Xaml;
-using System.Windows.Documents;
-using System.Xml.Linq;
-using System.Windows;
-using asBIM.ViewModel;
 using Notifications.Wpf;
-using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
 using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
-using Autodesk.Revit.UI.Selection;
 
 
-namespace asBIM
+
+namespace asBIM.Cls_TX_PlaceGroupsInSpaces
 {
-    [TransactionAttribute(TransactionMode.Manual)]
-    [RegenerationAttribute(RegenerationOption.Manual)]
+    [Transaction(TransactionMode.Manual)]
+    [Regeneration(RegenerationOption.Manual)]
 
     public class Code_TX_PlaceGroupsInSpaces : IExternalCommand
     {
@@ -55,7 +44,7 @@ namespace asBIM
             var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
         
             // Уведомление. "Время работы"
-            NotificationManagerWPF.TimeOfWork("Время работы", 
+            Helpers.NotificationManagerWPF.TimeOfWork("Время работы", 
                 timeInSec:"\nВремя выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
             
@@ -107,7 +96,7 @@ namespace asBIM
                 spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
                 if (spaceFullName == spaceClearName)
                 {
-                    NotificationManagerWPF.MessageInfoSmile(
+                    Helpers.NotificationManagerWPF.MessageInfoSmile(
                             "Ошибка!\nВ проекте пространства без имени!",
                             $"\nПространство: [№] - [{spaceClearName}],  [ID] - [{space.Id}]", 
                             "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
@@ -177,7 +166,7 @@ namespace asBIM
             // Проверка на отсутствие Пространств
             if (!spacesList.Any())
             {
-                NotificationManagerWPF.MessageInfoSmile(
+                Helpers.NotificationManagerWPF.MessageInfoSmile(
                     "Ошибка!",
                     "\nВ проекте отсутствуют пространства", 
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
@@ -191,7 +180,7 @@ namespace asBIM
             // Проверка на отсутствие Групп
             if (!groupsList.Any())
             {
-                NotificationManagerWPF.MessageInfoSmile(
+                Helpers.NotificationManagerWPF.MessageInfoSmile(
                     "Ошибка!",
                     "\nВ проекте отсутствуют группы", 
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +
@@ -220,72 +209,14 @@ namespace asBIM
                     Parameter placedGropupsChecker =
                         space.get_Parameter(shParamGuid);
                     string paramValue = placedGropupsChecker.AsString(); 
-                    // V1
-                    /*if (placedGropupsChecker != null && !placedGropupsChecker.HasValue)
-                    {
-                        // List<Group> matchingGroups = groupsList
-                        //     .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
-                        //                     group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
-                        // Сопоставляем пространство с группами
-                        List<Group> matchingGroups = groupsList
-                            .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
-                                            group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
-                            .ToList();
-
-                        // TODO: Добавить вычетание пространства без имени из списка не распределенных
-                        if (matchingGroups.Any())
-                        {
-                            foreach (Group group in matchingGroups)
-                            {
-                                XYZ placementPoint = GetSpaceBottomCenter(space);
-                                // string groupId = group.GroupId.ToString();
-                                if (placementPoint != null && !placedGropupsChecker.HasValue)
-                                {
-                                    try
-                                    {
-                                        // Размещение групп в одноименных пространствах 
-                                        Group placedGroup = doc.Create.PlaceGroup(placementPoint, group.GroupType);
-                                        // Получение ID размещенной группы
-                                        ElementId placedGroupId = placedGroup.Id;
-                                        // Подсчет количества элементов. Удачных
-                                        // Добавление элемента в счетчик отработанных пространств
-                                        placedGroupCount.Add(placedGroup);
-                                        // Запись ID Группы в пространство
-                                        Parameter spaceParameterID = space.get_Parameter(shParamGuid);
-                                        if (spaceParameterID != null)
-                                            spaceParameterID.Set(placedGroupId.ToString());
-                                        // Запись ID Группы в группу
-                                        Parameter groupParameterID = placedGroup.get_Parameter(shParamGuid);
-                                        if (groupParameterID != null)
-                                            groupParameterID.Set(placedGroupId.ToString());
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        sb.AppendLine(
-                                            $"Ошибка при размещении исходной группы с ID [{group.Id}] и Именем [{group.Name}]: {ex.Message}");
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            // Подсчет количества элементов. Не удачных
-                            // Добавление элемента в счетчик не отработанных пространств
-                            placedErrGroupCount.Add(matchingGroups.FirstOrDefault());
-                            sb.AppendLine($"[Имя] - {spaceName},  [ID] - {spaceID}.");
-                        }
-                    }*/
-                    // V1
-
-                    // V2
+                    
                     if (placedGropupsChecker != null && placedGropupsChecker.AsString().IsNullOrEmpty())
                     {
                                                 List<Group> matchingGroups = groupsList
                             .Where(group => !string.IsNullOrEmpty(group.Name) && // Проверка имени группы
                                             group.Name.Equals(spaceName, StringComparison.OrdinalIgnoreCase))
                             .ToList();
-
-                        // TODO: Добавить вычетание пространства без имени из списка не распределенных
+                                                
                         if (matchingGroups.Any())
                         {
                             foreach (Group group in matchingGroups)
@@ -328,19 +259,19 @@ namespace asBIM
                             sb.AppendLine($"[Имя] - {spaceName},  [ID] - {spaceID}.");
                         }
                     }
-                    // V2
                 }
                 
                 placedGroupCountStr = $"\nКол-во размещенных групп: {placedGroupCount.Count.ToString()}";
                 placedErrGroupCountStr = $"\nКол-во пропущенных пространств: {placedErrGroupCount.Count.ToString()}";
                 
+                // TODO: Обьединить списки с пространствами. Вывод только числа
                 // Уведомление. Подсчет количества элементов. Не удачно
-                NotificationManagerWPF.ElemCount(
+                Helpers.NotificationManagerWPF.ElemCount(
                     "Не обработанные элементы",
                     elementCount: $"{placedErrGroupCountStr} \n\nПеречень неопределенных пространств:\n{sb}", NotificationType.Warning);
 
                 // Уведомление. Подсчет количества элементов. Успех
-                NotificationManagerWPF.ElemCount(
+                Helpers.NotificationManagerWPF.ElemCount(
                     "Обработанные элементы",
                     elementCount: placedGroupCountStr, NotificationType.Success);
                 

@@ -4,19 +4,9 @@ using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using asBIM.Properties;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Xaml;
-using System.Windows.Documents;
-using System.Xml.Linq;
-using System.Windows;
-using asBIM.ViewModel;
+using asBIM.Helpers;
 using Notifications.Wpf;
-using CommunityToolkit.Mvvm.Input;
 
 
 namespace asBIM
