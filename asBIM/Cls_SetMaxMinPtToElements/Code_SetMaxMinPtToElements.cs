@@ -58,12 +58,18 @@ namespace asBIM
             swPlaceGroups.Stop();
             // Время выполнения
             var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
+            double timeInMin = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInMinOutput;
+            double timeInSec = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInSecOutput;
+            
             // Уведомление. "Время работы"
             NotificationManagerWPF.TimeOfWork("Время работы",
                 timeInSec: "\nВремя выполнения: " +
-                           Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0,
+                           Convert.ToString(Math.Round(Convert.ToDouble(timeInMin), 0,
+                               MidpointRounding.AwayFromZero) + " мин") + " " +
+                           Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,
                                MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
+            
 
             // Без UI
 
@@ -172,13 +178,13 @@ namespace asBIM
                             TaskDialog.Show("Ошибка", ex.Message);
                         }
                     }
-
+                    tr.Commit();
+                    
                     elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Элементов",
                         "\n(￢‿￢ )", elemCountStr,
                         NotificationType.Success);
-                    tr.Commit();
                 }
                 else
                 {
@@ -287,14 +293,14 @@ namespace asBIM
                             TaskDialog.Show("Ошибка", ex.Message);
                         }
                     }
-
+                    tr.Commit();
+                    
                     elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Линейных",
                         "\n(￢‿￢ )", elemCountStr,
                         NotificationType.Success);
-
-                    tr.Commit();
+                    
                 }
                 else
                 {

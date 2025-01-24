@@ -50,15 +50,18 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
                         categories,
                         false);
                     
+                    // Задание функции "Параметр изменяется по экземплярам групп"
+                    SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamGuid, true);
+                    
                     // Уведомление. "Общий параметр добавлен!"
-                    // NotificationManagerWPF.MessageInfo(
-                    //     "Общий параметр добавлен!",
-                    //     "\n(￢‿￢ )" +
-                    //     "\n\nПараметр: " +
-                    //     "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
-                    //     "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
-                    //     "\n\nПример заполнения: 010101", NotificationType.Success);
-                    // Добавление общего параметра [PRO_ТХ_Группа в пространстве]
+                    NotificationManagerWPF.MessageInfo(
+                        "Общий параметр добавлен!",
+                        "\n(￢‿￢ )" +
+                        "\n\nПараметр: " +
+                        "\n[PRO_ID группы в пространстве] добавлен для Пространств!" +
+                        "\n\nВ параметр записывается ID группы, которая была добавлена в пространство" +
+                        "\n\nПример заполнения: 010101", NotificationType.Success);
+                    
                 }
                 catch (Exception ex)
                 {

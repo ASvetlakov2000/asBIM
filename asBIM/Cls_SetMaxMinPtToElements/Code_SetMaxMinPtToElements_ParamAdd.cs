@@ -14,13 +14,20 @@ namespace asBIM
     public class Code_SetMaxMinPtToElements_ParamAdd : IExternalCommand
     {
         // Имя общего параметра "PRO_ID группы в пространстве
-        string shParamTopPtName = "PRO_Отметка верха";
+        private string shParamTopPtName = "PRO_Отметка верха";
         // Имя общего параметра "PRO_ID группы в пространстве
-        string shParamBotPtName = "PRO_Отметка низа";
+        private string shParamBotPtName = "PRO_Отметка низа";
         // Имя общего параметра "PRO_ID группы в пространстве
-        string shParamStName = "PRO_Отметка в начале";
+        private string shParamStName = "PRO_Отметка в начале";
         // Имя общего параметра "PRO_ID группы в пространстве
-        string shParamEndName = "PRO_Отметка в конце";
+        private string shParamEndName = "PRO_Отметка в конце";
+        
+        // GUID общих параметров
+        private Guid shParamTopPtGuid = new Guid("22c86588-f717-403e-b1c6-1607cac39965"); // PRO_Отметка верха
+        private Guid shParamBotPtGuid = new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5"); // PRO_Отметка низа
+        private Guid shParamStGuid = new Guid("c7f57780-cff9-467e-a05e-47cc3f261064"); // PRO_Отметка в начале
+        private Guid shParamEndGuid = new Guid("ea5f8c68-e31b-4882-bdca-a8a12200d347"); // PRO_Отметка в конце
+        
         // Путь до ФОП выбором файла
         string filePathFprFOP =  OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра", "txt");
         
@@ -36,6 +43,14 @@ namespace asBIM
             AddSharedParamTBPt(doc);
             // Добавление параметров для Линейных
             AddSharedParamStEndPt(doc);
+            
+            // Задание функции "Параметр изменяется по экземплярам групп"
+            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamTopPtGuid, true);
+            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamBotPtGuid, true);
+            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamStGuid, true);
+            SharedParameterHelper.SetInstanceParamVaryBetweenGroupsBehaviour(doc, shParamEndGuid, true);
+            
+            
             // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
 
             return Result.Succeeded;

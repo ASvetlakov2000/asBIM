@@ -755,26 +755,32 @@ namespace asBIM.Helpers
             Guid guid, 
             bool allowVaryBetweenGroups = true)
         {
-            try // last resort
+            //Транзакция
+            using (Transaction tr = new Transaction(doc, "Смена значения с типа на экземляр"))
             {
-                SharedParameterElement sp 
-                    = SharedParameterElement.Lookup( doc, guid );
-
-                // Should never happen as we will call 
-                // this only for *existing* shared param.
-
-                if( null == sp ) return; 
-
-                InternalDefinition def = sp.GetDefinition();
-
-                if( def.VariesAcrossGroups != allowVaryBetweenGroups )
+                tr.Start();
+                try // last resort
                 {
-                    // Must be within an outer transaction!
+                    SharedParameterElement sp
+                        = SharedParameterElement.Lookup(doc, guid);
 
-                    def.SetAllowVaryBetweenGroups( doc, allowVaryBetweenGroups ); 
+                    if (null == sp) return;
+
+                    InternalDefinition def = sp.GetDefinition();
+
+                    if (def.VariesAcrossGroups != allowVaryBetweenGroups)
+                    {
+                        // Must be within an outer transaction!
+
+                        def.SetAllowVaryBetweenGroups(doc, allowVaryBetweenGroups);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Ошибка", ex.Message);
+                }
+                tr.Commit();
             }
-            catch { } // ideally, should report something to log...
         }
     }
 
@@ -823,6 +829,18 @@ namespace asBIM.Helpers
             return false;
         }
     }
+
+    internal class TimeOfWorkConverter
+    {
+        public double timeInSecOutput;
+        public double timeInMinOutput;
+        
+        public static TimeOfWorkConverter ConvertTime(double timeInSec)
+        {
+            return new TimeOfWorkConverter {timeInSecOutput = timeInSec % 60.0, timeInMinOutput = (timeInSec / 60.0) - 1};
+        }
+    }
+
 }
 
 

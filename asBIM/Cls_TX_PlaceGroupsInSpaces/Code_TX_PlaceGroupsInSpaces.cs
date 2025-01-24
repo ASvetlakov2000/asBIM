@@ -33,7 +33,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             var uidoc = uiapp.ActiveUIDocument;
             var doc = uidoc.Document;
 
-            // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
+            // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО
 
             // Время выполнения
             Stopwatch swPlaceGroups = new Stopwatch();
@@ -43,13 +43,19 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             swPlaceGroups.Stop();
             // Время выполнения
             var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
+            double timeInMin = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInMinOutput;
+            double timeInSec = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInSecOutput;
         
             // Уведомление. "Время работы"
             Helpers.NotificationManagerWPF.TimeOfWork("Время работы", 
-                timeInSec:"\nВремя выполнения " + Convert.ToString(Math.Round(Convert.ToDouble(timeInSecForCommand), 0, MidpointRounding.AwayFromZero) + " сек"),
+                timeInSec:"\nВремя выполнения: " +
+                          Convert.ToString(Math.Round(Convert.ToDouble(timeInMin), 0,
+                              MidpointRounding.AwayFromZero) + " мин") + " " +
+                          Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,
+                              MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
             
-            // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
+            // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
             return Result.Succeeded;
         }
         
