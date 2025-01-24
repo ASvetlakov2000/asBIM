@@ -79,17 +79,25 @@ namespace asBIM
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_FurnitureSystems), // Системы мебели
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_SpecialityEquipment), // Специальное оборудование
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_LightingDevices), // Осветительные устройства
-                doc.Settings.Categories.get_Item(BuiltInCategory.OST_Parking), // Парковочные места
+                // doc.Settings.Categories.get_Item(BuiltInCategory.OST_Parking), // Парковочные места
                 // doc.Settings.Categories.get_Item(BuiltInCategory.OST_Railings), // Ограждения
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_Topography), // Топография
-                doc.Settings.Categories.get_Item(BuiltInCategory.OST_Planting), // Растения
-                doc.Settings.Categories.get_Item(BuiltInCategory.OST_Entourage), // Окружение
+                // doc.Settings.Categories.get_Item(BuiltInCategory.OST_Planting), // Растения
+                // doc.Settings.Categories.get_Item(BuiltInCategory.OST_Entourage), // Окружение
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_StructuralFraming), // Каркасы
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_StructuralTruss), // Фермы
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_StructuralFoundation), // Конструктивные фундаменты
                 // doc.Settings.Categories.get_Item(BuiltInCategory.OST_Cameras), // Камеры
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_Parts), // Части
                 doc.Settings.Categories.get_Item(BuiltInCategory.OST_StructuralFraming), // Каркас несущий
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_PipeAccessory), // Арматура труб
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_DuctAccessory), // Арматура воздуховодов
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_PlumbingEquipment), // Сантехническое оборудование
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_DuctTerminal), // Воздухораспределители
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_CableTrayFitting), // Соединительные детали кабельных лотков
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_ConduitFitting), // Соединительные детали коробов
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_Sprinklers), // Спринклеры
+                doc.Settings.Categories.get_Item(BuiltInCategory.OST_TelephoneDevices), // Телефонные устройства
                 };
                 
                 // Добавление общего параметра [PRO_Отметка верха]
@@ -104,7 +112,8 @@ namespace asBIM
                     // Параметр для экземпляра
                     true,
                     // ссылка на список с категориями
-                    categoriesForElem);
+                    categoriesForElem,
+                    true);
                 
                 // Добавление общего параметра [PRO_Отметка низа]
                 SharedParameterHelper.AddSharedParameterFromFOP(
@@ -118,18 +127,9 @@ namespace asBIM
                     // Параметр для экземпляра
                     true,
                     // ссылка на список с категориями
-                    categoriesForElem);
+                    categoriesForElem,
+                    true);
                     
-                // Уведомление. "Общий параметр добавлен!"
-                NotificationManagerWPF.MessageInfo(
-                    "Параметры для Элементов добавлены!",
-                    "\n(￢‿￢ )" +
-                    "\n\nПараметры: " 
-                    +
-                    "\n[PRO_Отметка верха]"
-                    +
-                    "\n[PRO_Отметка низа]",
-                    NotificationType.Success);
             }
             catch (Exception ex)
             {
@@ -165,7 +165,8 @@ namespace asBIM
                     // Параметр для экземпляра
                     true,
                     // ссылка на список с категориями
-                    categoriesForLinear);
+                    categoriesForLinear,
+                    true);
                 
                 // Добавление общего параметра [PRO_Отметка в конце]
                 SharedParameterHelper.AddSharedParameterFromFOP(
@@ -179,18 +180,9 @@ namespace asBIM
                     // Параметр для экземпляра
                     true,
                     // ссылка на список с категориями
-                    categoriesForLinear);
-                    
-                // Уведомление. "Общий параметр добавлен!"
-                NotificationManagerWPF.MessageInfo(
-                    "Параметры для Линейных добавлены!",
-                    "\n(￢‿￢ )" +
-                    "\n\nПараметры: " 
-                    +
-                    "\n[PRO_Отметка в начале]"
-                    +
-                    "\n[PRO_Отметка в конце]",
-                    NotificationType.Success);
+                    categoriesForLinear,
+                    true);
+
             }
             catch (Exception ex)
             {

@@ -194,48 +194,6 @@ namespace asBIM
         }
 
 
-
-        //Метод для обнуления значений
-        // public void SetElementsTBPoints_Null(Document doc)
-        // {
-        //     // Коллекция + словать с именем переменной groupedElements с фильтром на категорию и Элементы
-        //     var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
-        //
-        //     //Транзакция
-        //     using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
-        //     {
-        //         tr.Start();
-        //         // Цикл с перебором всех элементов в коллекции
-        //         foreach (Element elemincollector in groupedElements["Element"])
-        //         {
-        //             try
-        //             {
-        //                 //Получение "Общего параметра по Guid" из Revit в переменную topPointParam из эл в коллекции. Отметка верха
-        //                 Parameter topPointParam = elemincollector.get_Parameter(new Guid("22c86588-f717-403e-b1c6-1607cac39965"));
-        //                 //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
-        //                 Parameter bottomPointParam = elemincollector.get_Parameter(new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5")); 
-        //                 
-        //                 // Проверка на null "Общего параметра по Guid" из Revit
-        //                 if (topPointParam != null && bottomPointParam != null)
-        //                 {
-        //                     // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА. Удаление значений
-        //                     topPointParam.Set("");
-        //                     
-        //                     // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА. Удаление значений
-        //                     bottomPointParam.Set("");
-        //                 }
-        //             }
-        //
-        //             catch (Exception ex)
-        //             {
-        //                 TaskDialog.Show("Ошибка", ex.Message);
-        //             }
-        //         }
-        //         tr.Commit();
-        //     }
-        // }
-
-
         /// <summary>
         /// Метод SetLinearElemTBPoints - записывает в параметры Отметка в Начале и Отметка в Конце
         /// <param name = "doc" > Документ </param>

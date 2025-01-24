@@ -26,20 +26,19 @@ namespace asBIM
             {
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton01, 
-                    "Добавить\nпараметры RA",
-                    "Добавить\nпараметры RA", 
-                    "asBIM.Code_SetMaxMinPtToElements_ParamAdd", 
-                    "asBIM.Resources.TB_Points_AddParam_16.png",
-                    "asBIM.Resources.TB_Points_AddParam_32.png");
-                
-                // Добавляем кнопки в SplitButton
-                Ribbon.AddPushButtonToSplit(splitButton01, 
                     "Отметки\nВерха/Низа", 
                     "Отметки\nВерха/Низа", 
                     "asBIM.Code_SetMaxMinPtToElements", 
                     "asBIM.Resources.TB_Points_16.png",
                     "asBIM.Resources.TB_Points_32.png");
                 
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton01, 
+                    "Добавить\nпараметры RA",
+                    "Добавить\nпараметры RA", 
+                    "asBIM.Code_SetMaxMinPtToElements_ParamAdd", 
+                    "asBIM.Resources.TB_Points_AddParam_16.png",
+                    "asBIM.Resources.TB_Points_AddParam_32.png");
             }
             // Создаём панель #1. "RA | Параметры"
             
@@ -59,27 +58,27 @@ namespace asBIM
             {
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton02, 
+                    "Разместить\nГруппы ТХ", 
+                    "Разместить\nГруппы ТХ", 
+                    "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces", 
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_16.png",
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_32.png");
+                
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton02, 
+                    "Удалить\nГруппы ТХ", 
+                    "Удалить\nГруппы ТХ", 
+                    "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces_DelGrp", 
+                    "asBIM.Resources.Delete_32_Sp.png",
+                    "asBIM.Resources.Delete_32_Sp.png");
+                
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton02, 
                     "Добавить\nпараметры",
                     "Добавить\nпараметры", 
-                    "asBIM.Code_TX_PlaceGroupsInSpaces_ParamAdd",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_32.png",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_16.png");
-                
-                // Добавляем кнопки в SplitButton
-                Ribbon.AddPushButtonToSplit(splitButton02, 
-                    "Разместить\nГруппы ТХ", 
-                    "Разместить\nГруппы ТХ", 
-                    "asBIM.Code_TX_PlaceGroupsInSpaces", 
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_32.png",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_16.png");
-                
-                // Добавляем кнопки в SplitButton
-                Ribbon.AddPushButtonToSplit(splitButton02, 
-                    "Удалить\nГруппы ТХ", 
-                    "Удалить\nГруппы ТХ", 
-                    "asBIM.Code_TX_PlaceGroupsInSpaces_DelGrp", 
-                    "asBIM.Resources.Delete_32.png",
-                    "asBIM.Resources.Delete_16.png");
+                    "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces_ParamAdd",
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_16.png",
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_32.png");
             }
             // Создаём панель #2. "RA | Параметры"
             

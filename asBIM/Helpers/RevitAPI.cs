@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using Notifications.Wpf;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Binding = Autodesk.Revit.DB.Binding;
 
@@ -91,9 +92,17 @@ namespace asBIM.Helpers
                 BuiltInCategory.OST_CurtainWallPanels, // Панели витражей
                 BuiltInCategory.OST_GenericModel, // Общие модели
                 BuiltInCategory.OST_MechanicalEquipment, // Механическое оборудование
+                BuiltInCategory.OST_PipeAccessory, // Арматура труб
+                BuiltInCategory.OST_DuctAccessory, // Арматура воздуховодов
                 BuiltInCategory.OST_PipeFitting, // Фитинги труб
                 BuiltInCategory.OST_DuctFitting, // Фитинги воздуховодов
                 BuiltInCategory.OST_PlumbingFixtures, // Сантехнические приборы
+                BuiltInCategory.OST_PlumbingEquipment, // Сантехническое оборудование
+                BuiltInCategory.OST_DuctTerminal, // Воздухораспределители
+                BuiltInCategory.OST_CableTrayFitting, // Соединительные детали кабельных лотков
+                BuiltInCategory.OST_ConduitFitting, // Соединительные детали коробов
+                BuiltInCategory.OST_Sprinklers, // Спринклеры
+                BuiltInCategory.OST_TelephoneDevices, // Телефонные устройства
                 BuiltInCategory.OST_LightingFixtures, // Светильники
                 BuiltInCategory.OST_ElectricalEquipment, // Электрооборудование
                 BuiltInCategory.OST_ElectricalFixtures, // Электроприборы
@@ -106,15 +115,15 @@ namespace asBIM.Helpers
                 BuiltInCategory.OST_FurnitureSystems, // Системы мебели
                 BuiltInCategory.OST_SpecialityEquipment, // Специальное оборудование
                 BuiltInCategory.OST_LightingDevices, // Осветительные устройства
-                BuiltInCategory.OST_Parking, // Парковочные места
-                BuiltInCategory.OST_Railings, // Ограждения
+                // BuiltInCategory.OST_Parking, // Парковочные места
+                // BuiltInCategory.OST_Railings, // Ограждения
                 BuiltInCategory.OST_Topography, // Топография
-                BuiltInCategory.OST_Planting, // Растения
-                BuiltInCategory.OST_Entourage, // Окружение
+                // BuiltInCategory.OST_Planting, // Растения
+                // BuiltInCategory.OST_Entourage, // Окружение
                 BuiltInCategory.OST_StructuralFraming, // Каркасы
                 BuiltInCategory.OST_StructuralTruss, // Фермы
                 BuiltInCategory.OST_StructuralFoundation, // Конструктивные фундаменты
-                BuiltInCategory.OST_Cameras, // Камеры
+                // BuiltInCategory.OST_Cameras, // Камеры
                 BuiltInCategory.OST_Parts, // Части
                 BuiltInCategory.OST_StructuralFraming, // Каркас несущий
 
@@ -514,7 +523,7 @@ namespace asBIM.Helpers
         /// </summary>
         /// <param name="doc">Текущий документ Revit.</param>
         /// <param name="definition">Настройки общих параметров.</param>
-        private static ElementId GetParameterElementId(Document doc, ExternalDefinition definition)
+        public static ElementId GetParameterElementId(Document doc, ExternalDefinition definition)
         {
             foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
             {
@@ -533,7 +542,7 @@ namespace asBIM.Helpers
         /// <param name="doc">Текущий документ Revit.</param>
         /// <param name="parameterName">Имя искомого параметра.</param>
         /// <returns>paramElement.Id</returns>>
-        private static ElementId GetParameterElementIdByName(Document doc, string parameterName)
+        public static ElementId GetParameterElementIdByName(Document doc, string parameterName)
         {
             foreach (ParameterElement paramElement in new FilteredElementCollector(doc).OfClass(typeof(ParameterElement)))
             {
@@ -589,7 +598,8 @@ namespace asBIM.Helpers
         string parameterName, 
         BuiltInParameterGroup parameterGroup,
         bool isInstance,
-        List<Category> categories)
+        List<Category> categories,
+        bool messageStandart)
         // ForgeTypeId forgeTypeId)
         {
             // Получаем приложение Revit
@@ -617,7 +627,18 @@ namespace asBIM.Helpers
             // Проверка на наличие параметра по имени. Если нет то TaskDialog с ошибкой
             if (definition == null)
             {
-                TaskDialog.Show("Ошибка", "Определение параметра не найдено.");
+                TaskDialog.Show("Ошибка", $"Параметр [{parameterName}] в ФОП не найден.");
+                
+                // Уведомление. "Общий параметр добавлен!"
+                NotificationManagerWPF.MessageInfo(
+                    "Параметр не найден!",
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                            "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                    "\n\nПараметры: " 
+                    +
+                    $"\n[{parameterName}]",
+                    NotificationType.Error);
+                
                 return;
             }
 
@@ -676,6 +697,19 @@ namespace asBIM.Helpers
 
                 // Добавляем параметр в проект
                 doc.ParameterBindings.Insert(externalDef, binding);
+
+                // Если true - то появится сообщение ниже, если false - то сообщение ниже не появится, но потребуется добавить специальное сообщение
+                if (messageStandart)
+                {
+                    // Уведомление. "Общий параметр добавлен!"
+                    NotificationManagerWPF.MessageInfo(
+                        "Параметр добавлен!",
+                        "\n(￢‿￢ )" +
+                        "\n\nПараметры: "
+                        +
+                        $"\n[{parameterName}]",
+                        NotificationType.Success);
+                }
 
                 tx.Commit();
             }

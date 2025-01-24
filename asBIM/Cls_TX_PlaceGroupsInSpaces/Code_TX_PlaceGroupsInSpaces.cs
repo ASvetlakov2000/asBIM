@@ -11,6 +11,7 @@ using Notifications.Wpf;
 using Nice3point.Revit.Extensions;
 using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
+using asBIM.Helpers;
 
 
 
@@ -90,21 +91,33 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
                 .OrderBy(space => Convert.ToString(space.Number, format))
                 .ToList();
 
-            foreach (SpatialElement space in spacesList)
-            {
-                spaceFullName = space.Name;
-                spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
-                if (spaceFullName == spaceClearName)
+            // TODO: 2. Добавить проверку на наличие параметра
+            // NotificationManagerWPF.MessageInfoSmile(
+            //     "Ошибка!\nВ проекте нет параметров!",
+            //     $"\nДобавьте общий параметр [{shParamName}]",
+            //     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+            //     "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+            //     "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+            //     NotificationType.Error);
+            
+            
+                foreach (SpatialElement space in spacesList)
                 {
-                    Helpers.NotificationManagerWPF.MessageInfoSmile(
+                    spaceFullName = space.Name;
+                    spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
+                    if (spaceFullName == spaceClearName)
+                    {
+                        NotificationManagerWPF.MessageInfoSmile(
                             "Ошибка!\nВ проекте пространства без имени!",
-                            $"\nПространство: [№] - [{spaceClearName}],  [ID] - [{space.Id}]", 
+                            $"\nПространство: [№] - [{spaceClearName}],  [ID] - [{space.Id}]",
                             "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
                             "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
                             "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
-                            NotificationType.Error );
+                            NotificationType.Error);
+                    }
+                    
                 }
-            }
+            
 
             return spacesList;
         }
@@ -155,6 +168,9 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
         /// </summary>
         public void PlacementOfGroupsInSpaces(Document doc, List<SpatialElement> spacesList, List<Group> groupsList)
         {
+            
+            // TODO: 2. Добавить проверку на наличие параметра
+            
             // Счетчик для количества элементов. Удачно
             string placedGroupCountStr;
             IList<Group> placedGroupCount = new List<Group>();
@@ -191,8 +207,6 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             }
             
             StringBuilder sb = new StringBuilder();
-            // StringBuilder sbSpacesWithName = new StringBuilder(); // Для хранения ID пространств с именем. Удачно
-            // StringBuilder sbSpacesWithoutName = new StringBuilder(); // Для хранения ID пространств без имени. Не удачно
 
             using (Transaction tr = new Transaction(doc, "Расстановка групп в пространства"))
             {
@@ -206,9 +220,10 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
                     // GUID общего параметра из ФОП [PRO_ТХ_Группа в пространстве]
                     Guid shParamGuid = new Guid("bae21547-43fa-423f-91f9-ff8b42d50560");
                     
-                    Parameter placedGropupsChecker =
-                        space.get_Parameter(shParamGuid);
+                    // TODO: 2. Добавить проверку на наличие параметра
+                    Parameter placedGropupsChecker = space.get_Parameter(shParamGuid);
                     string paramValue = placedGropupsChecker.AsString(); 
+                    
                     
                     if (placedGropupsChecker != null && placedGropupsChecker.AsString().IsNullOrEmpty())
                     {
