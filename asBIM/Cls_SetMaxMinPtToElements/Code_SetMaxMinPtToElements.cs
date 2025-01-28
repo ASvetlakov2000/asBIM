@@ -71,10 +71,6 @@ namespace asBIM
                                MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
             
-            double test = BasePtPosition.GetBasePointHeight(doc);
-
-            TaskDialog.Show("Test", test.ToString());
-            
 
             // Без UI
 
@@ -138,13 +134,14 @@ namespace asBIM
                                 // Конвертация из футов в мм
                                 double elemTopPtElevFromLevelSm =
                                     UnitUtils.ConvertFromInternalUnits(elemTopPtElevFromLevel, UnitTypeId.Millimeters);
-                                // Округление topVal до 0 знаков после запятой
-                                double elemTopPtElevFromLevelSmRound = Math.Round(elemTopPtElevFromLevelSm, 0,
-                                    MidpointRounding.AwayFromZero);
+                                
+                                // Отладка
+                                double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
+                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
 
                                 // Запись Имени Нижнего этажа.
                                 topPointParam.Set(closestLevelForTop != null
-                                    ? elemTopPtElevFromLevelSmRound + " от " + closestLevelForTop.Name.Split('_').Last()
+                                    ? elTopPtElev + " от " + closestLevelForTop.Name.Split('_').Last()
                                     : "Не определено");
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
 
@@ -160,17 +157,19 @@ namespace asBIM
                                 // Вычисление расстояние от Отметки Низа до Отметки Уровня
                                 double elemBotPtElevFromLevel =
                                     Math.Abs(closestLevelForBot.Elevation - elementBottomPointElevationSm);
+                                
                                 // Конвертация из футов в мм
                                 double elemBotPtElevFromLevelSm =
                                     UnitUtils.ConvertFromInternalUnits(elemBotPtElevFromLevel, UnitTypeId.Millimeters);
-                                // Округление botVal до 0 знаков после запятой
-                                double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 0,
-                                    MidpointRounding.AwayFromZero);
                                 
-
+                                // Отладка
+                                double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
+                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
+                                
+                                
                                 // Запись Имени Нижнего этажа.
                                 bottomPointParam.Set(closestLevelForBot != null
-                                    ? elemBotPtElevFromLevelSmRound + " от " + closestLevelForBot.Name.Split('_').Last()
+                                    ? elBotPtElev + " от " + closestLevelForBot.Name.Split('_').Last()
                                     : "Не определено");
 
                                 // Счетчик элементов 
@@ -254,17 +253,18 @@ namespace asBIM
                                 // Вычисление расстояние от Отметки Верха до Отметки Уровня
                                 double linearElemStartPtElevFromLev =
                                     Math.Abs(closestLevelForTop.Elevation - linearElemStartPtElev);
+                                
                                 // Конвертация из футов в мм
                                 double linearElemStartPtElevFromLevSm =
-                                    UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev,
-                                        UnitTypeId.Millimeters);
-                                // Округление topVal до 0 знаков после запятой
-                                double linearElemStartPtElevFromLevSmRound = Math.Round(linearElemStartPtElevFromLevSm,
-                                    0, MidpointRounding.AwayFromZero);
+                                    UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev, UnitTypeId.Millimeters);
+                                
+                                // Отладка
+                                double elStartPtElev = Math.Round(linearElemStartPtElevFromLevSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
+                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
 
                                 // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                                 startPointParam.Set(closestLevelForTop != null
-                                    ? linearElemStartPtElevFromLevSmRound + " от " +
+                                    ? elStartPtElev + " от " +
                                       closestLevelForTop.Name.Split('_').Last()
                                     : "Не определено");
 
@@ -277,18 +277,19 @@ namespace asBIM
                                 // Вычисление расстояние от Отметки Верха до Отметки Уровня
                                 double linearElemEndPtElevFromLev =
                                     Math.Abs(closestLevelForBottom.Elevation - linearElemEndPtElev);
+                                
                                 // Конвертация из футов в мм
                                 double linearElemEndPtElevFromLevSm =
-                                    UnitUtils.ConvertFromInternalUnits(linearElemEndPtElevFromLev,
-                                        UnitTypeId.Millimeters);
-                                // Округление topVal до 0 знаков после запятой
-                                double linearElemEndPtElevFromLevSmRound = Math.Round(linearElemEndPtElevFromLevSm, 0,
-                                    MidpointRounding.AwayFromZero);
+                                    UnitUtils.ConvertFromInternalUnits(linearElemEndPtElevFromLev, UnitTypeId.Millimeters);
+                                
+                                // Отладка
+                                double elEndPtElev = Math.Round(linearElemEndPtElevFromLevSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
+                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
 
                                 // Счетчик элементов 
                                 elemCount.Add(elemincollector);
                                 endtPointParam.Set(closestLevelForBottom != null
-                                    ? linearElemEndPtElevFromLevSmRound + " от " +
+                                    ? elEndPtElev + " от " +
                                       closestLevelForBottom.Name.Split('_').Last()
                                     : "Не определено");
                                 // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ

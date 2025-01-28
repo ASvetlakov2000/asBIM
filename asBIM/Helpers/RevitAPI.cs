@@ -378,33 +378,35 @@ namespace asBIM
 
     public abstract class BasePtPosition
     {
-        public static double GetBasePointHeight(Document doc)
+        /// <summary>
+        /// Метод для получения XYZ Базовой точки
+        /// В данном случае берет самый близкий Нижний уровень 
+        /// </summary>
+        /// <param name="doc">Текущий документ</param>
+        /// <returns>bpPosInFoot - координаты Базовой точки в футах</returns>
+        public static XYZ GetBasePointHeight(Document doc)
         {
-            // Найти базовую точку проекта
-            var basePoint = new FilteredElementCollector(doc)
-                .OfCategory(BuiltInCategory.OST_ProjectBasePoint) // Категория базовой точки
-                .OfClass(typeof(BasePoint))                       // Убедиться, что это BasePoint
-                .Cast<BasePoint>()
-                .FirstOrDefault();                               // Получить первую найденную
+            // Фильтр для категорий базовых точек проекта
+            ElementCategoryFilter basePointFilter = new ElementCategoryFilter(BuiltInCategory.OST_ProjectBasePoint);
+        
+            // Поиск базовой точки через фильтр
+            FilteredElementCollector collector = new FilteredElementCollector(doc)
+                .WherePasses(basePointFilter)
+                .WhereElementIsNotElementType();
 
+            // Получение базовой точки
+            Element basePoint = collector.FirstElement();
             if (basePoint == null)
             {
                 throw new InvalidOperationException("Базовая точка проекта не найдена.");
             }
 
-            // Получить параметр высоты (Elevation)
-            Parameter elevationParam = basePoint.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM);
-
-            if (elevationParam == null || !elevationParam.HasValue)
-            {
-                throw new InvalidOperationException("Не удалось получить параметр высоты базовой точки.");
-            }
-
             // Преобразовать значение параметра в тип double (в футах)
-            double elevation = elevationParam.AsDouble();
-
+            BasePoint bp = basePoint as BasePoint;
+            XYZ bpPosInFoot = bp.Position;
+            
             // Вернуть высоту
-            return elevation;
+            return bpPosInFoot;
         }
         
     }
