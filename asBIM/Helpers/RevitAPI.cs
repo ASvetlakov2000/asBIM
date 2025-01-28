@@ -6,40 +6,16 @@ using System.Windows.Forms;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using Nice3point.Revit.Extensions;
 using Notifications.Wpf;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Binding = Autodesk.Revit.DB.Binding;
 
 
-namespace asBIM.Helpers
+namespace asBIM
 {
     internal static class RevitAPI
     {
-        public static void InfoDialog(this string message)
-        {
-            TaskDialog.Show("Info", message);
-        } //Вывод сообщения
-
-        public static string Joiner(this IEnumerable<string> lst, string sep)
-        {
-            return string.Join(sep, lst);
-        }
-
-        public static Parameter GetParameter(this Element e, string name)
-        {
-            return e.LookupParameter(name);
-        }
-
-        public static Parameter GetParameter(this Element e, BuiltInParameter bip)
-        {
-            return e.get_Parameter(bip);
-        }
-
-        public static Parameter GetParameter(this Element e, Guid guid)
-        {
-            return e.get_Parameter(guid);
-        }
-
         public static Parameter GetParameter<T>(this Element e, T key)
         {
             if (typeof(T) == typeof(Guid) && key is Guid guid)
@@ -398,6 +374,39 @@ namespace asBIM.Helpers
         }
 
 
+    }
+
+    public abstract class BasePtPosition
+    {
+        public static double GetBasePointHeight(Document doc)
+        {
+            // Найти базовую точку проекта
+            var basePoint = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_ProjectBasePoint) // Категория базовой точки
+                .OfClass(typeof(BasePoint))                       // Убедиться, что это BasePoint
+                .Cast<BasePoint>()
+                .FirstOrDefault();                               // Получить первую найденную
+
+            if (basePoint == null)
+            {
+                throw new InvalidOperationException("Базовая точка проекта не найдена.");
+            }
+
+            // Получить параметр высоты (Elevation)
+            Parameter elevationParam = basePoint.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM);
+
+            if (elevationParam == null || !elevationParam.HasValue)
+            {
+                throw new InvalidOperationException("Не удалось получить параметр высоты базовой точки.");
+            }
+
+            // Преобразовать значение параметра в тип double (в футах)
+            double elevation = elevationParam.AsDouble();
+
+            // Вернуть высоту
+            return elevation;
+        }
+        
     }
 
 
@@ -782,34 +791,78 @@ namespace asBIM.Helpers
                 tr.Commit();
             }
         }
-    }
-
-
-    ///<summary>
-    /// Метод для открытия файла и передачи его пути
-    ///</summary>
-    /// <param name="title">Заголовок в UI.</param>
-    /// <param name="format">Формат открываемого файлаа.</param>
-    /// <returns>path - путь к файлу</returns>>
-    public static class OpenFile
-    {
-        public static string OpenSingleFile(string title,string format)
+        
+        public static void UpdateCategoriesForSharedParameter(Document doc, string parameterName, List<BuiltInCategory> newCategories)
         {
-            var path = string.Empty;
-            using var openFileDialog = new OpenFileDialog
+            // Начало транзакции
+            using (Transaction trans = new Transaction(doc, "Обновление категорий общего параметра"))
             {
-                // Заголовок
-                Title = title,
-                // Фильтр выбора формата
-                Filter = $"Revit (*.{format})|*.{format}|" + "All files (*.*)|*.*"
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                path = openFileDialog.FileName;
+                trans.Start();
+
+                // Получаем BindingMap, где хранятся все связывания параметров
+                BindingMap bindingMap = doc.ParameterBindings;
+
+                // Найти параметр по имени
+                Definition parameterDefinition = null;
+                DefinitionBindingMapIterator iterator = bindingMap.ForwardIterator();
+                iterator.MoveNext();
+                foreach (var kvp in bindingMap)
+                {
+                    Definition definition = iterator.Key;
+                    if (definition.Name == parameterName)
+                    {
+                        parameterDefinition = definition;
+                        break;
+                    }
+                }
+
+                if (parameterDefinition == null)
+                {
+                    TaskDialog.Show("Ошибка", $"Параметр '{parameterName}' не найден в модели.");
+                    trans.RollBack();
+                    return;
+                }
+
+                // Получаем текущее связывание параметра
+                ElementBinding elementBinding = bindingMap.get_Item(parameterDefinition) as ElementBinding;
+                if (elementBinding == null)
+                {
+                    TaskDialog.Show("Ошибка", $"Параметр '{parameterName}' не имеет связей с категориями.");
+                    trans.RollBack();
+                    return;
+                }
+
+                // Создаем обновленный набор категорий
+                var currentCategories = elementBinding.Categories;
+                CategorySet updatedCategorySet = doc.Application.Create.NewCategorySet();
+
+                // Добавляем существующие категории
+                foreach (Category category in currentCategories)
+                    updatedCategorySet.Insert(category);
+
+                // Добавляем новые категории, если их еще нет в наборе
+                foreach (BuiltInCategory builtInCategory in newCategories)
+                {
+                    Category newCategory = doc.Settings.Categories.get_Item(builtInCategory);
+                    if (!updatedCategorySet.Contains(newCategory))
+                        updatedCategorySet.Insert(newCategory);
+                }
+
+                // Создаем новое связывание на основе типа существующего
+                if (elementBinding is InstanceBinding)
+                {
+                    bindingMap.ReInsert(parameterDefinition, doc.Application.Create.NewInstanceBinding(updatedCategorySet));
+                }
+                else if (elementBinding is TypeBinding)
+                {
+                    bindingMap.ReInsert(parameterDefinition, doc.Application.Create.NewTypeBinding(updatedCategorySet));
+                }
+
+                trans.Commit();
             }
-            return path;
         }
     }
+    
     
     internal class DeleteSelectionGroup : ISelectionFilter
     {
@@ -829,18 +882,6 @@ namespace asBIM.Helpers
             return false;
         }
     }
-
-    internal class TimeOfWorkConverter
-    {
-        public double timeInSecOutput;
-        public double timeInMinOutput;
-        
-        public static TimeOfWorkConverter ConvertTime(double timeInSec)
-        {
-            return new TimeOfWorkConverter {timeInSecOutput = timeInSec % 60.0, timeInMinOutput = (timeInSec / 60.0) - 1};
-        }
-    }
-
 }
 
 

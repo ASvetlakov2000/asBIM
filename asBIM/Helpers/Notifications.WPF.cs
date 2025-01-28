@@ -2,7 +2,7 @@
 using Notifications.Wpf;
 
 
-namespace asBIM.Helpers
+namespace asBIM
 {
     public static class NotificationManagerWPF
     {

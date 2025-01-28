@@ -90,7 +90,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
                 }
             }
             else
-                Helpers.NotificationManagerWPF.MessageInfoSmile(
+                NotificationManagerWPF.MessageInfoSmile(
                     "Удаление группы", 
                     "\nУдалять можно только группы!",
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +

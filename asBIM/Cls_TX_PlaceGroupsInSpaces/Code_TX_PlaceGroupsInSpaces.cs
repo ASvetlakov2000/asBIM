@@ -47,7 +47,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             double timeInSec = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInSecOutput;
         
             // Уведомление. "Время работы"
-            Helpers.NotificationManagerWPF.TimeOfWork("Время работы", 
+            NotificationManagerWPF.TimeOfWork("Время работы", 
                 timeInSec:"\nВремя выполнения: " +
                           Convert.ToString(Math.Round(Convert.ToDouble(timeInMin), 0,
                               MidpointRounding.AwayFromZero) + " мин") + " " +
@@ -107,22 +107,22 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             //     NotificationType.Error);
             
             
-                foreach (SpatialElement space in spacesList)
+            foreach (SpatialElement space in spacesList)
+            {
+                spaceFullName = space.Name;
+                spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
+                if (spaceFullName == spaceClearName)
                 {
-                    spaceFullName = space.Name;
-                    spaceClearName = Regex.Replace(spaceFullName, @"\s[^\s]+$", "");
-                    if (spaceFullName == spaceClearName)
-                    {
-                        NotificationManagerWPF.MessageInfoSmile(
-                            "Ошибка!\nВ проекте пространства без имени!",
-                            $"\nПространство: [№] - [{spaceClearName}],  [ID] - [{space.Id}]",
-                            "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
-                            "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
-                            "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
-                            NotificationType.Error);
-                    }
-                    
+                    NotificationManagerWPF.MessageInfoSmile(
+                        "Ошибка!\nВ проекте пространства без имени!",
+                        $"\nПространство: [№] - [{spaceClearName}],  [ID] - [{space.Id}]",
+                        "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                        "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                        "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                        NotificationType.Error);
                 }
+                
+            }
             
 
             return spacesList;
@@ -188,7 +188,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             // Проверка на отсутствие Пространств
             if (!spacesList.Any())
             {
-                Helpers.NotificationManagerWPF.MessageInfoSmile(
+                NotificationManagerWPF.MessageInfoSmile(
                     "Ошибка!",
                     "\nВ проекте отсутствуют пространства", 
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
@@ -202,7 +202,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             // Проверка на отсутствие Групп
             if (!groupsList.Any())
             {
-                Helpers.NotificationManagerWPF.MessageInfoSmile(
+                NotificationManagerWPF.MessageInfoSmile(
                     "Ошибка!",
                     "\nВ проекте отсутствуют группы", 
                     "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af\u00af" +
@@ -287,12 +287,12 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
                 
                 // TODO: Обьединить списки с пространствами. Вывод только числа
                 // Уведомление. Подсчет количества элементов. Не удачно
-                Helpers.NotificationManagerWPF.ElemCount(
+                NotificationManagerWPF.ElemCount(
                     "Не обработанные элементы",
                     elementCount: $"{placedErrGroupCountStr} \n\nПеречень неопределенных пространств:\n{sb}", NotificationType.Warning);
 
                 // Уведомление. Подсчет количества элементов. Успех
-                Helpers.NotificationManagerWPF.ElemCount(
+                NotificationManagerWPF.ElemCount(
                     "Обработанные элементы",
                     elementCount: placedGroupCountStr, NotificationType.Success);
                 

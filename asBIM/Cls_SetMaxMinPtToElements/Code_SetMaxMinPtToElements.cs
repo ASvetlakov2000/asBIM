@@ -7,6 +7,7 @@ using System.Linq;
 using System.Diagnostics;
 using asBIM.Helpers;
 using Notifications.Wpf;
+using asBIM;
 
 
 namespace asBIM
@@ -69,6 +70,10 @@ namespace asBIM
                            Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,
                                MidpointRounding.AwayFromZero) + " сек"),
                 NotificationType.Information);
+            
+            double test = BasePtPosition.GetBasePointHeight(doc);
+
+            TaskDialog.Show("Test", test.ToString());
             
 
             // Без UI
@@ -161,6 +166,7 @@ namespace asBIM
                                 // Округление botVal до 0 знаков после запятой
                                 double elemBotPtElevFromLevelSmRound = Math.Round(elemBotPtElevFromLevelSm, 0,
                                     MidpointRounding.AwayFromZero);
+                                
 
                                 // Запись Имени Нижнего этажа.
                                 bottomPointParam.Set(closestLevelForBot != null
