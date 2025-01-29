@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Отладка Code_SetMaxMinPtToElements завершена">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +58,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -68,30 +72,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.15600:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.8976:Revit.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Process.10564:Revit.executor": "Debug",
+    "Attach to Process.11680:Revit.executor": "Debug",
+    "Attach to Process.11788:Revit.executor": "Debug",
+    "Attach to Process.14324:Revit.executor": "Debug",
+    "Attach to Process.15576:Revit.executor": "Debug",
+    "Attach to Process.15600:Revit.executor": "Debug",
+    "Attach to Process.19440:Revit.executor": "Debug",
+    "Attach to Process.21292:Revit.executor": "Debug",
+    "Attach to Process.29584:RevitWorker.executor": "Debug",
+    "Attach to Process.8924:Revit.executor": "Debug",
+    "Attach to Process.8976:Revit.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -286,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738145525748</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Отладка Code_SetMaxMinPtToElements завершена">
+      <option name="closed" value="true" />
+      <created>1738146342932</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1738146342932</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
