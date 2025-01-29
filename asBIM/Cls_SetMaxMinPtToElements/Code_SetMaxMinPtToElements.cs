@@ -105,8 +105,22 @@ namespace asBIM
 
             // Счетчик для количества элементов. Удачно
             string elemCountStr;
-            IList<Element> elemCount = new List<Element>();
+            IList<Element> freeElemCount = new List<Element>();
             
+            // Test 
+            // Список доступных элементов
+            List<ElementId> freeElements = new List<ElementId>(); // Список доступных элементов
+            
+            foreach (Element el in groupedElements["Element"])
+            {
+                if (WorksharingUtils.GetCheckoutStatus(doc, el.Id) == CheckoutStatus.OwnedByOtherUser)
+                {
+                    continue;
+                }
+                // Передача в список freeElements типа 
+                freeElements.Add(el.Id);
+            }
+
             // Высота Базовой точки
             double bpElevation = Math.Round
                 (UnitUtils.ConvertFromInternalUnits
@@ -156,14 +170,27 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(elemTopPtElevFromLevel, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm + Math.Abs(bpElevation));
-
-                                // Запись Имени Нижнего этажа.
-                                topPointParam.Set(closestLevelForTop != null
-                                    ? elTopPtElev + " от " + closestLevelForTop.Name.Split('_').Last()
-                                    : "Не определено");
-                                // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
-
+                                if (bpElevation <= 0)
+                                {
+                                    double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm + Math.Abs(bpElevation));
+                                    
+                                    // Запись Имени Нижнего этажа.
+                                    topPointParam.Set(closestLevelForTop != null
+                                        ? elTopPtElev + " от " + closestLevelForTop.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
+                                }
+                                if (bpElevation > 0)
+                                {
+                                    double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm - Math.Abs(bpElevation));
+                                    
+                                    // Запись Имени Нижнего этажа.
+                                    topPointParam.Set(closestLevelForTop != null
+                                        ? elTopPtElev + " от " + closestLevelForTop.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
+                                }
+                                // Отладка
 
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                                 // Получение отметки Низа элемента с каждого элемента в Документе.
@@ -182,16 +209,30 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(elemBotPtElevFromLevel, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm + Math.Abs(bpElevation));
-                                
-                                
-                                // Запись Имени Нижнего этажа.
-                                bottomPointParam.Set(closestLevelForBot != null
-                                    ? elBotPtElev + " от " + closestLevelForBot.Name.Split('_').Last()
-                                    : "Не определено");
+                                if (bpElevation <= 0)
+                                {
+                                    double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm + Math.Abs(bpElevation));
+                                    
+                                    // Запись Имени Нижнего этажа.
+                                    bottomPointParam.Set(closestLevelForBot != null
+                                        ? elBotPtElev + " от " + closestLevelForBot.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // Запись Имени Нижнего этажа.
+                                }
+                                if (bpElevation > 0)
+                                {
+                                    double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm - Math.Abs(bpElevation));
+                                    
+                                    // Запись Имени Нижнего этажа.
+                                    bottomPointParam.Set(closestLevelForBot != null
+                                        ? elBotPtElev + " от " + closestLevelForBot.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // Запись Имени Нижнего этажа.
+                                }
+                                // Отладка
 
                                 // Счетчик элементов 
-                                elemCount.Add(elemincollector);
+                                freeElemCount.Add(elemincollector);
 
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             }
@@ -203,7 +244,7 @@ namespace asBIM
                     }
                     tr.Commit();
                     
-                    elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
+                    elemCountStr = $"\n\nКол-во обработанных элементов: {freeElemCount.Count.ToString()}";
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Элементов",
                         "\n(￢‿￢ )", elemCountStr,
@@ -233,7 +274,7 @@ namespace asBIM
 
             // Счетчик для количества элементов. Удачно
             string elemCountStr;
-            IList<Element> elemCount = new List<Element>();
+            IList<Element> freeLinearElemCount = new List<Element>();
             
             // Высота Базовой точки
             double bpElevation = Math.Round
@@ -282,13 +323,30 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elStartPtElev = Math.Round(linearElemStartPtElevFromLevSm + Math.Abs(bpElevation));
+                                
+                                if (bpElevation <= 0)
+                                {
+                                    double elStartPtElev =
+                                        Math.Round(linearElemStartPtElevFromLevSm + Math.Abs(bpElevation));
 
-                                // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
-                                startPointParam.Set(closestLevelForTop != null
-                                    ? elStartPtElev + " от " +
-                                      closestLevelForTop.Name.Split('_').Last()
-                                    : "Не определено");
+                                    // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                                    startPointParam.Set(closestLevelForTop != null
+                                        ? elStartPtElev + " от " +
+                                          closestLevelForTop.Name.Split('_').Last()
+                                        : "Не определено");
+                                }
+                                if (bpElevation > 0)
+                                {
+                                    double elStartPtElev =
+                                        Math.Round(linearElemStartPtElevFromLevSm - Math.Abs(bpElevation));
+
+                                    // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                                    startPointParam.Set(closestLevelForTop != null
+                                        ? elStartPtElev + " от " +
+                                          closestLevelForTop.Name.Split('_').Last()
+                                        : "Не определено");
+                                }
+                                // Отладка
 
                                 // Получение Отметки в Начале для линейных обьектов 
                                 double linearElemEndPtElev =
@@ -305,15 +363,32 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(linearElemEndPtElevFromLev, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elEndPtElev = Math.Round(linearElemEndPtElevFromLevSm + Math.Abs(bpElevation));
-
+                                if (bpElevation <= 0)
+                                {
+                                    double elEndPtElev =
+                                        Math.Round(linearElemEndPtElevFromLevSm + Math.Abs(bpElevation));
+                                    
+                                    endtPointParam.Set(closestLevelForBottom != null
+                                        ? elEndPtElev + " от " +
+                                          closestLevelForBottom.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                                }
+                                if (bpElevation > 0)
+                                {
+                                    double elEndPtElev =
+                                        Math.Round(linearElemEndPtElevFromLevSm - Math.Abs(bpElevation));
+                                    
+                                    endtPointParam.Set(closestLevelForBottom != null
+                                        ? elEndPtElev + " от " +
+                                          closestLevelForBottom.Name.Split('_').Last()
+                                        : "Не определено");
+                                    // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                                }
+                                // Отладка
+                                
                                 // Счетчик элементов 
-                                elemCount.Add(elemincollector);
-                                endtPointParam.Set(closestLevelForBottom != null
-                                    ? elEndPtElev + " от " +
-                                      closestLevelForBottom.Name.Split('_').Last()
-                                    : "Не определено");
-                                // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
+                                freeLinearElemCount.Add(elemincollector);
                             }
                         }
                         catch (Exception ex)
@@ -323,7 +398,7 @@ namespace asBIM
                     }
                     tr.Commit();
                     
-                    elemCountStr = $"\n\nКол-во обработанных элементов: {elemCount.Count.ToString()}";
+                    elemCountStr = $"\n\nКол-во обработанных элементов: {freeLinearElemCount.Count.ToString()}";
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Линейных",
                         "\n(￢‿￢ )", elemCountStr,
@@ -344,4 +419,3 @@ namespace asBIM
         }
     }
 }
-
