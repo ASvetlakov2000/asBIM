@@ -17,6 +17,12 @@ namespace asBIM
 
     public class Code_SetMaxMinPtToElements : IExternalCommand
     {
+        // Имена общих парамтеров
+        private string shParamTopPtName = "PRO_Отметка верха";
+        private string shParamBotPtName = "PRO_Отметка низа";
+        private string shParamStName = "PRO_Отметка в начале";
+        private string shParamEndName = "PRO_Отметка в конце";
+        
         // Объявление общих параметров для записи в проект
         private Guid shParamTopPtGuid = new Guid("22c86588-f717-403e-b1c6-1607cac39965"); // PRO_Отметка верха
         private Guid shParamBotPtGuid = new Guid("b0ed44c1-724e-4301-b489-8d89c02acec5"); // PRO_Отметка низа
@@ -104,20 +110,25 @@ namespace asBIM
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
 
             // Счетчик для количества элементов. Удачно
-            string elemCountStr;
-            IList<Element> freeElemCount = new List<Element>();
+            string elemCountStrSucc;
+            // Счетчик для количества элементов. Не Удачно
+            string elemCountStrErr;
             
-            // Test 
-            // Список доступных элементов
-            List<ElementId> freeElements = new List<ElementId>(); // Список доступных элементов
+            // Test 01
+            // Список свободных элементов для обработки
+            List<ElementId> freeElements = new List<ElementId>();
+            // Список занятых элементов для обработки
+            List<ElementId> occupElements = new List<ElementId>();
             
             foreach (Element el in groupedElements["Element"])
             {
                 if (WorksharingUtils.GetCheckoutStatus(doc, el.Id) == CheckoutStatus.OwnedByOtherUser)
                 {
+                    // Передача в список occupElements типа ElementId только тех элементов, которые заняты другими пользователями
+                    occupElements.Add(el.Id);
                     continue;
                 }
-                // Передача в список freeElements типа 
+                // Передача в список freeElements типа ElementId только тех элементов, которые не заняты другими пользователями
                 freeElements.Add(el.Id);
             }
 
@@ -135,14 +146,15 @@ namespace asBIM
                     SharedParameterHelper.FindSharedParameterByGUID(doc, shParamBotPtGuid))
                 {
                     // Цикл с перебором всех элементов в коллекции
-                    foreach (Element elemincollector in groupedElements["Element"])
+                    foreach (ElementId elemincollector in freeElements)
                     {
                         try
                         {
+                            Element elem = doc.GetElement(elemincollector);
                             //Получение "Общего параметра по Guid" из Revit в переменную topPointParam из эл в коллекции. Отметка верха
-                            Parameter topPointParam = elemincollector.get_Parameter(shParamTopPtGuid);
+                            Parameter topPointParam = elem.LookupParameter(shParamTopPtName);
                             //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
-                            Parameter bottomPointParam = elemincollector.get_Parameter(shParamBotPtGuid);
+                            Parameter bottomPointParam = elem.LookupParameter(shParamBotPtName);
 
                             // Проверка на null "Общего параметра по Guid" из Revit
                             if (topPointParam != null && bottomPointParam != null)
@@ -157,7 +169,7 @@ namespace asBIM
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
                                 // Получение отметки Верха элемента с каждого элемента в Документе.
                                 double elementTopPointElevationSm =
-                                    ElementTopBottomPt.GetElementTopPoint(elemincollector).Z;
+                                    ElementTopBottomPt.GetElementTopPoint(elem).Z;
                                 // Присвоение closestLevelForTop результата метода FindBottomElemLevel
                                 // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию список уровней
                                 Level closestLevelForTop =
@@ -195,7 +207,7 @@ namespace asBIM
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                                 // Получение отметки Низа элемента с каждого элемента в Документе.
                                 double elementBottomPointElevationSm =
-                                    ElementTopBottomPt.GetElementBottomPoint(elemincollector).Z;
+                                    ElementTopBottomPt.GetElementBottomPoint(elem).Z;
                                 // Присвоение closestLevelForBot результата метода FindBottomElemLevel
                                 // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по убыванию список уровней
                                 Level closestLevelForBot =
@@ -231,9 +243,6 @@ namespace asBIM
                                 }
                                 // Отладка
 
-                                // Счетчик элементов 
-                                freeElemCount.Add(elemincollector);
-
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             }
                         }
@@ -244,11 +253,17 @@ namespace asBIM
                     }
                     tr.Commit();
                     
-                    elemCountStr = $"\n\nКол-во обработанных элементов: {freeElemCount.Count.ToString()}";
+                    elemCountStrSucc = $"\n\nКол-во обработанных элементов: {freeElements.Count.ToString()}";
+                    elemCountStrErr = $"\n\nКол-во пропущенных элементов: {occupElements.Count.ToString()}";
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Элементов",
-                        "\n(￢‿￢ )", elemCountStr,
+                        "\n(￢‿￢ )", elemCountStrSucc,
                         NotificationType.Success);
+                    
+                    NotificationManagerWPF.MessageSmileInfo(
+                        "Запись параметров для Элементов",
+                        "\n(￢‿￢ )", elemCountStrErr,
+                        NotificationType.Warning);
                 }
                 else
                 {
@@ -419,3 +434,4 @@ namespace asBIM
         }
     }
 }
+
