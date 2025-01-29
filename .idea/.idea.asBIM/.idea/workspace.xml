@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Добавлены категории">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Отладка Code_SetMaxMinPtToElements завершена">
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/RevitAPI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d4/882a8c2d/NotificationPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d5/318ef0d1/Notification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/05/d71dc245/ExternalDefinition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/26/732a2738/DefinitionBindingMapIterator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab2f7b3123da4cc5a881693329668d8e38f430/8a/e789bc06/ImageSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,6 +74,7 @@
     &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.15600:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
@@ -145,7 +146,9 @@
       <workItem from="1737480836737" duration="2885000" />
       <workItem from="1737539101207" duration="8119000" />
       <workItem from="1737629137531" duration="3169000" />
-      <workItem from="1737632349301" duration="27139000" />
+      <workItem from="1737632349301" duration="27203000" />
+      <workItem from="1737965124258" duration="11099000" />
+      <workItem from="1737986905068" duration="18317000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -267,7 +270,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737730512344</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Обновлен расчет времени в уведомлениях">
+      <option name="closed" value="true" />
+      <created>1737737326819</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737737326819</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Отладка Code_SetMaxMinPtToElements завершена">
+      <option name="closed" value="true" />
+      <created>1738145525748</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1738145525748</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +344,8 @@
     <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
     <MESSAGE value="Отлажены команды и добавлены кнопки" />
     <MESSAGE value="Добавлены категории" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены категории" />
+    <MESSAGE value="Обновлен расчет времени в уведомлениях" />
+    <MESSAGE value="Отладка Code_SetMaxMinPtToElements завершена" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отладка Code_SetMaxMinPtToElements завершена" />
   </component>
 </project>

@@ -29,8 +29,9 @@ namespace asBIM
             var uidoc = uiapp.ActiveUIDocument;
             var doc = uidoc.Document;
 
-            // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО  
+            // ОСНОВНОЙ КОД ПЛАГИНА // НАЧАЛО
 
+            
             // Вызов UI
             // var vm = new SetMaxMinPtToElements_ViewModel(uiapp);
             // // в view передается null из-за проблем в XAML
@@ -41,14 +42,12 @@ namespace asBIM
             // Form_SetMaxMinPtToElements form = new Form_SetMaxMinPtToElements();
             // form.Show();
             // Вызов UI
+            
 
             // Без UI
-
             // Время выполнения
-            
-            
-            Stopwatch swPlaceGroups = new Stopwatch();
-            swPlaceGroups.Start();
+            Stopwatch time = new Stopwatch();
+            time.Start();
             
             // Запись отметок верха и низа
             SetElementsTBPoints(doc);
@@ -56,9 +55,9 @@ namespace asBIM
             // Запись отметок начала и конца
             SetLinearElemTBPoints(doc);
 
-            swPlaceGroups.Stop();
+            time.Stop();
             // Время выполнения
-            var timeInSecForCommand = swPlaceGroups.Elapsed.TotalSeconds;
+            var timeInSecForCommand = time.Elapsed.TotalSeconds;
             double timeInMin = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInMinOutput;
             double timeInSec = TimeOfWorkConverter.ConvertTime(timeInSecForCommand).timeInSecOutput;
             
@@ -69,12 +68,28 @@ namespace asBIM
                                MidpointRounding.AwayFromZero) + " мин") + " " +
                            Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,
                                MidpointRounding.AwayFromZero) + " сек"),
-                NotificationType.Information);
+                NotificationType.Information);  
             
-
+            // Высота Базовой точки
+            double bpElevation = Math.Round
+            (UnitUtils.ConvertFromInternalUnits
+                (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters), 0, MidpointRounding.AwayFromZero);
+            
+            if (bpElevation != 0.0)
+            {
+                // Уведомление. "Высота Базовой Точки"
+                NotificationManagerWPF.MessageInfoSmile("Внимание!\nБазовая точка не в нулевой позиции",
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                    "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                     $"\n\nБазовая Точка на высоте: " + bpElevation.ToString() + "мм"
+                    +
+                    "\nПроверьте значения заполненных параметров!",
+                    NotificationType.Warning);
+            }
             // Без UI
 
-            // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ  
+            // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
             return Result.Succeeded;
         }
 
@@ -91,6 +106,11 @@ namespace asBIM
             // Счетчик для количества элементов. Удачно
             string elemCountStr;
             IList<Element> elemCount = new List<Element>();
+            
+            // Высота Базовой точки
+            double bpElevation = Math.Round
+                (UnitUtils.ConvertFromInternalUnits
+                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters), 0, MidpointRounding.AwayFromZero);
 
             //Транзакция
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
@@ -136,8 +156,7 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(elemTopPtElevFromLevel, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
-                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
+                                double elTopPtElev = Math.Round(elemTopPtElevFromLevelSm + Math.Abs(bpElevation));
 
                                 // Запись Имени Нижнего этажа.
                                 topPointParam.Set(closestLevelForTop != null
@@ -163,8 +182,7 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(elemBotPtElevFromLevel, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
-                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
+                                double elBotPtElev = Math.Round(elemBotPtElevFromLevelSm + Math.Abs(bpElevation));
                                 
                                 
                                 // Запись Имени Нижнего этажа.
@@ -216,6 +234,11 @@ namespace asBIM
             // Счетчик для количества элементов. Удачно
             string elemCountStr;
             IList<Element> elemCount = new List<Element>();
+            
+            // Высота Базовой точки
+            double bpElevation = Math.Round
+            (UnitUtils.ConvertFromInternalUnits
+                (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters), 0, MidpointRounding.AwayFromZero);
 
             using (Transaction tr = new Transaction(doc, "Запись параметров отметок Верха и Низа"))
             {
@@ -259,8 +282,7 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elStartPtElev = Math.Round(linearElemStartPtElevFromLevSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
-                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
+                                double elStartPtElev = Math.Round(linearElemStartPtElevFromLevSm + Math.Abs(bpElevation));
 
                                 // ЗАПИСЬ ОТМЕТКИ В НАЧАЛЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                                 startPointParam.Set(closestLevelForTop != null
@@ -283,8 +305,7 @@ namespace asBIM
                                     UnitUtils.ConvertFromInternalUnits(linearElemEndPtElevFromLev, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                double elEndPtElev = Math.Round(linearElemEndPtElevFromLevSm - Math.Abs(UnitUtils.ConvertFromInternalUnits
-                                    (BasePtPosition.GetBasePointHeight(doc).Z, UnitTypeId.Millimeters)), 0, MidpointRounding.AwayFromZero);
+                                double elEndPtElev = Math.Round(linearElemEndPtElevFromLevSm + Math.Abs(bpElevation));
 
                                 // Счетчик элементов 
                                 elemCount.Add(elemincollector);
