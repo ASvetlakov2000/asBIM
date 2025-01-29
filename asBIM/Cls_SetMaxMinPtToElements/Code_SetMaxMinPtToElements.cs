@@ -69,7 +69,7 @@ namespace asBIM
             
             // Уведомление. "Время работы"
             NotificationManagerWPF.TimeOfWork("Время работы",
-                timeInSec: "\nВремя выполнения: " +
+                timeInSec: "\n \u231b Время выполнения: " +
                            Convert.ToString(Math.Round(Convert.ToDouble(timeInMin), 0,
                                MidpointRounding.AwayFromZero) + " мин") + " " +
                            Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,
@@ -114,7 +114,6 @@ namespace asBIM
             // Счетчик для количества элементов. Не Удачно
             string elemCountStrErr;
             
-            // Test 01
             // Список свободных элементов для обработки
             List<ElementId> freeElements = new List<ElementId>();
             // Список занятых элементов для обработки
@@ -165,7 +164,6 @@ namespace asBIM
                                 // Список levels с типом Level
                                 List<Level> levels = levelsCollector.Cast<Level>().OrderBy(level => level.Elevation)
                                     .ToList();
-
                                 // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ ВЕРХА
                                 // Получение отметки Верха элемента с каждого элемента в Документе.
                                 double elementTopPointElevationSm =
@@ -241,9 +239,6 @@ namespace asBIM
                                         : "Не определено");
                                     // Запись Имени Нижнего этажа.
                                 }
-                                // Отладка
-
-                                // ЗАПИСЬ УРОВНЯ ДЛЯ ОТМЕТКИ НИЗА
                             }
                         }
                         catch (Exception ex)
@@ -255,14 +250,15 @@ namespace asBIM
                     
                     elemCountStrSucc = $"\n\nКол-во обработанных элементов: {freeElements.Count.ToString()}";
                     elemCountStrErr = $"\n\nКол-во пропущенных элементов: {occupElements.Count.ToString()}";
-                    NotificationManagerWPF.MessageSmileInfo(
-                        "Запись параметров для Элементов",
-                        "\n(￢‿￢ )", elemCountStrSucc,
-                        NotificationType.Success);
                     
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Элементов",
-                        "\n(￢‿￢ )", elemCountStrErr,
+                        "\n(￢‿￢)", elemCountStrSucc,
+                        NotificationType.Success);
+                    
+                    NotificationManagerWPF.MessageSmileInfo(
+                        "Пропущенные элементы",
+                        "\n\u00af\\_(ツ)_/\u00af", elemCountStrErr,
                         NotificationType.Warning);
                 }
                 else
@@ -288,8 +284,26 @@ namespace asBIM
             var groupedElements = RevitAPI_Sort_ByCategory.SortElementByCategory(doc);
 
             // Счетчик для количества элементов. Удачно
-            string elemCountStr;
-            IList<Element> freeLinearElemCount = new List<Element>();
+            string linearCountStrSucc;
+            // Счетчик для количества элементов. Не Удачно
+            string linearCountStrErr;
+            
+            // Список свободных элементов для обработки
+            List<ElementId> freeLinear = new List<ElementId>();
+            // Список занятых элементов для обработки
+            List<ElementId> occupLinear = new List<ElementId>();
+            
+            foreach (Element el in groupedElements["Linear"])
+            {
+                if (WorksharingUtils.GetCheckoutStatus(doc, el.Id) == CheckoutStatus.OwnedByOtherUser)
+                {
+                    // Передача в список occupElements типа ElementId только тех элементов, которые заняты другими пользователями
+                    occupLinear.Add(el.Id);
+                    continue;
+                }
+                // Передача в список freeElements типа ElementId только тех элементов, которые не заняты другими пользователями
+                freeLinear.Add(el.Id);
+            }
             
             // Высота Базовой точки
             double bpElevation = Math.Round
@@ -304,14 +318,15 @@ namespace asBIM
                     SharedParameterHelper.FindSharedParameterByGUID(doc, shParamEndGuid))
                 {
 
-                    foreach (MEPCurve elemincollector in groupedElements["Linear"])
+                    foreach (ElementId elemincollector in freeLinear)
                     {
                         try
                         {
+                            Element linear = doc.GetElement(elemincollector);
                             //Получение "Общего параметра по Guid" из Revit в переменную topPointParam из эл в коллекции. Отметка верха
-                            Parameter startPointParam = elemincollector.get_Parameter(shParamStGuid);
+                            Parameter startPointParam = linear.LookupParameter(shParamStName);
                             //Получение "Общего параметра по Guid" из Revit в переменную bottomPointParam параметра из эл в коллекции. Отметка низа
-                            Parameter endtPointParam = elemincollector.get_Parameter(shParamEndGuid);
+                            Parameter endtPointParam = linear.LookupParameter(shParamEndName);
 
                             // Проверка на null "Общего параметра по Guid" из Revit
                             if (startPointParam != null && endtPointParam != null)
@@ -323,22 +338,19 @@ namespace asBIM
                                 // Список levels с типом Level
                                 List<Level> levels = levelsCollector.Cast<Level>().OrderBy(level => level.Elevation)
                                     .ToList();
-
                                 // Получение Отметки в Начале для линейных обьектов 
                                 double linearElemStartPtElev =
-                                    ElementTopBottomPt.GetLinearPoint(elemincollector, true).Z;
+                                    ElementTopBottomPt.GetLinearPoint(linear as MEPCurve, true).Z;
                                 // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию список уровней
                                 Level closestLevelForTop = LevelInfo.FindBottomElemLevel(linearElemStartPtElev, levels);
                                 // Вычисление расстояние от Отметки Верха до Отметки Уровня
                                 double linearElemStartPtElevFromLev =
                                     Math.Abs(closestLevelForTop.Elevation - linearElemStartPtElev);
-                                
                                 // Конвертация из футов в мм
                                 double linearElemStartPtElevFromLevSm =
                                     UnitUtils.ConvertFromInternalUnits(linearElemStartPtElevFromLev, UnitTypeId.Millimeters);
                                 
                                 // Отладка
-                                
                                 if (bpElevation <= 0)
                                 {
                                     double elStartPtElev =
@@ -365,7 +377,7 @@ namespace asBIM
 
                                 // Получение Отметки в Начале для линейных обьектов 
                                 double linearElemEndPtElev =
-                                    ElementTopBottomPt.GetLinearPoint(elemincollector, false).Z;
+                                    ElementTopBottomPt.GetLinearPoint(linear as MEPCurve, false).Z;
                                 // В метод FindBottomElemLevel подаются отметки Низа всех эл из groupedElements["AR"] и отсортированный по возрастанию список уровней
                                 Level closestLevelForBottom =
                                     LevelInfo.FindBottomElemLevel(linearElemEndPtElev, levels);
@@ -400,10 +412,6 @@ namespace asBIM
                                         : "Не определено");
                                     // ЗАПИСЬ ОТМЕТКИ В КОНЦЕ ДЛЯ ЛИНЕЙНЫХ ЭЛЕМЕНТОВ
                                 }
-                                // Отладка
-                                
-                                // Счетчик элементов 
-                                freeLinearElemCount.Add(elemincollector);
                             }
                         }
                         catch (Exception ex)
@@ -413,12 +421,18 @@ namespace asBIM
                     }
                     tr.Commit();
                     
-                    elemCountStr = $"\n\nКол-во обработанных элементов: {freeLinearElemCount.Count.ToString()}";
+                    linearCountStrSucc = $"\n\nКол-во обработанных элементов: {freeLinear.Count.ToString()}";
+                    linearCountStrErr = $"\n\nКол-во пропущенных элементов: {occupLinear.Count.ToString()}";
+                    
                     NotificationManagerWPF.MessageSmileInfo(
                         "Запись параметров для Линейных",
-                        "\n(￢‿￢ )", elemCountStr,
+                        "\n(￢‿￢)", linearCountStrSucc,
                         NotificationType.Success);
                     
+                    NotificationManagerWPF.MessageSmileInfo(
+                        "Пропущенные линейные элементы",
+                        "\n\u00af\\_(ツ)_/\u00af", linearCountStrErr,
+                        NotificationType.Warning);
                 }
                 else
                 {

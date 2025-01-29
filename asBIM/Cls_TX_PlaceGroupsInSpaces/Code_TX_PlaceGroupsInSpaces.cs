@@ -48,7 +48,7 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
         
             // Уведомление. "Время работы"
             NotificationManagerWPF.TimeOfWork("Время работы", 
-                timeInSec:"\nВремя выполнения: " +
+                timeInSec:"\n \u231b Время выполнения: " +
                           Convert.ToString(Math.Round(Convert.ToDouble(timeInMin), 0,
                               MidpointRounding.AwayFromZero) + " мин") + " " +
                           Convert.ToString(Math.Round(Convert.ToDouble(timeInSec), 0,

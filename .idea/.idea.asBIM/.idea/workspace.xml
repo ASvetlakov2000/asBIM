@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;">
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_TX_PlaceGroupsInSpaces/Code_TX_PlaceGroupsInSpaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_TX_PlaceGroupsInSpaces/Code_TX_PlaceGroupsInSpaces.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
+    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -45,23 +46,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d4/882a8c2d/NotificationPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d5/318ef0d1/Notification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/05/d71dc245/ExternalDefinition.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93e2f9d66b1941f995577d5dc2b8c1271f45880/26/732a2738/DefinitionBindingMapIterator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab2f7b3123da4cc5a881693329668d8e38f430/8a/e789bc06/ImageSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0f8d183e43847009e4e164aee6d042f91960/1c/0674dd39/Bitmap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/d8/81e7a4ae/SplitButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/10/5de0661f/HostObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/c2/858b40b4/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/svetlakov.a/RiderProjects/asBIM/asBIM/Cls_SetMaxMinPtToElements/Code_SetMaxMinPtToElements.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -73,31 +66,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Process.10564:Revit.executor": "Debug",
-    "Attach to Process.11680:Revit.executor": "Debug",
-    "Attach to Process.11788:Revit.executor": "Debug",
-    "Attach to Process.14324:Revit.executor": "Debug",
-    "Attach to Process.15576:Revit.executor": "Debug",
-    "Attach to Process.15600:Revit.executor": "Debug",
-    "Attach to Process.19440:Revit.executor": "Debug",
-    "Attach to Process.21292:Revit.executor": "Debug",
-    "Attach to Process.29584:RevitWorker.executor": "Debug",
-    "Attach to Process.8924:Revit.executor": "Debug",
-    "Attach to Process.8976:Revit.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8976:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -152,9 +143,8 @@
       <workItem from="1737480836737" duration="2885000" />
       <workItem from="1737539101207" duration="8119000" />
       <workItem from="1737629137531" duration="3169000" />
-      <workItem from="1737632349301" duration="27203000" />
-      <workItem from="1737965124258" duration="11099000" />
-      <workItem from="1737986905068" duration="18317000" />
+      <workItem from="1737632349301" duration="27139000" />
+      <workItem from="1738176579272" duration="2010000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -276,55 +266,7 @@
       <option name="project" value="LOCAL" />
       <updated>1737730512344</updated>
     </task>
-    <task id="LOCAL-00016" summary="Обновлен расчет времени в уведомлениях">
-      <option name="closed" value="true" />
-      <created>1737737326819</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1737737326819</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Отладка Code_SetMaxMinPtToElements завершена">
-      <option name="closed" value="true" />
-      <created>1738145525748</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1738145525748</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Отладка Code_SetMaxMinPtToElements завершена">
-      <option name="closed" value="true" />
-      <created>1738146342932</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1738146342932</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;">
-      <option name="closed" value="true" />
-      <created>1738168939650</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1738168939650</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;">
-      <option name="closed" value="true" />
-      <created>1738168967551</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1738168967551</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;">
-      <option name="closed" value="true" />
-      <created>1738168985966</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1738168985966</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,9 +324,6 @@
     <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
     <MESSAGE value="Отлажены команды и добавлены кнопки" />
     <MESSAGE value="Добавлены категории" />
-    <MESSAGE value="Обновлен расчет времени в уведомлениях" />
-    <MESSAGE value="Отладка Code_SetMaxMinPtToElements завершена" />
-    <MESSAGE value="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Резерв. До обработки исключения &quot;Пропуск занятых элементов&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены категории" />
   </component>
 </project>
