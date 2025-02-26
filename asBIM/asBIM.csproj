@@ -67,9 +67,8 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="Nice3point.Revit.Extensions, Version=2023.3.1.0, Culture=neutral, processorArchitecture=Amd64">
-      <HintPath>..\packages\Nice3point.Revit.Extensions.2023.3.1-preview.6.0\lib\net48\Nice3point.Revit.Extensions.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Nice3point.Revit.Extensions, Version=2023.3.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\Nice3point.Revit.Extensions.2023.3.0\lib\net48\Nice3point.Revit.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Nice3point.Revit.Toolkit, Version=2023.2.4.0, Culture=neutral, processorArchitecture=Amd64">
       <HintPath>..\packages\Nice3point.Revit.Toolkit.2023.2.4-preview.1.0\lib\net48\Nice3point.Revit.Toolkit.dll</HintPath>
@@ -128,7 +127,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cls_RenameMaterials\Code_RenameMaterialsfromTXT.cs" />
+    <Compile Include="Cls_RenameMaterials\Code_RenameMaterialsfromMapping.cs" />
     <Compile Include="Cls_RenameMaterials\Code_ExportMaterialMapping.cs" />
     <Compile Include="Cls_TX_PlaceGroupsInSpaces\Code_TX_PlaceGroupsInSpaces_DelGrp.cs" />
     <Compile Include="Cls_TX_PlaceGroupsInSpaces\Code_TX_PlaceGroupsInSpaces.cs" />
@@ -201,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\PlaceGroupsInSpacesTX_Params_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExportMaterialMapping_16.png" />
+    <EmbeddedResource Include="Resources\ExportMaterialMapping_32.png" />
+    <EmbeddedResource Include="Resources\RenameMaterialsfromMapping_16.png" />
+    <EmbeddedResource Include="Resources\RenameMaterialsfromMapping_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />

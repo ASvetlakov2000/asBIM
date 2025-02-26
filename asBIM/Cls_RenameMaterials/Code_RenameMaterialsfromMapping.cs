@@ -29,17 +29,19 @@ using CsvHelper;
 namespace asBIM
 { 
 [Transaction(TransactionMode.Manual)]
-public class Code_RenameMaterialsfromTXT : IExternalCommand
+public class Code_RenameMaterialsfromMapping : IExternalCommand
 {
     public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
     {
         UIApplication uiapp = commandData.Application;
         Document doc = uiapp.ActiveUIDocument.Document;
         
-        string mappingFilePath = OpenFile.OpenSingleFile("Выберите ФОП [PRO_SharedParametr] для добавления параметра", "txt"); // Укажи путь к файлу
+        StringBuilder sb = new StringBuilder();
+        
+        string mappingFilePath = OpenFile.OpenSingleFile("Выберите файл мэппинга с новыми именами материалов", "txt"); // Укажи путь к файлу
         Dictionary<string, string> materialMapping = LoadMaterialMapping(mappingFilePath);
         
-        using (Transaction tx = new Transaction(doc, "Rename Materials"))
+        using (Transaction tx = new Transaction(doc, "Переименование материалов"))
         {
             tx.Start();
             
@@ -54,11 +56,14 @@ public class Code_RenameMaterialsfromTXT : IExternalCommand
                     }
                     catch (Exception ex)
                     {
-                        TaskDialog.Show("Error", $"Не удалось переименовать {mat.Name}: {ex.Message}");
+                        sb.AppendLine($"Не удалось переименовать {mat.Name}");
+                        TaskDialog.Show("Ошибка", sb.ToString());
                     }
                 }
             }
             
+            TaskDialog.Show("Успешно", "Материалы переименованы");
+
             tx.Commit();
         }
         

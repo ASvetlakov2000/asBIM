@@ -25,6 +25,7 @@ using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
 using Autodesk.Revit.UI.Selection;
 using CsvHelper;
+using asBIM.Helpers;
 
 namespace asBIM
 {
@@ -35,20 +36,32 @@ namespace asBIM
         {
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-
-            string mappingFilePath = "D:\\Test\\Test01.txt"; // Укажи путь к файлу
-
-            using (StreamWriter writer = new StreamWriter(mappingFilePath))
+            
+            try
             {
-                FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
-                foreach (Material mat in collector)
+                string mappingFilePath =
+                    CreateFile.CreateSingleFile("Сохранение файла мэппинга с именами материалов",
+                        "txt"); // Укажи путь к файлу
+                
+                if (mappingFilePath.IsNullOrEmpty())
+                    return Result.Cancelled;
+            
+                using (StreamWriter writer = new StreamWriter(mappingFilePath))
                 {
-                    writer.WriteLine($"{mat.Name}\t"); // Старое имя, новое пустое
+                    FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
+                    foreach (Material mat in collector)
+                    {
+                        writer.WriteLine($"{mat.Name}\t"); // Старое имя, новое пустое
+                    }
                 }
+                TaskDialog.Show("Имена материалов", "Файл c именами материалов создан.");
             }
-
-            TaskDialog.Show("Export Completed", "Файл мэпинга создан.");
-
+            // Обработка исключений при щелчке правой кнопкой или нажатии ESC
+            catch (Autodesk.Revit.Exceptions.OperationCanceledException)
+            {
+                return Result.Cancelled;
+            }
+            
             return Result.Succeeded;
         }
     }

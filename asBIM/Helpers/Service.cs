@@ -41,6 +41,32 @@ namespace asBIM
         }
     }
     
+    public static class CreateFile
+    {
+        ///<summary>
+        /// Метод для открытия файла и передачи его пути
+        ///</summary>
+        /// <param name="title">Заголовок в UI.</param>
+        /// <param name="format">Формат открываемого файлаа.</param>
+        /// <returns>path - путь к файлу</returns>>
+        public static string CreateSingleFile(string title,string format)
+        {
+            var path = string.Empty;
+            using var createFileDialog = new SaveFileDialog()
+            {
+                // Заголовок
+                Title = title,
+                // Фильтр выбора формата
+                Filter = $"Revit (*.{format})|*.{format}|" + "All files (*.*)|*.*"
+            };
+            if (createFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                path = createFileDialog.FileName;
+            }
+            return path;
+        }
+    }
+    
     
     ///<summary>
     /// Класс для таймера в уведомлении

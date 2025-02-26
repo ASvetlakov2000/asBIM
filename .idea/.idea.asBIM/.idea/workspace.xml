@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromTXT.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2025_12_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2025_12_51__Default_Changelist_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Resources/ExportMaterialMapping_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Resources/ExportMaterialMapping_32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Resources/RenameMaterialsfromMapping_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Resources/RenameMaterialsfromMapping_32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromTXT.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Service.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Service.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +41,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
+    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -58,6 +63,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromTXT.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -148,8 +154,6 @@
       <workItem from="1737629137531" duration="3169000" />
       <workItem from="1737632349301" duration="27139000" />
       <workItem from="1738176579272" duration="2010000" />
-      <workItem from="1739966447569" duration="5000" />
-      <workItem from="1740586658201" duration="2918000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
