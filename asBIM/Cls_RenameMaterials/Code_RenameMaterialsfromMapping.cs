@@ -27,61 +27,84 @@ using Autodesk.Revit.UI.Selection;
 using CsvHelper;
 
 namespace asBIM
-{ 
-[Transaction(TransactionMode.Manual)]
-public class Code_RenameMaterialsfromMapping : IExternalCommand
 {
-    public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+    [TransactionAttribute(TransactionMode.Manual)]
+    [RegenerationAttribute(RegenerationOption.Manual)]
+    public class Code_RenameMaterialsfromMapping : IExternalCommand
     {
-        UIApplication uiapp = commandData.Application;
-        Document doc = uiapp.ActiveUIDocument.Document;
-        
-        StringBuilder sb = new StringBuilder();
-        
-        string mappingFilePath = OpenFile.OpenSingleFile("Выберите файл мэппинга с новыми именами материалов", "txt"); // Укажи путь к файлу
-        Dictionary<string, string> materialMapping = LoadMaterialMapping(mappingFilePath);
-        
-        using (Transaction tx = new Transaction(doc, "Переименование материалов"))
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            tx.Start();
+            UIApplication uiapp = commandData.Application;
+            Document doc = uiapp.ActiveUIDocument.Document;
+
+            StringBuilder sb = new StringBuilder();
+
+            // Задание пути файлу с наименованиями материалов
+            string mappingFilePath = OpenFile.OpenSingleFile(
+                "Выберите файл Mapping с новыми именами материалов", "txt"); 
+            // Обработка ошибки. Если будет нажат [ESC]
+            if (mappingFilePath.IsNullOrEmpty())
+                return Result.Cancelled;
             
-            FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
-            foreach (Material mat in collector)
+            // Передача в словарь str-str значений из файла Мэппинга
+            Dictionary<string, string> materialMapping = LoadMaterialMapping(mappingFilePath);
+            
+            using (Transaction tx = new Transaction(doc, "Переименование материалов"))
             {
-                if (materialMapping.ContainsKey(mat.Name) && !string.IsNullOrWhiteSpace(materialMapping[mat.Name]))
+                tx.Start();
+
+                FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
+                foreach (Material mat in collector)
                 {
-                    try
+                    if (materialMapping.ContainsKey(mat.Name) && !string.IsNullOrWhiteSpace(materialMapping[mat.Name]))
                     {
-                        mat.Name = materialMapping[mat.Name];
-                    }
-                    catch (Exception ex)
-                    {
-                        sb.AppendLine($"Не удалось переименовать {mat.Name}");
-                        TaskDialog.Show("Ошибка", sb.ToString());
+                        try
+                        {
+                            mat.Name = materialMapping[mat.Name];
+                        }
+                        catch (Exception ex)
+                        {
+                            sb.AppendLine($"Не удалось переименовать {mat.Name}");
+                            TaskDialog.Show("Ошибка", sb.ToString());
+                        }
                     }
                 }
-            }
-            
-            TaskDialog.Show("Успешно", "Материалы переименованы");
 
-            tx.Commit();
-        }
-        
-        return Result.Succeeded;
-    }
-    
-    private Dictionary<string, string> LoadMaterialMapping(string filePath)
-    {
-        Dictionary<string, string> mapping = new Dictionary<string, string>();
-        foreach (string line in File.ReadAllLines(filePath))
-        {
-            string[] parts = line.Split('\t'); // Разделитель - табуляция
-            if (parts.Length == 2)
-            {
-                mapping[parts[0].Trim()] = parts[1].Trim();
+                tx.Commit();
+
+                TaskDialog.Show("Успешно", "Материалы переименованы");
             }
+
+            return Result.Succeeded;
         }
-        return mapping;
+
+        /// <summary>
+        /// Метод LoadMaterialMapping - 
+        /// <param name = "filePath" > Путь к файлу Mapping </param>
+        /// </summary>
+        private Dictionary<string, string> LoadMaterialMapping(string filePath)
+        {
+            // Создаем словарь для хранения соответствия старых и новых имен материалов
+            // Словарь состоит из строчек
+            // Строчки состоят из массивов с вдумя значениями [0] и [1]
+            Dictionary<string, string> mapping = new Dictionary<string, string>(); 
+    
+            // Читаем все строки из файла мэпинга
+            foreach (string line in File.ReadAllLines(filePath))
+            {
+                // Разделяем строку по символу табуляции на два элемента: старое имя и новое имя
+                string[] parts = line.Split('\t'); // Разделитель - табуляция
+        
+                // Проверяем, что строка содержит ровно два элемента (старое и новое имя)
+                if (parts.Length == 2)
+                {
+                    // Добавляем в словарь: ключ - старое имя (обрезаем пробелы), значение - новое имя (обрезаем пробелы)
+                    mapping[parts[0].Trim()] = parts[1].Trim();
+                }
+            }
+    
+            // Возвращаем заполненный словарь с мэпингом имен материалов
+            return mapping;
+        }
     }
-}
 }

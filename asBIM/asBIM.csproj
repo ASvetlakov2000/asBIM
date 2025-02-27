@@ -69,6 +69,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="Nice3point.Revit.Extensions, Version=2023.3.0.0, Culture=neutral, processorArchitecture=Amd64">
       <HintPath>..\packages\Nice3point.Revit.Extensions.2023.3.0\lib\net48\Nice3point.Revit.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Nice3point.Revit.Toolkit, Version=2023.2.4.0, Culture=neutral, processorArchitecture=Amd64">
       <HintPath>..\packages\Nice3point.Revit.Toolkit.2023.2.4-preview.1.0\lib\net48\Nice3point.Revit.Toolkit.dll</HintPath>

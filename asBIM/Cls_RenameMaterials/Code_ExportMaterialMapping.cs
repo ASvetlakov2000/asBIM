@@ -29,40 +29,62 @@ using asBIM.Helpers;
 
 namespace asBIM
 {
-    [Transaction(TransactionMode.Manual)]
+    [TransactionAttribute(TransactionMode.Manual)]
+    [RegenerationAttribute(RegenerationOption.Manual)]
     public class Code_ExportMaterialMapping : IExternalCommand
     {
+        private string standartMltFilePath = "\\\\serverproxima\\users$\\Profiles\\svetlakov.a\\Desktop\\C#\\00_Revit Plugins\\04_Модели_Тест\\2.1_Материалы\\Мэппинги\\txt\\Mlt_St.txt";
+        
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            UIApplication uiapp = commandData.Application;
-            Document doc = uiapp.ActiveUIDocument.Document;
-            
+            var uiapp = commandData.Application;
+            var uidoc = uiapp.ActiveUIDocument;
+            var doc = uidoc.Document;
+
             try
             {
-                string mappingFilePath =
-                    CreateFile.CreateSingleFile("Сохранение файла мэппинга с именами материалов",
-                        "txt"); // Укажи путь к файлу
-                
+                // Задание пути файлу с наименованиями материалов
+                string mappingFilePath = CreateFile.CreateSingleFile(
+                    "Сохранение файла Mapping с именами материалов", "txt");
+                // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
                 if (mappingFilePath.IsNullOrEmpty())
                     return Result.Cancelled;
-            
+                // Запись в файл .txt всех имен материалов из документа
                 using (StreamWriter writer = new StreamWriter(mappingFilePath))
                 {
+                    // TODO: 1. Проверка на наличие стандартных материалов и их пропуск
                     FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
+                    
                     foreach (Material mat in collector)
                     {
-                        writer.WriteLine($"{mat.Name}\t"); // Старое имя, новое пустое
+                        // Запись по строчно "Имя материала + табуляция"
+                        writer.WriteLine($"{mat.Name}");
                     }
                 }
-                TaskDialog.Show("Имена материалов", "Файл c именами материалов создан.");
+
+                NotificationManagerWPF.MessageSmileInfo("Создание файла Mapping",
+                    "\n(￢‿￢)",
+                    $"\n\nФайл с именами материалов создан!\n\nПуть к файлу: \n{mappingFilePath}",
+                    NotificationType.Information);
             }
-            // Обработка исключений при щелчке правой кнопкой или нажатии ESC
+            // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
             catch (Autodesk.Revit.Exceptions.OperationCanceledException)
             {
                 return Result.Cancelled;
             }
-            
+
             return Result.Succeeded;
+        }
+
+        private List<string> StandartMltCkecker (string standartMltFilePath)
+        {
+            List<string> lst = new List<string>();
+
+            foreach (string line in File.ReadAllLines(standartMltFilePath))
+            {
+                lst.Add(line);
+            }
+            return lst;
         }
     }
 }
