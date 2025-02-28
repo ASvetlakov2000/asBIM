@@ -33,7 +33,11 @@ namespace asBIM
     [RegenerationAttribute(RegenerationOption.Manual)]
     public class Code_ExportMaterialMapping : IExternalCommand
     {
-        private string standartMltFilePath = "\\\\serverproxima\\users$\\Profiles\\svetlakov.a\\Desktop\\C#\\00_Revit Plugins\\04_Модели_Тест\\2.1_Материалы\\Мэппинги\\txt\\Mlt_St.txt";
+        // Задание пути файлу со стандартными наименованиями материалов
+        // string stMtlFilePath = OpenFile.OpenSingleFile(
+        //     "Выберите файл со стандартными материалами", "txt");
+
+        private string stMtlFilePath = "S:\\standarts\\00_BIM\\BIM_Автоматизация\\Материалы_Переименование\\Standart_Mtl_List.txt";
         
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -49,23 +53,30 @@ namespace asBIM
                 // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
                 if (mappingFilePath.IsNullOrEmpty())
                     return Result.Cancelled;
-                // Запись в файл .txt всех имен материалов из документа
+                
                 using (StreamWriter writer = new StreamWriter(mappingFilePath))
                 {
-                    // TODO: 1. Проверка на наличие стандартных материалов и их пропуск
-                    FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
-                    
-                    foreach (Material mat in collector)
+                    foreach (string mtl in StandartMtlCleaner(stMtlFilePath, doc))
                     {
-                        // Запись по строчно "Имя материала + табуляция"
-                        writer.WriteLine($"{mat.Name}");
+                        writer.WriteLine(mtl);
                     }
                 }
 
-                NotificationManagerWPF.MessageSmileInfo("Создание файла Mapping",
+                NotificationManagerWPF.MessageSmileInfoTm("Создание файла Mapping",
                     "\n(￢‿￢)",
                     $"\n\nФайл с именами материалов создан!\n\nПуть к файлу: \n{mappingFilePath}",
-                    NotificationType.Information);
+                    NotificationType.Success, 
+                    20);
+                
+                NotificationManagerWPF.MessageSmileInfoTm("Инструкция для переименования",
+                    "",
+                    $"\n 1. Сохраните созданный файл по ссылке ниже в формат [ .csv ] путем переименования расширения" +
+                    $"\n\n 2. Откройте файл формата [ .csv ] в Libre Office" +
+                    $"\n\n 3. Слева - материалы из модели. В столбец справа от имен материалов впишите новые имена" +
+                    $"\n\n 4. Сохраните файл и переименуйте обратно в [ .txt ] - Это и есть файл Mapping" +
+                    $"\n\n 5. Загрузите файл Mapping через кнопку [ Импорт имен ]",
+                    NotificationType.Information, 
+                    20);
             }
             // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
             catch (Autodesk.Revit.Exceptions.OperationCanceledException)
@@ -76,15 +87,33 @@ namespace asBIM
             return Result.Succeeded;
         }
 
-        private List<string> StandartMltCkecker (string standartMltFilePath)
+        /// <summary>
+        /// Метод StandartMtlCleaner - 
+        /// <param name = "filePath" > Путь к файлу Mapping </param>
+        /// </summary>
+        public List<string> StandartMtlCleaner(string stMtlFilePath ,Document doc)
         {
-            List<string> lst = new List<string>();
-
-            foreach (string line in File.ReadAllLines(standartMltFilePath))
+            //  Список №1
+            // Загрузка в список стандартных имен материалов для их вычитания
+            List<string> stMtlList = new List<string>();
+            foreach (string line in File.ReadAllLines(stMtlFilePath))
             {
-                lst.Add(line);
+                stMtlList.Add(line);
             }
-            return lst;
+            //  Список №2
+            // Сбор всех материалов в список
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
+            List<string> allMtlNamesInDoc = new List<string>();
+            foreach (Material mat in collector.ToList())
+            {
+                allMtlNamesInDoc.Add(mat.Name);
+            }
+            //  Список №3
+            // Вычитание стандартных материалов от всех материалов из документа
+            List<string> result = new List<string>();
+            result = allMtlNamesInDoc.Except(stMtlList).ToList();
+
+            return result;
         }
     }
 }

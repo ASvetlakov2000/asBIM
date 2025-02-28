@@ -53,9 +53,12 @@ namespace asBIM
             {
                 tx.Start();
 
+                // Создание коллекции из материалов из документа
                 FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
                 foreach (Material mat in collector)
                 {
+                    // Если в файле Мэппинга есть строка, совпадающая с именем материала в документе && строка не пустая,
+                    // то перезапись имени материала
                     if (materialMapping.ContainsKey(mat.Name) && !string.IsNullOrWhiteSpace(materialMapping[mat.Name]))
                     {
                         try
@@ -64,37 +67,66 @@ namespace asBIM
                         }
                         catch (Exception ex)
                         {
-                            sb.AppendLine($"Не удалось переименовать {mat.Name}");
-                            TaskDialog.Show("Ошибка", sb.ToString());
+                            sb.AppendLine($"{mat.Name}");
                         }
                     }
                 }
 
+                if (sb.Length != 0)
+                {
+                    // Задание пути файлу со списком пропущенных материалов
+                    string logFilePath = CreateFile.CreateSingleFile(
+                        "Сохранение файла со списком пропущенных материалов", "txt");
+                    // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
+                    if (logFilePath.IsNullOrEmpty())
+                        return Result.Cancelled;
+
+                    using (StreamWriter writer = new StreamWriter(logFilePath))
+                    {
+                        writer.WriteLine("ЭТОТ ФАЙЛ СОДЕРЖИТ СПИСОК МАТЕРИАЛОВ, КОТОРЫЕ НЕ БЫЛИ ПЕРЕИМЕНОВАНЫ");
+                        writer.WriteLine("\n\n");
+                        writer.WriteLine(sb);
+                    }
+                    
+                    NotificationManagerWPF.MessageSmileInfoTm("Некоторые материалы пропущены!",
+                        "\n\u00af\u00af\u00af\u00af\u00af\u00af\\_(ツ)_/\u00af\u00af\u00af" +
+                        "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af" +
+                        "\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af\u00af",
+                        $"\n\nНекоторые материалы не удалось переименовать!" +
+                        $"\n\nСозданный файл содержит список материалов, которые не удалось переименовать" +
+                        $"\n\nПроверь файл с пропущенными материалами и повтори процедуру",
+                        NotificationType.Warning, 20);
+                }
+                
                 tx.Commit();
 
-                TaskDialog.Show("Успешно", "Материалы переименованы");
+                NotificationManagerWPF.MessageSmileInfoTm("Переименование материалов",
+                    "\n(￢‿￢)",
+                    $"\n\nМатериалы успешно переименованы!",
+                    NotificationType.Success, 20);
             }
 
             return Result.Succeeded;
         }
 
         /// <summary>
-        /// Метод LoadMaterialMapping - 
+        /// Метод LoadMaterialMapping - загружает в словарь [старое имя] - [новое имя] с Mapping материалов.
         /// <param name = "filePath" > Путь к файлу Mapping </param>
+        /// <returns> Mapping - возвращает словарь с [старое имя] - [новое имя]</returns>>
         /// </summary>
         private Dictionary<string, string> LoadMaterialMapping(string filePath)
         {
             // Создаем словарь для хранения соответствия старых и новых имен материалов
             // Словарь состоит из строчек
             // Строчки состоят из массивов с вдумя значениями [0] и [1]
-            Dictionary<string, string> mapping = new Dictionary<string, string>(); 
-    
+            Dictionary<string, string> mapping = new Dictionary<string, string>();
+
             // Читаем все строки из файла мэпинга
             foreach (string line in File.ReadAllLines(filePath))
             {
                 // Разделяем строку по символу табуляции на два элемента: старое имя и новое имя
                 string[] parts = line.Split('\t'); // Разделитель - табуляция
-        
+
                 // Проверяем, что строка содержит ровно два элемента (старое и новое имя)
                 if (parts.Length == 2)
                 {
@@ -102,7 +134,7 @@ namespace asBIM
                     mapping[parts[0].Trim()] = parts[1].Trim();
                 }
             }
-    
+
             // Возвращаем заполненный словарь с мэпингом имен материалов
             return mapping;
         }

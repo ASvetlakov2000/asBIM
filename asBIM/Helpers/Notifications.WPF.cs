@@ -81,6 +81,19 @@ namespace asBIM
                 Type = notificationType
             }, expirationTime: ts);
         }
+        
+        public static void MessageSmileInfoTm(string title,  string smile, string description, NotificationType notificationType, int seconds)
+        {
+            var notificationManager = new NotificationManager();
+            var ts = new TimeSpan(0, 0, seconds);
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = title,
+                Message = smile + description,
+                Type = notificationType
+            }, expirationTime: ts);
+        }
 
         /// <summary>
         /// Вывод окна Notifications.WPF c Сообщением

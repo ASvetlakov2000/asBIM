@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +148,7 @@
       <workItem from="1738176579272" duration="2010000" />
       <workItem from="1739966447569" duration="5000" />
       <workItem from="1740586658201" duration="2918000" />
+      <workItem from="1740730273877" duration="18090000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -268,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737730512344</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Обновлен Cls_RenameMaterials">
+      <option name="closed" value="true" />
+      <created>1740674703555</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1740674703555</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +336,7 @@
     <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
     <MESSAGE value="Отлажены команды и добавлены кнопки" />
     <MESSAGE value="Добавлены категории" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены категории" />
+    <MESSAGE value="Обновлен Cls_RenameMaterials" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновлен Cls_RenameMaterials" />
   </component>
 </project>
