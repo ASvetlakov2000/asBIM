@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterialsCSV/Code_ExportMaterialsToCSV.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterialsCSV/Code_RenameMaterialsFromCSV.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_ExportMaterialMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Helpers/Notifications.WPF.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
+    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -51,11 +52,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/10/5de0661f/HostObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/c2/858b40b4/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromTXT.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -146,9 +149,7 @@
       <workItem from="1737629137531" duration="3169000" />
       <workItem from="1737632349301" duration="27139000" />
       <workItem from="1738176579272" duration="2010000" />
-      <workItem from="1739966447569" duration="5000" />
-      <workItem from="1740586658201" duration="2918000" />
-      <workItem from="1740730273877" duration="18090000" />
+      <workItem from="1740935602737" duration="7946000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -270,15 +271,7 @@
       <option name="project" value="LOCAL" />
       <updated>1737730512344</updated>
     </task>
-    <task id="LOCAL-00016" summary="Обновлен Cls_RenameMaterials">
-      <option name="closed" value="true" />
-      <created>1740674703555</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1740674703555</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +329,10 @@
     <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
     <MESSAGE value="Отлажены команды и добавлены кнопки" />
     <MESSAGE value="Добавлены категории" />
-    <MESSAGE value="Обновлен Cls_RenameMaterials" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновлен Cls_RenameMaterials" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены категории" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

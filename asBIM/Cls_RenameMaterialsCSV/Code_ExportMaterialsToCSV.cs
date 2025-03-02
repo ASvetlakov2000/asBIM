@@ -1,41 +1,25 @@
-﻿using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using asBIM.Properties;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Globalization;
-using System.Xaml;
-using System.Windows.Documents;
-using System.Xml.Linq;
-using System.Windows;
-using asBIM.ViewModel;
+using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System.IO;
+using asBIM;
 using Notifications.Wpf;
-using CommunityToolkit.Mvvm.Input;
 using Nice3point.Revit.Extensions;
-using System.Text.RegularExpressions;
-using Group = Autodesk.Revit.DB.Group;
-using Autodesk.Revit.UI.Selection;
-using CsvHelper;
-using asBIM.Helpers;
 
 namespace asBIM
 {
-    [TransactionAttribute(TransactionMode.Manual)]
-    [RegenerationAttribute(RegenerationOption.Manual)]
-    public class Code_ExportMaterialMapping : IExternalCommand
+    [Transaction(TransactionMode.Manual)]
+    public class Code_ExportMaterialsToCSV : IExternalCommand
     {
+        
         // Задание пути файлу со стандартными наименованиями материалов
         private string stMtlFilePath = OpenFile.OpenSingleFile(
-                "Выберите файл со стандартными материалами", "txt"); 
+            "Выберите файл со стандартными материалами", "csv"); 
         
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -43,6 +27,8 @@ namespace asBIM
             var uidoc = uiapp.ActiveUIDocument;
             var doc = uidoc.Document;
 
+            //Основной код плагина НАЧАЛО
+            
             try
             {
                 // Обработка ошибки. Если будет нажат [ESC]
@@ -51,33 +37,32 @@ namespace asBIM
                 
                 // Задание пути файлу с наименованиями материалов
                 string mappingFilePath = CreateFile.CreateSingleFile(
-                    "Сохранение файла Mapping с именами материалов", "txt");
+                    "Сохранение файла Mapping с именами материалов", "csv");
                 // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
                 if (mappingFilePath.IsNullOrEmpty())
                     return Result.Cancelled;
                 
                 using (StreamWriter writer = new StreamWriter(mappingFilePath))
                 {
-                    foreach (string mtl in StandartMtlCleaner(stMtlFilePath, doc))
+                    foreach (string mtl in StandartMtlCleanerCSV(doc, stMtlFilePath))
                     {
                         writer.WriteLine(mtl);
                     }
                 }
-
+                
+                NotificationManagerWPF.MessageSmileInfoTm("Инструкция для переименования",
+                    "", 
+                    $"\n\n 1. Откройте файл [ .csv ] в Libre Office" +
+                        $"\n\n 2. Столбец 1 - старые имена. \n     Столбец 2 - новые имена" +
+                        $"\n\n 3. Сохраните файл. \n     Это и есть файл Mapping" +
+                        $"\n\n 4. Загрузите файл Mapping через кнопку\n     [ Импорт имен ]",
+                    NotificationType.Information, 
+                    20);
+                
                 NotificationManagerWPF.MessageSmileInfoTm("Создание файла Mapping",
                     "\n(￢‿￢)",
                     $"\n\nФайл с именами материалов создан!\n\nПуть к файлу: \n{mappingFilePath}",
                     NotificationType.Success, 
-                    20);
-                
-                NotificationManagerWPF.MessageSmileInfoTm("Инструкция для переименования",
-                    "",
-                    $"\n 1. Сохраните созданный файл по ссылке ниже в формат [ .csv ] путем переименования расширения" +
-                    $"\n\n 2. Откройте файл формата [ .csv ] в Libre Office" +
-                    $"\n\n 3. Слева - материалы из модели. В столбец справа от имен материалов впишите новые имена" +
-                    $"\n\n 4. Сохраните файл и переименуйте обратно в [ .txt ] - Это и есть файл Mapping" +
-                    $"\n\n 5. Загрузите файл Mapping через кнопку [ Импорт имен ]",
-                    NotificationType.Information, 
                     20);
             }
             // Обработка исключений при щелчке правой кнопкой или нажатии [ESC]
@@ -86,18 +71,20 @@ namespace asBIM
                 return Result.Cancelled;
             }
 
+            //Основной код плагина КОНЕЦ
+            
             return Result.Succeeded;
         }
-
+        
         /// <summary>
-        /// Метод StandartMtlCleaner - Выгружает имена материалов в таблицу TXT. Вычитает имена стандартных материалов.
+        /// Метод StandartMtlCleanerCSV - Выгружает имена материалов в таблицу CSV. Вычитает имена стандартных материалов.
         /// Алгоритм:
-        /// 1. Загружает имена стандартных материалов для вычитания. Формат - таблица TXT.
-        /// 2. Собирает имена материалов из документа. Формат - таблица TXT.
-        /// 3. Вычитает совпавшие имена и записывает результат. Формат - таблица TXT.
+        /// 1. Загружает имена стандартных материалов для вычитания. Формат - таблица CSV.
+        /// 2. Собирает имена материалов из документа. Формат - таблица CSV.
+        /// 3. Вычитает совпавшие имена и записывает результат. Формат - таблица CSV.
         /// <param name = "filePath" > Путь к файлу Mapping </param>
         /// </summary>
-        private List<string> StandartMtlCleaner(string stMtlFilePath ,Document doc)
+        private List<string> StandartMtlCleanerCSV(Document doc, string stMtlFilePath)
         {
             //  Список №1
             // Загрузка в список стандартных имен материалов для их вычитания
@@ -122,4 +109,5 @@ namespace asBIM
             return result;
         }
     }
+    
 }

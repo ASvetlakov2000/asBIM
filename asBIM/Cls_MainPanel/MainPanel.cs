@@ -98,7 +98,7 @@ namespace asBIM
             // Создаём панель #3. "ТХ"
             
             
-            // Создаём панель #1. "RA | Параметры"
+            // Создаём панель #1. "Материалы"
             string panelName03 = "Материалы";
             RibbonPanel panel03 = a.CreateRibbonPanel(tabName, panelName03);
 
@@ -115,7 +115,7 @@ namespace asBIM
                 Ribbon.AddPushButtonToSplit(splitButton03, 
                     "Экспорт имен", 
                     "Экспорт имен", 
-                    "asBIM.Code_ExportMaterialMapping", 
+                    "asBIM.Code_ExportMaterialsToCSV", 
                     "asBIM.Resources.ExportMaterialMapping_16.png",
                     "asBIM.Resources.ExportMaterialMapping_32.png");
                 
@@ -123,7 +123,7 @@ namespace asBIM
                 Ribbon.AddPushButtonToSplit(splitButton03, 
                     "Импорт имен",
                     "Импорт имен", 
-                    "asBIM.Code_RenameMaterialsfromMapping", 
+                    "asBIM.Code_RenameMaterialsFromCSV", 
                     "asBIM.Resources.RenameMaterialsfromMapping_16.png",
                     "asBIM.Resources.RenameMaterialsfromMapping_32.png");
             }
