@@ -33,6 +33,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release22|AnyCPU'">
+    <OutputPath>bin\Release22\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release23|AnyCPU'">
+    <OutputPath>bin\Release23\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommunityToolkit.Mvvm, Version=8.4.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\CommunityToolkit.Mvvm.8.4.0\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
