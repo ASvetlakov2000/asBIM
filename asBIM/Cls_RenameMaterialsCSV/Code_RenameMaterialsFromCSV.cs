@@ -60,12 +60,14 @@ namespace asBIM
                 // Проходим по всем материалам и переименовываем их, если есть соответствие в мэпинге
                 foreach (Material material in collector)
                 {
-                    if (materialMapping.TryGetValue(material.Name, out string newName) && !string.IsNullOrWhiteSpace(newName))
+                    // if (materialMapping.TryGetValue(material.Name, out string newName) && !string.IsNullOrWhiteSpace(newName))
+                    if (materialMapping.ContainsKey(material.Name) && !string.IsNullOrWhiteSpace(materialMapping[material.Name]))
                     {
                         try
                         {
                             // Применяем новое имя
-                            material.Name = newName;
+                            // material.Name = newName;
+                            material.Name = materialMapping[material.Name];
                         }
                         catch (Exception ex)
                         {
@@ -131,7 +133,9 @@ namespace asBIM
                     $"\n\nФайл Mapping не найден!" +
                     $"\n\nПопробуйте снова!",
                     NotificationType.Warning, 20);
+                
                 return mapping;
+                
             }
 
             // Читаем файл CSV построчно

@@ -160,8 +160,11 @@ namespace asBIM.Cls_TX_PlaceGroupsInSpaces
             {
                 XYZ center = (bounding.Max + bounding.Min) * 0.5;
                 LocationPoint loc = elem.Location as LocationPoint;
-                XYZ spaceCenter  = new XYZ(center.X, center.Y, loc.Point.Z);
-                return spaceCenter;
+                if (loc != null)
+                {
+                    XYZ spaceCenter  = new XYZ(center.X, center.Y, loc.Point.Z);
+                    return spaceCenter;
+                }
             }
             return null;
         }

@@ -14,7 +14,7 @@ using Nice3point.Revit.Extensions;
 namespace asBIM
 {
     [Transaction(TransactionMode.Manual)]
-    public class Code_ExportMaterialsToCSV : IExternalCommand
+    public class Code_ExportMaterialsFrLinksToCSV : IExternalCommand
     {
         
         // Задание пути файлу со стандартными наименованиями материалов
@@ -82,34 +82,50 @@ namespace asBIM
         }
         
         /// <summary>
-        /// Метод StandartMtlCleanerCSV - Выгружает имена материалов в таблицу CSV. Вычитает имена стандартных материалов.
-        /// Алгоритм:
-        /// 1. Загружает имена стандартных материалов для вычитания. Формат - таблица CSV.
-        /// 2. Собирает имена материалов из документа. Формат - таблица CSV.
-        /// 3. Вычитает совпавшие имена и записывает результат. Формат - таблица CSV.
-        /// <param name = "filePath" > Путь к файлу Mapping </param>
+        /// Метод StandartMtlCleanerCSV - Выгружает имена материалов из связанных моделей, исключая стандартные.
+        /// 1. Загружает имена стандартных материалов из CSV.
+        /// 2. Извлекает материалы из связанных моделей (RevitLinkInstance).
+        /// 3. Исключает стандартные.
         /// </summary>
         private List<string> StandartMtlCleanerCSV(Document doc, string stMtlFilePath)
         {
-            //  Список №1
-            // Загрузка в список стандартных имен материалов для их вычитания
+            // Список №1 — загрузка стандартных имен материалов
             List<string> stMtlList = new List<string>();
             foreach (string line in File.ReadAllLines(stMtlFilePath))
             {
                 stMtlList.Add(line);
             }
-            //  Список №2
-            // Сбор всех материалов в список
-            FilteredElementCollector collector = new FilteredElementCollector(doc).OfClass(typeof(Material));
-            List<string> allMtlNamesInDoc = new List<string>();
-            foreach (Material mat in collector.ToList())
+
+            // Список №2 — сбор всех материалов из связанных документов
+            List<string> allMtlNamesInLinkedDocs = new List<string>();
+
+            // Получаем все связанные экземпляры моделей
+            FilteredElementCollector linkInstances = new FilteredElementCollector(doc)
+                .OfClass(typeof(RevitLinkInstance));
+
+            foreach (RevitLinkInstance linkInstance in linkInstances)
             {
-                allMtlNamesInDoc.Add(mat.Name);
+                // Получаем связанный документ
+                Document linkedDoc = linkInstance.GetLinkDocument();
+
+                // Проверяем, что документ доступен
+                if (linkedDoc == null) continue;
+
+                // Собираем все материалы из связанного документа
+                FilteredElementCollector mtlCollector = new FilteredElementCollector(linkedDoc)
+                    .OfClass(typeof(Material));
+
+                foreach (Material mat in mtlCollector)
+                {
+                    allMtlNamesInLinkedDocs.Add(mat.Name);
+                }
             }
-            //  Список №3
-            // Вычитание стандартных материалов от всех материалов из документа
-            List<string> result = new List<string>();
-            result = allMtlNamesInDoc.Except(stMtlList).ToList();
+
+            // Список №3 — исключение стандартных материалов
+            List<string> result = allMtlNamesInLinkedDocs
+                .Except(stMtlList)
+                .Distinct() // Убираем дубликаты, если одно и то же имя встречается в нескольких моделях
+                .ToList();
 
             return result;
         }

@@ -30,16 +30,16 @@ namespace asBIM
                     "Отметки\nВерха/Низа", 
                     "Отметки\nВерха/Низа", 
                     "asBIM.Code_SetMaxMinPtToElements", 
-                    "asBIM.Resources.TB_Points_16.png",
-                    "asBIM.Resources.TB_Points_32.png");
+                    "asBIM.Resources.TB_Points_32.png",
+                    "asBIM.Resources.TB_Points_16.png");
                 
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton01, 
                     "Добавить\nпараметры RA",
                     "Добавить\nпараметры RA", 
                     "asBIM.Code_SetMaxMinPtToElements_ParamAdd", 
-                    "asBIM.Resources.TB_Points_AddParam_16.png",
-                    "asBIM.Resources.TB_Points_AddParam_32.png");
+                    "asBIM.Resources.TB_Points_AddParam_32.png",
+                    "asBIM.Resources.TB_Points_AddParam_16.png");
             }
             // Создаём панель #1. "RA | Параметры"
             
@@ -62,24 +62,24 @@ namespace asBIM
                     "Разместить\nГруппы ТХ", 
                     "Разместить\nГруппы ТХ", 
                     "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces", 
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_16.png",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_32.png");
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_32.png",
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_16.png");
                 
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton02, 
                     "Удалить\nГруппы ТХ", 
                     "Удалить\nГруппы ТХ", 
                     "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces_DelGrp", 
-                    "asBIM.Resources.Delete_16.png",
-                    "asBIM.Resources.Delete_32.png");
+                    "asBIM.Resources.Delete_32.png",
+                    "asBIM.Resources.Delete_16.png");
                 
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton02, 
                     "Добавить\nпараметры",
                     "Добавить\nпараметры", 
                     "asBIM.Cls_TX_PlaceGroupsInSpaces.Code_TX_PlaceGroupsInSpaces_ParamAdd",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_16.png",
-                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_32.png");
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_32.png",
+                    "asBIM.Resources.PlaceGroupsInSpacesTX_Params_16.png");
             }
             // Создаём панель #2. "RA | Параметры"
             
@@ -116,16 +116,24 @@ namespace asBIM
                     "Экспорт имен", 
                     "Экспорт имен", 
                     "asBIM.Code_ExportMaterialsToCSV", 
-                    "asBIM.Resources.ExportMaterialMapping_16.png",
-                    "asBIM.Resources.ExportMaterialMapping_32.png");
+                    "asBIM.Resources.ExportMaterialMapping_32.png",
+                    "asBIM.Resources.ExportMaterialMapping_16.png");
+                
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton03, 
+                    "Экспорт имен из связей",
+                    "Экспорт имен из связей", 
+                    "asBIM.Code_ExportMaterialsFrLinksToCSV", 
+                    "asBIM.Resources.ExportMaterialMappingLinks_32.png",
+                    "asBIM.Resources.ExportMaterialMappingLinks_16.png");
                 
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton03, 
                     "Импорт имен",
                     "Импорт имен", 
                     "asBIM.Code_RenameMaterialsFromCSV", 
-                    "asBIM.Resources.RenameMaterialsfromMapping_16.png",
-                    "asBIM.Resources.RenameMaterialsfromMapping_32.png");
+                    "asBIM.Resources.RenameMaterialsfromMapping_32.png",
+                    "asBIM.Resources.RenameMaterialsfromMapping_16.png");
             }
             // Создаём панель #1. "RA | Параметры"
             
