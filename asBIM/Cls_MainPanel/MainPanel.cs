@@ -139,18 +139,26 @@ namespace asBIM
             
             
             // Создаём панель #4. "RA | Формы"
-            string panelName04 = "RA | Формы";
-            RibbonPanel panel04 = a.CreateRibbonPanel(tabName, panelName01);
+            string panelName04 = "Формы";
+            RibbonPanel panel04 = a.CreateRibbonPanel(tabName, panelName04);
 
             // Создаём SplitButton #4
             string splitButtonName04 = "Формы из\nпомещений";
-            SplitButtonData splitButtonData04 = new SplitButtonData(splitButtonName01, "Создание форм на основе контуров помещений");
+            SplitButtonData splitButtonData04 = new SplitButtonData(splitButtonName04, "Создание форм на основе контуров помещений");
 
             // Добавляем SplitButton #4 на панель
-            SplitButton splitButton04 = panel01.AddItem(splitButtonData04) as SplitButton;
+            SplitButton splitButton04 = panel04.AddItem(splitButtonData04) as SplitButton;
 
             if (splitButton04 != null)
             {
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton04, 
+                    "Формы из\nпомещений",
+                    "Формы из\nпомещений", 
+                    "asBIM.Code_CreateFormFromRoom", 
+                    "asBIM.Resources.CreateFormFromRoom_32.png",
+                    "asBIM.Resources.CreateFormFromRoom_16.png");
+                
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton04, 
                     "Добавить\nпараметры", 
@@ -159,13 +167,6 @@ namespace asBIM
                     "asBIM.Resources.CreateFormFromRoom_ParamAdd_32.png",
                     "asBIM.Resources.CreateFormFromRoom_ParamAdd_16.png");
                 
-                // Добавляем кнопки в SplitButton
-                Ribbon.AddPushButtonToSplit(splitButton04, 
-                    "Формы из\nпомещений",
-                    "Формы из\nпомещений", 
-                    "asBIM.Code_CreateFormFromRoom", 
-                    "asBIM.Resources.CreateFormFromRoom_32.png",
-                    "asBIM.Resources.CreateFormFromRoom_16.png");
             }
             // Создаём панель #1. "RA | Формы"
             
