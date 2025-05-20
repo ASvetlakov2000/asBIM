@@ -117,24 +117,26 @@ namespace asBIM
                     // Создаём форму (DirectShape)
                     DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_Mass));
                     ds.SetShape(new List<GeometryObject> { solid });
-                    /*ds.Name = $"Форма: {roomName}"*/;
+                    // ds.Name = $"Форма: {roomName}";
 
-                    // Присваиваем значение параметра "А", если он существует у формы
+                    // // Присваиваем значение параметра "А", если он существует у формы
                     // Parameter formParamA = ds.LookupParameter("А");
                     // if (formParamA != null && formParamA.StorageType == StorageType.String)
                     // {
                     //     formParamA.Set(paramAValue);
                     // }
                 }
+                
+                TaskDialog.Show("Готово", "Формы созданы на основе помещений.");
 
                 trans.Commit();
             }
-            TaskDialog.Show("Готово", "Формы созданы на основе помещений.");
+
             return Result.Succeeded;
         }
-            // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
-            
         }
+        // ОСНОВНОЙ КОД ПЛАГИНА // КОНЕЦ
     }
+
 
 

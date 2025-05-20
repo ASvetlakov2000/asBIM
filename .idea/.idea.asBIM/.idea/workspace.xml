@@ -9,10 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Release22/output/setup.msi" beforeDir="false" afterPath="$PROJECT_DIR$/Release22/output/setup.msi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,32 +69,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.Release22.executor": "Debug",
-    "Attach to Process.11680:Revit.executor": "Debug",
-    "Attach to Process.11788:Revit.executor": "Debug",
-    "Attach to Process.14324:Revit.executor": "Debug",
-    "Attach to Process.15576:Revit.executor": "Debug",
-    "Attach to Process.19440:Revit.executor": "Debug",
-    "Attach to Process.21292:Revit.executor": "Debug",
-    "Attach to Process.24424:Revit.executor": "Debug",
-    "Attach to Process.29584:RevitWorker.executor": "Debug",
-    "Attach to Process.8924:Revit.executor": "Debug",
-    "Attach to Process.8976:Revit.executor": "Debug",
-    "Attach to Process.9796:Revit.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.Release22.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.24424:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.8976:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.9796:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.Release22">
     <configuration name="Release22" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -210,7 +208,8 @@
       <workItem from="1747069244307" duration="185000" />
       <workItem from="1747732331051" duration="93000" />
       <workItem from="1747755373265" duration="979000" />
-      <workItem from="1747758458753" duration="3329000" />
+      <workItem from="1747758458753" duration="4089000" />
+      <workItem from="1747762595085" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -348,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747044200925</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Добавлен плагин на создание форм из помещений">
+      <option name="closed" value="true" />
+      <created>1747761991642</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747761991643</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +415,8 @@
     <MESSAGE value="Добавлены категории" />
     <MESSAGE value="Обновлен Cls_RenameMaterials" />
     <MESSAGE value="Обновлена команда &quot;Расставить группы по простртанствам&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновлена команда &quot;Расставить группы по простртанствам&quot;" />
+    <MESSAGE value="Добавлен плагин на создание форм из помещений" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен плагин на создание форм из помещений" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
