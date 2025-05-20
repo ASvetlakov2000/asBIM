@@ -9,11 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom_ParamAdd.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +36,11 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;aaba96f7-47bc-4ebe-ac67-e41aa9d18557&quot;
+    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0dfe8e88335c4557bd5e20140db68c851c6eb20/2e/191b1b5c/CurveLoop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/4c/a49a9762/ReversibleStackPanel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,13 +53,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/10/5de0661f/HostObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eee8432ef53a4ab48075de6978057fd81f49920/c2/858b40b4/MEPCurve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RenameMaterials/Code_RenameMaterialsfromTXT.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -75,15 +71,18 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Project.Release22.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.11680:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.11788:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.14324:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.15576:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.19440:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.21292:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.24424:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.29584:RevitWorker.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.8924:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;Attach to Process.8976:Revit.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.9796:Revit.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -190,7 +189,27 @@
       <workItem from="1737629137531" duration="3169000" />
       <workItem from="1737632349301" duration="27139000" />
       <workItem from="1738176579272" duration="2010000" />
-      <workItem from="1740935602737" duration="7946000" />
+      <workItem from="1739966447569" duration="5000" />
+      <workItem from="1740586658201" duration="2918000" />
+      <workItem from="1740730273877" duration="18090000" />
+      <workItem from="1741101794742" duration="840000" />
+      <workItem from="1741941340241" duration="2732000" />
+      <workItem from="1741955659060" duration="1911000" />
+      <workItem from="1741969943686" duration="1668000" />
+      <workItem from="1743593403799" duration="1389000" />
+      <workItem from="1743606158307" duration="758000" />
+      <workItem from="1743766088870" duration="580000" />
+      <workItem from="1743766897082" duration="563000" />
+      <workItem from="1744294008846" duration="2387000" />
+      <workItem from="1745328695977" duration="342000" />
+      <workItem from="1746541424462" duration="3975000" />
+      <workItem from="1747044137915" duration="14000" />
+      <workItem from="1747044164643" duration="5242000" />
+      <workItem from="1747069244307" duration="185000" />
+      <workItem from="1747732331051" duration="93000" />
+      <workItem from="1747755373265" duration="979000" />
+      <workItem from="1747758458753" duration="4089000" />
+      <workItem from="1747762595085" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -312,7 +331,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737730512344</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Обновлен Cls_RenameMaterials">
+      <option name="closed" value="true" />
+      <created>1740674703555</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1740674703555</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Обновлена команда &quot;Расставить группы по простртанствам&quot;">
+      <option name="closed" value="true" />
+      <created>1747044200925</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1747044200925</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Добавлен плагин на создание форм из помещений">
+      <option name="closed" value="true" />
+      <created>1747761991642</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747761991643</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,10 +413,21 @@
     <MESSAGE value="Отлажены команды:&#10;- Code_TX_PlaceGroupsInSpaces" />
     <MESSAGE value="Отлажены команды и добавлены кнопки" />
     <MESSAGE value="Добавлены категории" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены категории" />
+    <MESSAGE value="Обновлен Cls_RenameMaterials" />
+    <MESSAGE value="Обновлена команда &quot;Расставить группы по простртанствам&quot;" />
+    <MESSAGE value="Добавлен плагин на создание форм из помещений" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен плагин на создание форм из помещений" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="Autodesk.Revit.Exceptions.ArgumentException" isInternal="false" displayValue="ArgumentException" namespaceName="Autodesk.Revit.Exceptions">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

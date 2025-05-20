@@ -156,16 +156,16 @@ namespace asBIM
                     "Добавить\nпараметры", 
                     "Добавить\nпараметры", 
                     "asBIM.Code_CreateFormFromRoom_ParamAdd", 
-                    "asBIM.Resources.TB_Points_32.png",
-                    "asBIM.Resources.TB_Points_16.png");
+                    "asBIM.Resources.CreateFormFromRoom_ParamAdd_32.png",
+                    "asBIM.Resources.CreateFormFromRoom_ParamAdd_16.png");
                 
                 // Добавляем кнопки в SplitButton
                 Ribbon.AddPushButtonToSplit(splitButton04, 
                     "Формы из\nпомещений",
                     "Формы из\nпомещений", 
                     "asBIM.Code_CreateFormFromRoom", 
-                    "asBIM.Resources.TB_Points_AddParam_32.png",
-                    "asBIM.Resources.TB_Points_AddParam_16.png");
+                    "asBIM.Resources.CreateFormFromRoom_32.png",
+                    "asBIM.Resources.CreateFormFromRoom_16.png");
             }
             // Создаём панель #1. "RA | Формы"
             

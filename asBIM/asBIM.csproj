@@ -224,6 +224,12 @@
     <EmbeddedResource Include="Resources\ExportMaterialMappingLinks_16.png" />
     <EmbeddedResource Include="Resources\ExportMaterialMappingLinks_32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CreateFormFromRoom_16.png" />
+    <Content Include="Resources\CreateFormFromRoom_32.png" />
+    <Content Include="Resources\CreateFormFromRoom_ParamAdd_16.png" />
+    <Content Include="Resources\CreateFormFromRoom_ParamAdd_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
