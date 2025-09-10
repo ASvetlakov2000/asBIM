@@ -142,6 +142,17 @@
     <Compile Include="Cls_RenameMaterialsCSV\Code_RenameMaterialsFromCSV.cs" />
     <Compile Include="Cls_RenameMaterials\Code_RenameMaterialsfromMapping.cs" />
     <Compile Include="Cls_RenameMaterials\Code_ExportMaterialMapping.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_09_Ai.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_01_Ar.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_03_Eom.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_05_Ov1.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_06_Ov2.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_08_Pt.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_07_Ss.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_10_Th.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_04_Vk.cs" />
+    <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_02_Кr.cs" />
     <Compile Include="Cls_TX_PlaceGroupsInSpaces\Code_TX_PlaceGroupsInSpaces_DelGrp.cs" />
     <Compile Include="Cls_TX_PlaceGroupsInSpaces\Code_TX_PlaceGroupsInSpaces.cs" />
     <Compile Include="Cls_TX_PlaceGroupsInSpaces\Code_TX_PlaceGroupsInSpaces_ParamAdd.cs" />

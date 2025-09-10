@@ -168,7 +168,32 @@ namespace asBIM
                     "asBIM.Resources.CreateFormFromRoom_ParamAdd_16.png");
                 
             }
-            // Создаём панель #1. "RA | Формы"
+            // Создаём панель #4. "RA | Формы"
+            
+            
+            // Создаём панель #5. "Спецификиции | Проверки"
+            /*string panelName05 = "Спецификации";
+            RibbonPanel panel05 = a.CreateRibbonPanel(tabName, panelName05);
+
+            // Создаём SplitButton #5
+            string splitButtonName05 = "АР";
+            SplitButtonData splitButtonData05 = new SplitButtonData(splitButtonName05, "Создание спецификаций для проверки параметров");
+
+            // Добавляем SplitButton #5 на панель
+            SplitButton splitButton05 = panel05.AddItem(splitButtonData05) as SplitButton;
+
+            if (splitButton05 != null)
+            {
+                // Добавляем кнопки в SplitButton
+                Ribbon.AddPushButtonToSplit(splitButton05, 
+                    "АР", 
+                    "АР", 
+                    "asBIM.Code_SpecificationsAdder_01_Ar", 
+                    "asBIM.Resources.CreateFormFromRoom_ParamAdd_32.png",
+                    "asBIM.Resources.CreateFormFromRoom_ParamAdd_16.png");
+
+            }*/
+            // Создаём панель #5. "Спецификиции | Проверки"
             
             
             return Result.Succeeded;
