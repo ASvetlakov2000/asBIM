@@ -33,7 +33,7 @@ namespace asBIM
        public static class ScheduleHelper
     {
         public const string SharedParameterName = "ADSK_Этаж";
-        private const string SheetNume = "001";
+        private const string SheetNume = "111";
         private const string SheetName = "Атрибуты";
 
         public static void CreateSchedulesForCategories(Document doc, List<BuiltInCategory> categories)
@@ -71,7 +71,7 @@ namespace asBIM
                     AddFieldByName(schedule, SharedParameterName);
 
                     // ⚡ Отключаем группировку экземпляров
-                    definition.IsItemized = true;
+                    definition.IsItemized = false;
 
                     // ⚡ Настройка сортировки
                     ScheduleField familyField = null;

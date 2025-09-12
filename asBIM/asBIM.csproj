@@ -137,6 +137,7 @@
     <Compile Include="Cls_CreateFormFromRoom\Code_CreateFormFromRoom.cs" />
     <Compile Include="Cls_CreateFormFromRoom\Code_CreateFormFromRoom_ParamAdd.cs" />
     <Compile Include="Cls_HideGridsInLinks\Cls_HideGridsInLinks.cs" />
+    <Compile Include="Cls_MtlGrayColor\Code_MtlGrayColor.cs" />
     <Compile Include="Cls_RenameMaterialsCSV\Code_ExportMaterialsFrLinksToCSV.cs" />
     <Compile Include="Cls_RenameMaterialsCSV\Code_ExportMaterialsToCSV.cs" />
     <Compile Include="Cls_RenameMaterialsCSV\Code_RenameMaterialsFromCSV.cs" />

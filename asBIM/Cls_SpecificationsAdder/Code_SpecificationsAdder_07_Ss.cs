@@ -39,8 +39,12 @@ namespace asBIM
 
             var categories = new List<BuiltInCategory>
             {
-                BuiltInCategory.OST_StructuralFoundation,
-                BuiltInCategory.OST_StructuralColumns
+                BuiltInCategory.OST_ElectricalEquipment,        // Электрооборудование
+                BuiltInCategory.OST_CableTray,                  // Кабельные лотки
+                BuiltInCategory.OST_CableTrayFitting,           // Соединительные детали кабельных лотков
+                BuiltInCategory.OST_SpecialityEquipment,        // Специальное оборудование
+                BuiltInCategory.OST_GenericModel,               // Обобщенные модели
+                BuiltInCategory.OST_ElectricalFixtures          // Электрические приборы
             };
 
             ScheduleHelper.CreateSchedulesForCategories(doc, categories);

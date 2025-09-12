@@ -39,8 +39,19 @@ namespace asBIM
 
             var categories = new List<BuiltInCategory>
             {
-                BuiltInCategory.OST_Casework,
-                BuiltInCategory.OST_Furniture
+                BuiltInCategory.OST_Walls,                // Стены
+                BuiltInCategory.OST_Floors,               // Полы
+                BuiltInCategory.OST_Roofs,                // Крыши
+                BuiltInCategory.OST_Windows,              // Окна
+                BuiltInCategory.OST_Doors,                // Двери
+                BuiltInCategory.OST_Stairs,               // Лестницы
+                BuiltInCategory.OST_Railings,             // Ограждения
+                BuiltInCategory.OST_GenericModel,         // Обобщенные модели
+                BuiltInCategory.OST_SpecialityEquipment,  // Специальное оборудование
+                BuiltInCategory.OST_Columns,              // Колонны
+                BuiltInCategory.OST_Furniture,            // Мебель
+                BuiltInCategory.OST_PlumbingFixtures,     // Сантехника
+                BuiltInCategory.OST_ElectricalEquipment   // Электрооборудование
             };
 
             ScheduleHelper.CreateSchedulesForCategories(doc, categories);

@@ -171,13 +171,13 @@ namespace asBIM
             // Создаём панель #4. "RA | Формы"
             
             
-            // Создаём панель #5. "Спецификиции | Проверки"
-            /*string panelName05 = "Спецификации";
+            // Создаём панель #5. "Материалы"
+            string panelName05 = "Материалы";
             RibbonPanel panel05 = a.CreateRibbonPanel(tabName, panelName05);
 
             // Создаём SplitButton #5
-            string splitButtonName05 = "АР";
-            SplitButtonData splitButtonData05 = new SplitButtonData(splitButtonName05, "Создание спецификаций для проверки параметров");
+            string splitButtonName05 = "СерМат";
+            SplitButtonData splitButtonData05 = new SplitButtonData(splitButtonName05, "Смена цвета материала");
 
             // Добавляем SplitButton #5 на панель
             SplitButton splitButton05 = panel05.AddItem(splitButtonData05) as SplitButton;
@@ -192,8 +192,8 @@ namespace asBIM
                     "asBIM.Resources.CreateFormFromRoom_ParamAdd_32.png",
                     "asBIM.Resources.CreateFormFromRoom_ParamAdd_16.png");
 
-            }*/
-            // Создаём панель #5. "Спецификиции | Проверки"
+            }
+            // Создаём панель #5. "Материалы"
             
             
             return Result.Succeeded;

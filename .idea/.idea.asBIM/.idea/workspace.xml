@@ -8,9 +8,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
+    <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="Добавлены иконки">
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_01_Ar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_02_Кr.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_03_Eom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_04_Vk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_05_Ov1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_06_Ov2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_07_Ss.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_08_Pt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_09_Ai.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_SpecificationsAdder/Code_SpecificationsAdder_10_Th.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_21_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_21_51__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_23_52_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_23_52__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_CreateFormFromRoom/Code_CreateFormFromRoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +70,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d063f7ce3f4f4967bc0df3d611d7127b1f4ad20/f7/14db6f67/BuiltInCategory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
@@ -210,6 +227,7 @@
       <workItem from="1747755373265" duration="979000" />
       <workItem from="1747758458753" duration="4089000" />
       <workItem from="1747762595085" duration="208000" />
+      <workItem from="1757496793058" duration="11001000" />
     </task>
     <task id="LOCAL-00001" summary="1. Запись уровня отметки низа переопределна в общ. параметр &quot;PRO_Уровень низа&quot;">
       <option name="closed" value="true" />
@@ -355,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747761991643</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Добавлены иконки">
+      <option name="closed" value="true" />
+      <created>1747774744635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747774744635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +442,8 @@
     <MESSAGE value="Обновлен Cls_RenameMaterials" />
     <MESSAGE value="Обновлена команда &quot;Расставить группы по простртанствам&quot;" />
     <MESSAGE value="Добавлен плагин на создание форм из помещений" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен плагин на создание форм из помещений" />
+    <MESSAGE value="Добавлены иконки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены иконки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

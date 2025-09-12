@@ -39,8 +39,12 @@ namespace asBIM
 
             var categories = new List<BuiltInCategory>
             {
-                BuiltInCategory.OST_MechanicalEquipment,
-                BuiltInCategory.OST_PipeCurves
+                BuiltInCategory.OST_SpecialityEquipment,        // Специальное оборудование
+                BuiltInCategory.OST_GenericModel,               // Обобщенные модели
+                BuiltInCategory.OST_Furniture,                  // Мебель
+                BuiltInCategory.OST_PlumbingFixtures,           // Сантехнические приборы
+                BuiltInCategory.OST_ElectricalFixtures,         // Электрические приборы
+                BuiltInCategory.OST_ElectricalEquipment         // Электрооборудование
             };
 
             ScheduleHelper.CreateSchedulesForCategories(doc, categories);

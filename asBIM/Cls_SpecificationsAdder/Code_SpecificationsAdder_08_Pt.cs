@@ -39,8 +39,12 @@ namespace asBIM
 
             var categories = new List<BuiltInCategory>
             {
-                BuiltInCategory.OST_PipeCurves,
-                BuiltInCategory.OST_PipeAccessory
+                BuiltInCategory.OST_FireAlarmDevices,           // Пожарные извещатели
+                BuiltInCategory.OST_PipeAccessory,              // Арматура трубопроводов
+                BuiltInCategory.OST_SpecialityEquipment,        // Специальное оборудование
+                BuiltInCategory.OST_GenericModel,               // Обобщенные модели
+                BuiltInCategory.OST_MechanicalEquipment,        // Сантехническое оборудование
+                BuiltInCategory.OST_PipeInsulations             // Материалы изоляции трубопроводов
             };
 
             ScheduleHelper.CreateSchedulesForCategories(doc, categories);
