@@ -41,7 +41,7 @@ namespace asBIM
             
             try
             {
-                // Находим "Сплошная заливка" (Solid Fill)
+                // Ищем "Сплошная заливка" (Solid Fill)
                 FillPatternElement solidFill = new FilteredElementCollector(doc)
                     .OfClass(typeof(FillPatternElement))
                     .Cast<FillPatternElement>()
@@ -59,20 +59,20 @@ namespace asBIM
 
                 int counter = 0; // счётчик изменённых материалов
 
-                using (Transaction t = new Transaction(doc, "Change Material Colors"))
+                using (Transaction t = new Transaction(doc, "Update Material Graphics"))
                 {
                     t.Start();
 
                     foreach (Material mat in materials)
                     {
                         // --- Штриховка поверхности (Projection) ---
-                        mat.SurfaceForegroundPatternId = solidFill.Id; // Сплошная заливка
+                        mat.SurfaceForegroundPatternId = solidFill.Id; // всегда "Сплошная заливка"
                         mat.SurfaceForegroundPatternColor = new Color(245, 245, 245); // светло-серый
                         mat.SurfaceBackgroundPatternId = ElementId.InvalidElementId; // фон отключаем
 
                         // --- Штриховка сечения (Cut) ---
-                        // Передний план не меняем
-                        mat.CutBackgroundPatternId = solidFill.Id; // принудительно "Сплошная заливка"
+                        mat.CutForegroundPatternId = ElementId.InvalidElementId; // передний план "Нет"
+                        mat.CutBackgroundPatternId = solidFill.Id; // фон "Сплошная заливка"
                         mat.CutBackgroundPatternColor = new Color(210, 210, 210); // серый фон
 
                         counter++;
@@ -83,7 +83,7 @@ namespace asBIM
 
                 TaskDialog.Show("Готово", $"Материалы обновлены: {counter} шт.\n\n" +
                                           "• Поверхность: Сплошная заливка (245,245,245)\n" +
-                                          "• Сечение фон: Сплошная заливка (210,210,210)");
+                                          "• Сечение: передний план = Нет, фон = Сплошная заливка (210,210,210)");
 
                 return Result.Succeeded;
             }

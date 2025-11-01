@@ -23,7 +23,7 @@ namespace asBIM.ViewModel
         }
         
 
-        // public ICommand CodeSetMaxMinPtToElements => new RelayCommand(DoSmth, CanDoSmth);
+        // public ICommand CodeSetMaxMinPtToElements => new RoomElevations_RelayCommand(DoSmth, CanDoSmth);
         // private void DoSmth(object sender)
         // {
         //     InternalEvent.Run(() =>

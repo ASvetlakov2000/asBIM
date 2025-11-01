@@ -143,6 +143,16 @@
     <Compile Include="Cls_RenameMaterialsCSV\Code_RenameMaterialsFromCSV.cs" />
     <Compile Include="Cls_RenameMaterials\Code_RenameMaterialsfromMapping.cs" />
     <Compile Include="Cls_RenameMaterials\Code_ExportMaterialMapping.cs" />
+    <Compile Include="Cls_RoomElevations\Commands\RelayCommand.cs" />
+    <Compile Include="Cls_RoomElevations\Commands\ShowCreateFacadesWindow.cs" />
+    <Compile Include="Cls_RoomElevations\External\FacadeCreationHandler.cs" />
+    <Compile Include="Cls_RoomElevations\External\LineSelectionFilter.cs" />
+    <Compile Include="Cls_RoomElevations\Models\FacadeCreationSettings.cs" />
+    <Compile Include="Cls_RoomElevations\Services\FacadeCreationService.cs" />
+    <Compile Include="Cls_RoomElevations\ViewModels\CreateFacadesViewModel.cs" />
+    <Compile Include="Cls_RoomElevations\Views\CreateFacadesWindow.xaml.cs">
+      <DependentUpon>CreateFacadesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_09_Ai.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_01_Ar.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder.cs" />
@@ -174,6 +184,7 @@
     <Compile Include="Helpers\Ribbon.cs" />
     <Compile Include="Helpers\Service.cs" />
     <Compile Include="Helpers\ViewModelEvent.cs" />
+    <Compile Include="NewDirectory1\Test1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -193,6 +204,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Cls_RoomElevations\Views\CreateFacadesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml" />
   </ItemGroup>

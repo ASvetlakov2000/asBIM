@@ -196,6 +196,21 @@ namespace asBIM
             // Создаём панель #5. "Материалы"
             
             
+            // Создаём панель #6. "Развертки"
+            string panelName06 = "Развертки";
+            RibbonPanel panel06 = a.CreateRibbonPanel(tabName, panelName06);
+
+            // Добавляем кнопку для создания разверток
+            Ribbon.AddPushButtonSingle(
+                panel06,
+                "Создать\nразвертки",
+                "Создание разверток по линиям детализации",
+                "asBIM.Code_CreateUnfoldedViews",
+                "asBIM.Resources.CreateFormFromRoom_32.png",
+                "asBIM.Resources.CreateFormFromRoom_16.png");
+            // Создаём панель #6. "Развертки"
+            
+            
             return Result.Succeeded;
 
         }
