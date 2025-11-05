@@ -148,6 +148,9 @@
     <Compile Include="Cls_RoomElevations\Revit\FacadeCreator.cs" />
     <Compile Include="Cls_RoomElevations\Revit\LineSelectionFilter.cs" />
     <Compile Include="Cls_RoomElevations\Revit\ViewTemplateService.cs" />
+    <Compile Include="Cls_RoomElevations\UI\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_09_Ai.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_01_Ar.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder.cs" />
@@ -199,6 +202,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Cls_RoomElevations\UI\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml" />
   </ItemGroup>
@@ -248,9 +255,7 @@
     <EmbeddedResource Include="Resources\CreateFormFromRoom_ParamAdd_16.png" />
     <EmbeddedResource Include="Resources\CreateFormFromRoom_ParamAdd_32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cls_RoomElevations\UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
