@@ -143,16 +143,11 @@
     <Compile Include="Cls_RenameMaterialsCSV\Code_RenameMaterialsFromCSV.cs" />
     <Compile Include="Cls_RenameMaterials\Code_RenameMaterialsfromMapping.cs" />
     <Compile Include="Cls_RenameMaterials\Code_ExportMaterialMapping.cs" />
-    <Compile Include="Cls_RoomElevations\Commands\RelayCommand.cs" />
-    <Compile Include="Cls_RoomElevations\Commands\ShowCreateFacadesWindow.cs" />
-    <Compile Include="Cls_RoomElevations\External\FacadeCreationHandler.cs" />
-    <Compile Include="Cls_RoomElevations\External\LineSelectionFilter.cs" />
-    <Compile Include="Cls_RoomElevations\Models\FacadeCreationSettings.cs" />
-    <Compile Include="Cls_RoomElevations\Services\FacadeCreationService.cs" />
-    <Compile Include="Cls_RoomElevations\ViewModels\CreateFacadesViewModel.cs" />
-    <Compile Include="Cls_RoomElevations\Views\CreateFacadesWindow.xaml.cs">
-      <DependentUpon>CreateFacadesWindow.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Cls_RoomElevations\Commands\CreateRoomFacadeCommand.cs" />
+    <Compile Include="Cls_RoomElevations\Models\FacadeSettings.cs" />
+    <Compile Include="Cls_RoomElevations\Revit\FacadeCreator.cs" />
+    <Compile Include="Cls_RoomElevations\Revit\LineSelectionFilter.cs" />
+    <Compile Include="Cls_RoomElevations\Revit\ViewTemplateService.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_09_Ai.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder_01_Ar.cs" />
     <Compile Include="Cls_SpecificationsAdder\Code_SpecificationsAdder.cs" />
@@ -204,10 +199,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Cls_RoomElevations\Views\CreateFacadesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements.xaml" />
     <Page Include="Cls_SetMaxMinPtToElements\Form_SetMaxMinPtToElements_Info.xaml" />
   </ItemGroup>
@@ -256,6 +247,9 @@
     <EmbeddedResource Include="Resources\CreateFormFromRoom_32.png" />
     <EmbeddedResource Include="Resources\CreateFormFromRoom_ParamAdd_16.png" />
     <EmbeddedResource Include="Resources\CreateFormFromRoom_ParamAdd_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cls_RoomElevations\UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />

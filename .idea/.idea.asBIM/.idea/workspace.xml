@@ -9,19 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e6bc5eb-3cb3-4a4c-b335-fc3bf12990e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/RelayCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/ShowCreateFacadesWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/FacadeCreationHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/LineSelectionFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Models/FacadeCreationSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Services/FacadeCreationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/ViewModels/CreateFacadesViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_23_59_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2025_23_59__Default_Changelist_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Models/FacadeSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Services/FacadeService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.asBIM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/Cls_MtlGrayColor/Code_MtlGrayColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_MtlGrayColor/Code_MtlGrayColor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/ViewModel/SetMaxMinPtToElements_ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/RelayCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/ShowCreateFacadesWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/ShowCreateFacadesWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/FacadeCreationHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/LineSelectionFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/LineSelectionFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Models/FacadeCreationSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/Services/FacadeCreationService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asBIM/Cls_RoomElevations/ViewModels/CreateFacadesViewModel.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/asBIM/asBIM.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asBIM/asBIM.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,36 +52,21 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ASvetlakov2000/asBIM.git&quot;,
-    &quot;accountId&quot;: &quot;112b2762-b040-49d9-aa1e-59cb4b82b45c&quot;
+    &quot;accountId&quot;: &quot;4c24831b-b3a6-4611-9ae1-d5a08f2c308f&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0dfe8e88335c4557bd5e20140db68c851c6eb20/2e/191b1b5c/CurveLoop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/00/92774cc6/NotificationType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/2e/610b7e83/INotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/4c/a49a9762/ReversibleStackPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/57/fa0d0f99/NotificationsOverlayWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/94/8bc4473e/NotificationTemplateSelector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/a9/c9061d46/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d4/882a8c2d/NotificationPosition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/d5/318ef0d1/Notification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28024ec3e52f45999d8607e46e5d4bed6200/f1/916509bb/NotificationContent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/3f/8e3fb243/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/8a/a562f865/BitmapSourceConverter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab8fd59542174921979094eb150e8c062e00/db/9400652e/Panel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8b211384b2141baa3ae99eaaa0ec9ab285c80/8d/48c92949/IExternalCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d063f7ce3f4f4967bc0df3d611d7127b1f4ad20/f7/14db6f67/BuiltInCategory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/8c/e5edf271/generic.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resource/28024ec3e52f45999d8607e46e5d4bed6200/96/f696e179/notificationsoverlaywindow.xaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/resx/28024ec3e52f45999d8607e46e5d4bed6200/04/ed053f80/Notifications.Wpf.g.resx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/asBIM/Cls_MainPanel/MainPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RoomElevations/Commands/ShowCreateFacadesWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RoomElevations/External/LineSelectionFilter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RoomElevations/Models/FacadeSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/asBIM/Cls_RoomElevations/Services/FacadeService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2pcJbehpNlV43nKyJRArRYbRg35" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -122,8 +104,13 @@
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Release22/Release22.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
@@ -140,8 +127,13 @@
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Release23/Release23.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
@@ -464,17 +456,5 @@
     <MESSAGE value="Добавлен плагин на создание форм из помещений" />
     <MESSAGE value="Добавлены иконки" />
     <option name="LAST_COMMIT_MESSAGE" value="Добавлены иконки" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
-          <properties exception="Autodesk.Revit.Exceptions.ArgumentException" isInternal="false" displayValue="ArgumentException" namespaceName="Autodesk.Revit.Exceptions">
-            <option name="internal" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
